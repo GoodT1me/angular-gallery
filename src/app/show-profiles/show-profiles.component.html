@@ -1,0 +1,24 @@
+<div class="profile">
+  <h6>{{ user.userName }}</h6>
+
+  <div class="gallery">
+    <div class="row">
+      <div class="col s1 m" *ngFor="let u of user.dbImg">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{ u }}">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="btn-gallery">
+        <a class="waves-effect waves-light btn"
+          routerLink="profile-another"
+          (click)="showProfile()"
+        >Gallery</a>
+    </div>
+
+  </div>
+  
+</div>
