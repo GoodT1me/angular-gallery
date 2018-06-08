@@ -1,19 +1,25 @@
-import { Component, Input } from '@angular/core';
-import { USERS } from '../User'
+import { Component, Input, OnInit, Output } from '@angular/core'
+import { EventEmitter } from 'events'
+import { UsersService } from '../users.service'
 
 @Component({
   selector: 'app-show-profiles',
   templateUrl: './show-profiles.component.html',
   styleUrls: ['./show-profiles.component.css']
 })
-export class ShowProfilesComponent {
+export class ShowProfilesComponent implements OnInit{
+
+  constructor(private usersService:UsersService) {
+
+  }
 
   @Input() user
 
-  users = USERS
-
   showProfile() {
-    console.log(this.users)
+    this.usersService.setCurrentUser(this.user)
   }
+
+  ngOnInit() {
   
+  }
 }

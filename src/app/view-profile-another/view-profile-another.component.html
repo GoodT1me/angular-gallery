@@ -1,9 +1,21 @@
 <div class="container">
   <div class="user">
-    <p>User: </p>
-    <p>First Name: </p>
-    <p>Last Name: </p>
+    <p> User: {{ currentUser?.userName }} </p>
+    <p> First Name: {{ currentUser?.firstName }} </p>
+    <p> Last Name: {{ currentUser?.lastName }} </p>
   </div>
   <div class="gallery">
+    <div class="row">
+        <div class="col s3 m" *ngFor="let img of currentUser.dbImg; let i = index">
+          <div class="card">
+            <div class="card-image">
+              <img src="{{ img }}">
+              <span class="like"><img src="http://www.pngmart.com/files/3/Facebook-Like-PNG-Image.png" (click)="likes()">
+                <p>{{ currentUser.likes[i] }}</p>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 </div>

@@ -1,3 +1,7 @@
 .nav-wrapper a {
   padding-left: 20px;
 }
+
+nav {
+  background-color: rgb(43, 117, 61);
+}
