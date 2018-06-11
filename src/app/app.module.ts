@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms'
 import { SearchPipe } from './search.pipe'
 import { RouterModule } from '@angular/router'
 import { HomePageComponent } from './home-page/home-page.component';
+import { UploadImgComponent } from './upload-img/upload-img.component';
 
 const ROUTES= [
   {
@@ -37,7 +38,8 @@ const ROUTES= [
     ViewProfileLoggedComponent,
     ViewProfileAnotherComponent,
     SearchPipe,
-    HomePageComponent
+    HomePageComponent,
+    UploadImgComponent,
   ],
   imports: [
     BrowserModule,

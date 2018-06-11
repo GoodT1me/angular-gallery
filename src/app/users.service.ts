@@ -5,8 +5,6 @@ import { Injectable, OnInit } from '@angular/core';
 })
 export class UsersService implements OnInit {
 
-  cont_user = 0
-  cont_img = 0
   currentUser
   constructor() {
     this.completeLikes()
@@ -29,9 +27,11 @@ export class UsersService implements OnInit {
   }
 
   completeLikes() {
-    for(this.cont_user; this.cont_user < this.USERS.length; this.cont_user++) {
-      for(this.cont_img; this.cont_img < this.USERS[this.cont_user].dbImg.length;this.cont_img++) {
-        this.USERS[this.cont_user].likes.push(this.getRandomInt(100))
+    let cont_user = 0
+    let cont_img = 0
+    for(cont_user; cont_user < this.USERS.length; cont_user++) {
+      for(cont_img; cont_img < this.USERS[cont_user].dbImg.length; cont_img++) {
+        this.USERS[cont_user].likes.push(this.getRandomInt(100))
       }
     }
   }
@@ -45,6 +45,8 @@ export class UsersService implements OnInit {
       firstName: 'FN 1',
       avatar : 'img-url',
       dbImg: [
+        'https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/en_us/desktop/assets/images/default-profile.png',
+        'https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/en_us/desktop/assets/images/default-profile.png',
         'https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/en_us/desktop/assets/images/default-profile.png',
         'https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/en_us/desktop/assets/images/default-profile.png',
         'https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/en_us/desktop/assets/images/default-profile.png'

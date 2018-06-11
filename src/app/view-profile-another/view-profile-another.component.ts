@@ -26,7 +26,20 @@ export class ViewProfileAnotherComponent implements OnInit {
 
 
   likes() {
-  
+    // add +1 like
+  }
+
+  addPhoto() {
+    // upload photo
+    // this.currentUser.dbImg.push('url')
+  }
+
+  deletePhoto() {
+    // delete photo
+  }
+
+  replacePhoto() {
+    // replace Photo
   }
 
 }

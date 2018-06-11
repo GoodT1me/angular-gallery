@@ -18,3 +18,11 @@
 .bold {
   font-weight: bold;
 }
+
+.row {
+  border: 1px solid black;
+}
+
+.btn-gallery a {
+  margin-right: 20px;
+}

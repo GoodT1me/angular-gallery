@@ -1,8 +1,8 @@
 <div class="container">
   <div class="user">
-    <p> User: {{ currentUser?.userName }} </p>
-    <p> First Name: {{ currentUser?.firstName }} </p>
-    <p> Last Name: {{ currentUser?.lastName }} </p>
+    <p> User: {{ currentUser.userName }} </p>
+    <p> First Name: {{ currentUser.firstName }} </p>
+    <p> Last Name: {{ currentUser.lastName }} </p>
   </div>
   <div class="gallery">
     <div class="row">
@@ -17,5 +17,20 @@
           </div>
         </div>
       </div>
+
+      <div class="btn-gallery">
+        <a class="waves-effect waves-light btn"
+          (click)="addPhoto()"
+        >Add photo</a>
+
+        <a class="waves-effect waves-light btn"
+          (click)="deletePhoto()"
+        >Delete photo</a>
+
+        <a class="waves-effect waves-light btn"
+          (click)="replacePhoto()"
+        >Replace photo</a>
+      </div>
+
   </div>
 </div>
