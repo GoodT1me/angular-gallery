@@ -5,3 +5,17 @@
 nav {
   background-color: rgb(43, 117, 61);
 }
+
+.log-button {
+  float: right;
+  padding-right: 3%;
+  box-sizing: content-box!important;
+}
+
+.logo {
+  float: left;
+}
+
+.logo a {
+  font-size: 20px;
+}

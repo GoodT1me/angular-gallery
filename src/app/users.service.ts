@@ -1,17 +1,25 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService implements OnInit {
+export class UsersService {
 
   currentUser
+  private isUserLoggedIn
+  private username
+
   constructor() {
     this.completeLikes()
+    this.isUserLoggedIn = false
   }
 
-  ngOnInit() {
-    
+  setUserLoggedIn() {
+    this.isUserLoggedIn = true
+  }
+
+  getUserLoggedIn(){
+    return this.isUserLoggedIn
   }
 
   setCurrentUser(user) {
@@ -35,6 +43,8 @@ export class UsersService implements OnInit {
       }
     }
   }
+
+  
 
   USERS = [
     {

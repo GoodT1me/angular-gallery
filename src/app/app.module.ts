@@ -13,6 +13,7 @@ import { SearchPipe } from './search.pipe'
 import { RouterModule } from '@angular/router'
 import { HomePageComponent } from './home-page/home-page.component';
 import { UploadImgComponent } from './upload-img/upload-img.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 const ROUTES= [
   {
@@ -26,6 +27,10 @@ const ROUTES= [
   {
     path: 'profile-logged',
     component: ViewProfileLoggedComponent
+  },
+  {
+    path: 'login-form',
+    component: LoginFormComponent
   }
 ]
 
@@ -40,6 +45,7 @@ const ROUTES= [
     SearchPipe,
     HomePageComponent,
     UploadImgComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
