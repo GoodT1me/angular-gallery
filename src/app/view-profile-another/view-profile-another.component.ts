@@ -14,6 +14,7 @@ export class ViewProfileAnotherComponent implements OnInit {
   likesCont
   get_img_index
   img_index
+  clicked_like = []
 
   constructor(private usersService:UsersService) { }
 
@@ -22,11 +23,17 @@ export class ViewProfileAnotherComponent implements OnInit {
     this.currentUser = this.usersService.getCurrentUser()
     // this.get_img_index = this.currentUser.dbImg.indexOf(this.img_index)
     console.log(this.currentUser.likes)
+    this.clicked_like = []
   }
 
 
-  likes() {
-    // add +1 like
+  likes(id) {
+
+    if(id in this.clicked_like) { }
+    else {
+      this.currentUser.likes[id] += 1
+      this.clicked_like.push(id)
+    }
   }
 
   addPhoto() {

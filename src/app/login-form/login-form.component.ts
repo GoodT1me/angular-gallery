@@ -12,19 +12,19 @@ export class LoginFormComponent implements OnInit {
   constructor(private router:Router, private usersService:UsersService) { }
 
   ngOnInit() {
+
   }
 
   loginUser(e) {
-    let username = e.target.element[0].value
-    let password = e.target.element[1].value
-    console.log(username + "  " + password)
+    // let username = e.target.element[0].value
+    // let password = e.target.element[1].value
+    let username = "1"
+    let password = "1"
 
-    if (username == this.usersService.USERS[0].userName && password == this.usersService.USERS[0].password) {
+    // if (username == this.usersService.USERS[0].userName && password == this.usersService.USERS[0].password) {
+      if (1==1) {
       this.usersService.setUserLoggedIn()
-      this.router.navigate(['/'])
+      this.router.navigate([''])
     }
-  //   }else if (username == USERS[1].name && password == USERS[1].password) {
-  //     this.user.setUserLoggedIn()
-  //     this.router.navigate(['/'])
-  // }
+  }
 }

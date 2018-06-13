@@ -35,16 +35,12 @@ export class UsersService {
   }
 
   completeLikes() {
-    let cont_user = 0
-    let cont_img = 0
-    for(cont_user; cont_user < this.USERS.length; cont_user++) {
-      for(cont_img; cont_img < this.USERS[cont_user].dbImg.length; cont_img++) {
+    for(let cont_user = 0; cont_user < this.USERS.length; cont_user++) {
+      for(let cont_img = 0; cont_img < this.USERS[cont_user].dbImg.length; cont_img++) {
         this.USERS[cont_user].likes.push(this.getRandomInt(100))
       }
     }
   }
-
-  
 
   USERS = [
     {
