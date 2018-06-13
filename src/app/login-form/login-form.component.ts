@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { UsersService } from '../users.service'
+import { FormBuilder, FormGroup } from '@angular/forms'
 
 @Component({
   selector: 'app-login-form',
@@ -9,22 +10,36 @@ import { UsersService } from '../users.service'
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(private router:Router, private usersService:UsersService) { }
+  form: FormGroup
+  users = []
+  private logged_user
+  incorrect_auth = ''
+
+  constructor(
+    private router:Router,
+    private usersService:UsersService,
+    private formBuilder:FormBuilder
+  ) { }
+  
 
   ngOnInit() {
+    this.users = this.usersService.USERS
 
+    this.form = this.formBuilder.group({
+      username: '',
+      password: ''
+    })
   }
 
-  loginUser(e) {
-    // let username = e.target.element[0].value
-    // let password = e.target.element[1].value
-    let username = "1"
-    let password = "1"
-
-    // if (username == this.usersService.USERS[0].userName && password == this.usersService.USERS[0].password) {
-      if (1==1) {
-      this.usersService.setUserLoggedIn()
-      this.router.navigate([''])
+  login() {
+    for(let i = 0; i < this.users.length; i++) {
+      if(this.form.value.username == this.users[i].userName &&
+         this.form.value.password == this.users[i].password) {
+         console.log("Logged")
+         this.logged_user = this.users[i]
+         this.router.navigate([''])
+      }
     }
+    this.incorrect_auth = 'Incorrect username or password'
   }
 }

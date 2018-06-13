@@ -10,7 +10,7 @@ import { UsersService } from '../users.service'
 export class ViewProfileAnotherComponent implements OnInit {
   
   users = []
-  currentUser
+  private currentUser
   likesCont
   get_img_index
   img_index
@@ -21,24 +21,23 @@ export class ViewProfileAnotherComponent implements OnInit {
   ngOnInit() {
     this.users = this.usersService.USERS
     this.currentUser = this.usersService.getCurrentUser()
-    // this.get_img_index = this.currentUser.dbImg.indexOf(this.img_index)
-    console.log(this.currentUser.likes)
     this.clicked_like = []
   }
 
-
   likes(id) {
-
+    console.log(id)
     if(id in this.clicked_like) { }
     else {
-      this.currentUser.likes[id] += 1
       this.clicked_like.push(id)
+      this.currentUser.likes[id]++
     }
+    console.log(this.clicked_like)
   }
 
-  addPhoto() {
-    // upload photo
-    // this.currentUser.dbImg.push('url')
+  addPhoto(id) {
+    // this.currentUser.dbImg.push('https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/en_us/desktop/assets/images/default-profile.png')
+    // this.currentUser.likes[id] = 0
+    // console.log("added id img " + id)
   }
 
   deletePhoto() {
@@ -48,5 +47,4 @@ export class ViewProfileAnotherComponent implements OnInit {
   replacePhoto() {
     // replace Photo
   }
-
 }

@@ -1,19 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core'
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component'
 import { HeaderComponent } from './header/header.component'
-import { AuthFormComponent } from './auth-form/auth-form.component'
 import { ShowProfilesComponent } from './show-profiles/show-profiles.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ViewProfileLoggedComponent } from './view-profile-logged/view-profile-logged.component'
 import { ViewProfileAnotherComponent } from './view-profile-another/view-profile-another.component'
-import { FormsModule } from '@angular/forms'
 import { SearchPipe } from './search.pipe'
 import { RouterModule } from '@angular/router'
 import { HomePageComponent } from './home-page/home-page.component';
 import { UploadImgComponent } from './upload-img/upload-img.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { ReactiveFormsModule } from '@angular/forms'
 
 const ROUTES= [
   {
@@ -30,7 +29,17 @@ const ROUTES= [
   },
   {
     path: 'login-form',
-    component: LoginFormComponent
+    component: LoginFormComponent,
+    // children: [
+    //   {
+    //     path: 'upload',
+    //     component: UploadImgComponent
+    //   }
+    // ]
+  },
+  {
+    path: 'profile-another/upload',
+    component: UploadImgComponent
   }
 ]
 
@@ -38,7 +47,6 @@ const ROUTES= [
   declarations: [
     AppComponent,
     HeaderComponent,
-    AuthFormComponent,
     ShowProfilesComponent,
     ViewProfileLoggedComponent,
     ViewProfileAnotherComponent,
@@ -51,7 +59,8 @@ const ROUTES= [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
