@@ -12,7 +12,7 @@ export class UsersService {
   }
 
   setCurrentUser(user) {
-    localStorage.setItem('selected_gallery', JSON.stringify(user))
+    localStorage.setItem('selected_gallery', user.idUser)
   }
 
   getRandomInt(max) {
@@ -29,7 +29,7 @@ export class UsersService {
 
   USERS = [
     {
-      idUser: 1,
+      idUser: 0,
       userName: 'a',
       password: 'a',
       lastName: 'LN 1',
@@ -45,7 +45,7 @@ export class UsersService {
       likes: []
     },
     {
-      idUser: 2,
+      idUser: 1,
       userName: 'User 2',
       password: 'pass2',
       lastName: 'LN 2',
@@ -58,7 +58,7 @@ export class UsersService {
       likes: []
     },
     {
-      idUser: 3,
+      idUser: 2,
       userName: 'User 3',
       password: 'pass3',
       lastName: 'LN 3',

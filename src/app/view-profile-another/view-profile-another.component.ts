@@ -21,14 +21,12 @@ export class ViewProfileAnotherComponent implements OnInit {
 
   ngOnInit() {
     this.users = this.usersService.USERS
-    this.current_gallery = JSON.parse(localStorage.getItem('selected_gallery'))
+    this.current_gallery = localStorage.getItem('selected_gallery')
     this.clicked_like = []
 
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
     }
-
-    console.log()
   }
 
   likes(id) {
@@ -36,7 +34,7 @@ export class ViewProfileAnotherComponent implements OnInit {
     else {
       if(this.authService.getUserLoggedIn()){
         this.clicked_like.push(id)
-        this.current_gallery.likes[id]++
+        this.users[this.current_gallery].likes[id]++
       }
     }
   }
@@ -49,6 +47,13 @@ export class ViewProfileAnotherComponent implements OnInit {
 
   deletePhoto() {
     // delete photo
+  }
+
+  checkUserGallery() {
+    if(this.current_gallery == this.authService.getLoggedUserId()) {
+      return true
+    }
+    return false
   }
 
   replacePhoto() {

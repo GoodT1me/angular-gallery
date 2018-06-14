@@ -16,6 +16,10 @@ export class AuthService {
     this.isUserLoggedIn = true
   }
 
+  getUserLoggedIn(){
+    return this.isUserLoggedIn
+  }
+
   logOut() {
     this.isUserLoggedIn = false
   }
@@ -24,7 +28,8 @@ export class AuthService {
     localStorage.setItem('logged_user', JSON.stringify(user));
   }
 
-  getUserLoggedIn(){
-    return this.isUserLoggedIn
+  getLoggedUserId(){
+    var user = JSON.parse(localStorage.getItem('logged_user'))
+    return user.idUser
   }
 }

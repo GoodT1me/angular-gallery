@@ -17,7 +17,6 @@ export class ShowProfilesComponent implements OnInit{
 
   showProfile() {
     this.usersService.setCurrentUser(this.user)
-    
   }
 
   ngOnInit() {
