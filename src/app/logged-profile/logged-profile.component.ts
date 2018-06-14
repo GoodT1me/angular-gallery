@@ -9,14 +9,17 @@ import { AuthService } from '../auth.service'
 export class LoggedProfileComponent implements OnInit {
 
   private logged_user
+  private logged_user_l
   constructor(private authService:AuthService) {
-    this.logged_user = this.authService.getLoggedUser()
   }
 
   ngOnInit() {
+    this.logged_user_l = JSON.parse(localStorage.getItem('logged_user'))
   }
 
   logOut() {
     this.authService.logOut()
+    localStorage.removeItem('logged_user')
+    localStorage.removeItem('isUserLoggedIn')
   }
 }

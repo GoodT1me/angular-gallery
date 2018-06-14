@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 export class UsersService {
 
   currentUser
-  private username
 
   constructor() {
     this.completeLikes()

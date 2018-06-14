@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { UsersService } from '../users.service'
+import { AuthService } from '../auth.service'
 
 @Component({
   selector: 'app-show-profiles',
@@ -8,7 +9,7 @@ import { UsersService } from '../users.service'
 })
 export class ShowProfilesComponent implements OnInit{
 
-  constructor(private usersService:UsersService) {
+  constructor(private usersService:UsersService, private authService:AuthService) {
 
   }
 
@@ -19,6 +20,8 @@ export class ShowProfilesComponent implements OnInit{
   }
 
   ngOnInit() {
-  
+    if(localStorage.getItem('isUserLoggedIn')) {
+      this.authService.setUserLoggedIn()
+    }
   }
 }

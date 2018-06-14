@@ -5,7 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
 
-  private logged_user
   private isUserLoggedIn
 
   constructor() {
@@ -13,11 +12,8 @@ export class AuthService {
   }
 
   setUserLoggedIn() {
+    localStorage.setItem('isUserLoggedIn', 'true')
     this.isUserLoggedIn = true
-  }
-
-  getUserLoggedIn() {
-    return this.isUserLoggedIn
   }
 
   logOut() {
@@ -25,10 +21,10 @@ export class AuthService {
   }
 
   setLoggedUser(user) {
-    this.logged_user = user
+    localStorage.setItem('logged_user', JSON.stringify(user));
   }
 
-  getLoggedUser() {
-    return this.logged_user
+  getUserLoggedIn(){
+    return this.isUserLoggedIn
   }
 }

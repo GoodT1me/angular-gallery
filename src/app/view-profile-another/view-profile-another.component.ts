@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { UsersService } from '../users.service'
+import { AuthService } from '../auth.service'
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,12 +17,16 @@ export class ViewProfileAnotherComponent implements OnInit {
   img_index
   clicked_like = []
 
-  constructor(private usersService:UsersService) { }
+  constructor(private usersService:UsersService, private authService:AuthService) { }
 
   ngOnInit() {
     this.users = this.usersService.USERS
     this.currentUser = this.usersService.getCurrentUser()
     this.clicked_like = []
+
+    if(localStorage.getItem('isUserLoggedIn')) {
+      this.authService.setUserLoggedIn()
+    }
   }
 
   likes(id) {
