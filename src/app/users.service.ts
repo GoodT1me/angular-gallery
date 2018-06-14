@@ -12,11 +12,7 @@ export class UsersService {
   }
 
   setCurrentUser(user) {
-    this.currentUser = user
-  }
-
-  getCurrentUser() {
-    return this.currentUser
+    localStorage.setItem('selected_gallery', JSON.stringify(user))
   }
 
   getRandomInt(max) {

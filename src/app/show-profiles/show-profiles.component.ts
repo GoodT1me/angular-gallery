@@ -17,11 +17,13 @@ export class ShowProfilesComponent implements OnInit{
 
   showProfile() {
     this.usersService.setCurrentUser(this.user)
+    
   }
 
   ngOnInit() {
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
     }
+    localStorage.removeItem('selected_gallery')
   }
 }

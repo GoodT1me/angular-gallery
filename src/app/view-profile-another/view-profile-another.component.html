@@ -1,27 +1,27 @@
 <div class="container">
   <div class="user">
-    <p> User: {{ currentUser.userName }} </p>
-    <p> First Name: {{ currentUser.firstName }} </p>
-    <p> Last Name: {{ currentUser.lastName }} </p>
+    <p> User: {{ current_gallery.userName }} </p>
+    <p> First Name: {{ current_gallery.firstName }} </p>
+    <p> Last Name: {{ current_gallery.lastName }} </p>
   </div>
 
   <div class="gallery">
     <div class="row">
       <div class="col s3 m"
-        *ngFor="let img of currentUser.dbImg; let i = index"
+        *ngFor="let img of current_gallery.dbImg; let i = index"
       >
         <div class="card">
           <div class="card-image">
             <img src="{{ img }}">
             <span class="like"><img src="http://www.pngmart.com/files/3/Facebook-Like-PNG-Image.png" (click)="likes(i)">
-              <p>{{ currentUser.likes[i] }}</p>
+              <p>{{ current_gallery.likes[i] }}</p>
             </span>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="btn-gallery">
+    <div class="btn-gallery" *ngIf="authService.getUserLoggedIn()">
       <a class="waves-effect waves-light btn"
         routerLink="upload"
         (click)="addPhoto()"

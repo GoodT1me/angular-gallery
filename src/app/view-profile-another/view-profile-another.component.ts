@@ -11,7 +11,7 @@ import { AuthService } from '../auth.service'
 export class ViewProfileAnotherComponent implements OnInit {
   
   users = []
-  private currentUser
+  private current_gallery
   likesCont
   get_img_index
   img_index
@@ -21,22 +21,24 @@ export class ViewProfileAnotherComponent implements OnInit {
 
   ngOnInit() {
     this.users = this.usersService.USERS
-    this.currentUser = this.usersService.getCurrentUser()
+    this.current_gallery = JSON.parse(localStorage.getItem('selected_gallery'))
     this.clicked_like = []
 
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
     }
+
+    console.log()
   }
 
   likes(id) {
-    console.log(id)
     if(id in this.clicked_like) { }
     else {
-      this.clicked_like.push(id)
-      this.currentUser.likes[id]++
+      if(this.authService.getUserLoggedIn()){
+        this.clicked_like.push(id)
+        this.current_gallery.likes[id]++
+      }
     }
-    console.log(this.clicked_like)
   }
 
   addPhoto(id) {

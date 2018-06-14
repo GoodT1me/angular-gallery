@@ -9,7 +9,7 @@
 
 <div class="container">
   <app-show-profiles
-    *ngFor="let u of users | search:searchUser"
+    *ngFor="let u of users | search:searchUser; let i = index"
     [user]="u"
   >
   </app-show-profiles>

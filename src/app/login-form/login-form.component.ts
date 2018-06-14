@@ -39,8 +39,8 @@ export class LoginFormComponent implements OnInit {
          this.form.value.password == this.users[i].password) {
          this.logged_user = this.users[i]
          this.router.navigate([''])
-         this.authService.setUserLoggedIn()
          this.authService.setLoggedUser(this.users[i])
+         this.authService.setUserLoggedIn()
       }
     }
     this.incorrect_auth = 'Invalid username or password'
