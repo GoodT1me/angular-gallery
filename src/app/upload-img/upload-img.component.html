@@ -3,7 +3,7 @@
 	<label>
 		<input type="file" (change)="selectFile($event)">
   </label>
-  <button [disabled]="!selectedFiles"
-    (click)="upload()"
+  <button type="button"
+    (click)="onUpload()"
   >Upload</button>
 </div>

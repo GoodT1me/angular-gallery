@@ -16,8 +16,14 @@ export class ViewProfileAnotherComponent implements OnInit {
   get_img_index
   img_index
   clicked_like = []
+  delPhoto
+  replacePhoto
+  replace_list = []
 
-  constructor(private usersService:UsersService, private authService:AuthService) { }
+  constructor(private usersService:UsersService, private authService:AuthService) {
+    this.delPhoto = false
+    this.replacePhoto= false
+  }
 
   ngOnInit() {
     this.users = this.usersService.USERS
@@ -45,18 +51,38 @@ export class ViewProfileAnotherComponent implements OnInit {
     // console.log("added id img " + id)
   }
 
-  deletePhoto() {
-    // delete photo
+  deletePhoto(id) {
+    if(this.delPhoto) {
+      this.users[this.current_gallery].dbImg.splice(id, 1)
+      this.users[this.current_gallery].likes.splice(id, 1)
+    }else if(this.replacePhoto){
+      this.replace_list.push(id)
+      console.log(this.replace_list)
+    }
+  }
+
+  onDeletePhoto() {
+    this.delPhoto = true
+  }
+
+  onSaveDeleted(){
+    this.delPhoto = false
+  }
+
+  onReplacePhoto() {
+    this.replacePhoto = true
+  }
+
+  onSaveReplaced() {
+    this.replacePhoto = false
   }
 
   checkUserGallery() {
-    if(this.current_gallery == this.authService.getLoggedUserId()) {
-      return true
+    if(this.authService.getUserLoggedIn()){
+      if(this.current_gallery == this.authService.getLoggedUserId()) {
+        return true
+      }
+      return false
     }
-    return false
-  }
-
-  replacePhoto() {
-    // replace Photo
   }
 }
