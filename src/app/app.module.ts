@@ -12,7 +12,8 @@ import { RouterModule } from '@angular/router'
 import { HomePageComponent } from './home-page/home-page.component';
 import { UploadImgComponent } from './upload-img/upload-img.component';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoggedProfileComponent } from './logged-profile/logged-profile.component'
 
 const ROUTES= [
   {
@@ -40,6 +41,10 @@ const ROUTES= [
   {
     path: 'profile-another/upload',
     component: UploadImgComponent
+  },
+  {
+    path: 'profile',
+    component:LoggedProfileComponent
   }
 ]
 
@@ -54,6 +59,7 @@ const ROUTES= [
     HomePageComponent,
     UploadImgComponent,
     LoginFormComponent,
+    LoggedProfileComponent,
   ],
   imports: [
     BrowserModule,

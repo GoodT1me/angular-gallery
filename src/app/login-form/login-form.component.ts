@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
 import { UsersService } from '../users.service'
 import { FormBuilder, FormGroup } from '@angular/forms'
+import { AuthService } from '../auth.service'
 
 @Component({
   selector: 'app-login-form',
@@ -18,7 +19,8 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private router:Router,
     private usersService:UsersService,
-    private formBuilder:FormBuilder
+    private formBuilder:FormBuilder,
+    private authService:AuthService
   ) { }
   
 
@@ -35,11 +37,12 @@ export class LoginFormComponent implements OnInit {
     for(let i = 0; i < this.users.length; i++) {
       if(this.form.value.username == this.users[i].userName &&
          this.form.value.password == this.users[i].password) {
-         console.log("Logged")
          this.logged_user = this.users[i]
          this.router.navigate([''])
+         this.authService.setUserLoggedIn()
+         this.authService.setLoggedUser(this.users[i])
       }
     }
-    this.incorrect_auth = 'Incorrect username or password'
+    this.incorrect_auth = 'Invalid username or password'
   }
 }

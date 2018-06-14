@@ -1,0 +1,27 @@
+<div class="container">
+
+  <div class="info-user">
+    <p>Username: {{ logged_user.userName }} </p>
+    <p>First Name: {{ logged_user.firstName }} </p>
+    <p>Last Name: {{ logged_user.lastName }} </p>
+  </div>
+
+  <div class="avatar">
+    <div class="row">
+      <div class="col s4">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{ logged_user.avatar }}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="logout">
+    <a class="waves-effect waves-light btn"
+      (click)="logOut()"
+      routerLink=""
+    >Log out</a>
+  </div>
+</div>
