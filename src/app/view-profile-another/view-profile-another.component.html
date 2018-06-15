@@ -5,6 +5,36 @@
     <p> Last Name: {{ users[current_gallery].lastName }} </p>
   </div>
 
+  <div class="btn-gallery" *ngIf="checkUserGallery()">
+    <a class="waves-effect waves-light btn"
+      routerLink="upload"
+      (click)="addPhoto()"
+    >Add photo</a>
+
+    <a class="waves-effect waves-light btn"
+      *ngIf="!delPhoto"
+      (click)="onDeletePhoto()"
+    >Delete photo</a>
+    <a class="waves-effect waves-light btn"
+      *ngIf="delPhoto"
+      (click)="onSaveDeleted()"
+    >Save changes</a>
+
+    <a class="waves-effect waves-light btn"
+      *ngIf="!replacePhoto"
+      (click)="onReplacePhoto()"
+    >Replace photo</a>
+    <a class="waves-effect waves-light btn"
+      *ngIf="replacePhoto"
+      (click)="onSaveReplaced()"
+    >Save changes</a>
+  </div>
+
+  <div class="instruction">
+    <p *ngIf="instruction.replace_instruction">Select two images for replace</p>
+    <p *ngIf="instruction.delete_instruction">Select image for delete</p>
+  </div>
+
   <div class="gallery">
     <div class="row">
       <div class="col s3 m"
@@ -21,39 +51,5 @@
         </div>
       </div>
     </div>
-
-    <div class="btn-gallery" *ngIf="checkUserGallery()">
-      <a class="waves-effect waves-light btn"
-        routerLink="upload"
-        (click)="addPhoto()"
-      >Add photo</a>
-
-      <a class="waves-effect waves-light btn"
-        *ngIf="!delPhoto"
-        (click)="onDeletePhoto()"
-      >Delete photo</a>
-
-      <a class="waves-effect waves-light btn"
-        *ngIf="delPhoto"
-        (click)="onSaveDeleted()"
-      >Save changes</a>
-
-      <a class="waves-effect waves-light btn"
-        *ngIf="!replacePhoto"
-        (click)="onReplacePhoto()"
-        ng-hide="pressedDelete()"
-      >Replace photo</a>
-
-      <a class="waves-effect waves-light btn"
-        *ngIf="replacePhoto"
-        (click)="onSaveReplaced()"
-      >Save changes</a>
-    </div>
-
-    <div class="instruction">
-      <p *ngIf="instruction.replace_instruction">Select two images for replace</p>
-      <p *ngIf="instruction.delete_instruction">Select image for delete</p>
-    </div>
-
   </div>
 </div>

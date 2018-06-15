@@ -48,7 +48,6 @@ export class ViewProfileAnotherComponent implements OnInit {
         this.users[this.current_gallery].likes[id]++
       }
     }
-    console.log(this.clicked_like)
   }
 
   addPhoto(id) {
@@ -63,15 +62,21 @@ export class ViewProfileAnotherComponent implements OnInit {
       this.users[this.current_gallery].likes.splice(id, 1)
     }else if(this.replacePhoto){
       this.replace_list.push(id)
+
       if(this.replace_list.length > 1) {
-        let tempImages = this.users[this.current_gallery].dbImg
-        let temp = tempImages[this.replace_list[0]]
-        tempImages[this.replace_list[0]] = tempImages[this.replace_list[1]]
-        tempImages[this.replace_list[1]] = temp
+        let temp_images = this.users[this.current_gallery].dbImg
+        let temp_likes = this.users[this.current_gallery].likes
+
+        let temp_img = temp_images[this.replace_list[0]]
+        temp_images[this.replace_list[0]] = temp_images[this.replace_list[1]]
+        temp_images[this.replace_list[1]] = temp_img
+
+        let temp_like = temp_likes[this.replace_list[0]]
+        temp_likes[this.replace_list[0]] = temp_likes[this.replace_list[1]]
+        temp_likes[this.replace_list[1]] = temp_like
+        
         this.replace_list = []
-        console.log("replace if")
       }
-      console.log(this.replace_list)
     }
   }
 
@@ -93,6 +98,7 @@ export class ViewProfileAnotherComponent implements OnInit {
   onSaveReplaced() {
     this.replacePhoto = false
     this.instruction.replace_instruction = false
+    this.replace_list = []
   }
 
   pressedDelete() {

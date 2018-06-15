@@ -27,3 +27,18 @@
 .btn-gallery a {
   margin-right: 20px;
 }
+
+.btn-gallery {
+  margin-top: -100px;
+  float: right;
+}
+
+.instruction {
+  float: right;
+  margin-top: -70px;
+  margin-right: 20px;
+}
+
+.gallery {
+  margin-top: 30px;
+}
