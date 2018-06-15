@@ -20,6 +20,11 @@ export class ViewProfileAnotherComponent implements OnInit {
   replacePhoto
   replace_list = []
 
+  instruction = {
+    replace_instruction: false,
+    delete_instruction: false
+  }
+
   constructor(private usersService:UsersService, private authService:AuthService) {
     this.delPhoto = false
     this.replacePhoto= false
@@ -43,6 +48,7 @@ export class ViewProfileAnotherComponent implements OnInit {
         this.users[this.current_gallery].likes[id]++
       }
     }
+    console.log(this.clicked_like)
   }
 
   addPhoto(id) {
@@ -57,24 +63,43 @@ export class ViewProfileAnotherComponent implements OnInit {
       this.users[this.current_gallery].likes.splice(id, 1)
     }else if(this.replacePhoto){
       this.replace_list.push(id)
+      if(this.replace_list.length > 1) {
+        let tempImages = this.users[this.current_gallery].dbImg
+        let temp = tempImages[this.replace_list[0]]
+        tempImages[this.replace_list[0]] = tempImages[this.replace_list[1]]
+        tempImages[this.replace_list[1]] = temp
+        this.replace_list = []
+        console.log("replace if")
+      }
       console.log(this.replace_list)
     }
   }
 
   onDeletePhoto() {
     this.delPhoto = true
+    this.instruction.delete_instruction = true
   }
 
   onSaveDeleted(){
     this.delPhoto = false
+    this.instruction.delete_instruction = false
   }
 
   onReplacePhoto() {
     this.replacePhoto = true
+    this.instruction.replace_instruction = true
   }
 
   onSaveReplaced() {
     this.replacePhoto = false
+    this.instruction.replace_instruction = false
+  }
+
+  pressedDelete() {
+    if (this.deletePhoto) {
+      return true
+    }
+    return false
   }
 
   checkUserGallery() {

@@ -41,12 +41,18 @@
       <a class="waves-effect waves-light btn"
         *ngIf="!replacePhoto"
         (click)="onReplacePhoto()"
+        ng-hide="pressedDelete()"
       >Replace photo</a>
 
       <a class="waves-effect waves-light btn"
         *ngIf="replacePhoto"
         (click)="onSaveReplaced()"
       >Save changes</a>
+    </div>
+
+    <div class="instruction">
+      <p *ngIf="instruction.replace_instruction">Select two images for replace</p>
+      <p *ngIf="instruction.delete_instruction">Select image for delete</p>
     </div>
 
   </div>

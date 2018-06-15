@@ -1,13 +1,13 @@
-<div class="search-user">
-  <div class="row">
-    <div class="input-field col s3">
-      <input id="first_name" class="validate" [(ngModel)]="searchUser">
-      <label class="active" for="first_name">Search by name</label>
+<div class="container">
+  <div class="search-user">
+    <div class="row">
+      <div class="input-field col s3">
+        <input id="first_name" class="validate" [(ngModel)]="searchUser">
+        <label class="active" for="first_name">Search by name</label>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="container">
   <app-show-profiles
     *ngFor="let u of users | search:searchUser; let i = index"
     [user]="u"

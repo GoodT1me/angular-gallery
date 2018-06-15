@@ -36,7 +36,7 @@ export class UsersService {
       firstName: 'FN 1',
       avatar : '../assets/local_img.png',
       dbImg: [
-        'https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/en_us/desktop/assets/images/default-profile.png',
+        '../assets/local_img.png',
         'https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/en_us/desktop/assets/images/default-profile.png',
         'https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/en_us/desktop/assets/images/default-profile.png',
         'https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/en_us/desktop/assets/images/default-profile.png',
