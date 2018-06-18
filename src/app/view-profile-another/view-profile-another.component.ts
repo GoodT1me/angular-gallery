@@ -20,6 +20,7 @@ export class ViewProfileAnotherComponent implements OnInit {
   replacePhoto
   replace_list = []
   like_not_ex
+  file
 
   instruction = {
     replace_instruction: false,
@@ -28,7 +29,7 @@ export class ViewProfileAnotherComponent implements OnInit {
 
   constructor(private usersService:UsersService, private authService:AuthService) {
     this.delPhoto = false
-    this.replacePhoto= false
+    this.replacePhoto = false
   }
 
   ngOnInit() {
@@ -37,6 +38,7 @@ export class ViewProfileAnotherComponent implements OnInit {
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
     }
+    this.file = localStorage.setItem('img', '../../assets/25.png')
     console.log("id gallery " + this.current_gallery)
   }
 
