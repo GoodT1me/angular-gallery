@@ -10,8 +10,7 @@ export class LoggedProfileComponent implements OnInit {
 
   private logged_user
   private logged_user_l
-  constructor(private authService:AuthService) {
-  }
+  constructor(private authService:AuthService) { }
 
   ngOnInit() {
     this.logged_user_l = JSON.parse(localStorage.getItem('logged_user'))

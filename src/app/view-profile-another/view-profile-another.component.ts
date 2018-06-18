@@ -19,6 +19,7 @@ export class ViewProfileAnotherComponent implements OnInit {
   delPhoto
   replacePhoto
   replace_list = []
+  like_not_ex
 
   instruction = {
     replace_instruction: false,
@@ -33,23 +34,23 @@ export class ViewProfileAnotherComponent implements OnInit {
   ngOnInit() {
     this.users = this.usersService.USERS
     this.current_gallery = localStorage.getItem('selected_gallery')
-    this.clicked_like = []
-
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
     }
+    console.log("id gallery " + this.current_gallery)
   }
 
   likes(id) {
-    if(id in this.clicked_like) { }
+    if(this.usersService.logged_likes[this.current_gallery].id_like.includes(id)) {
+    }
     else {
       if(this.authService.getUserLoggedIn()){
-        this.clicked_like.push(id)
+        this.usersService.logged_likes[this.current_gallery].id_like.push(id)
         this.users[this.current_gallery].likes[id]++
       }
     }
+    console.log(this.usersService.logged_likes[this.current_gallery].id_like)
   }
-
   addPhoto(id) {
     // this.currentUser.dbImg.push('https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/en_us/desktop/assets/images/default-profile.png')
     // this.currentUser.likes[id] = 0

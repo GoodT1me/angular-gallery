@@ -6,6 +6,17 @@ import { Injectable } from '@angular/core';
 export class UsersService {
 
   currentUser
+  logged_likes = [
+    {
+      id_like: []
+    },
+    {
+      id_like: []
+    },
+    {
+      id_like: []
+    }
+  ]
 
   constructor() {
     this.completeLikes()
