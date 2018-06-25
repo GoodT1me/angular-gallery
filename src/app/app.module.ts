@@ -5,7 +5,6 @@ import { AppComponent } from './app.component'
 import { HeaderComponent } from './header/header.component'
 import { ShowProfilesComponent } from './show-profiles/show-profiles.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { ViewProfileLoggedComponent } from './view-profile-logged/view-profile-logged.component'
 import { ViewProfileAnotherComponent } from './view-profile-another/view-profile-another.component'
 import { SearchPipe } from './search.pipe'
 import { RouterModule } from '@angular/router'
@@ -27,10 +26,6 @@ const ROUTES= [
     component: ViewProfileAnotherComponent
   },
   {
-    path: 'profile-logged',
-    component: ViewProfileLoggedComponent
-  },
-  {
     path: 'login-form',
     component: LoginFormComponent,
   },
@@ -50,7 +45,6 @@ const ROUTES= [
     AppComponent,
     HeaderComponent,
     ShowProfilesComponent,
-    ViewProfileLoggedComponent,
     ViewProfileAnotherComponent,
     SearchPipe,
     HomePageComponent,
