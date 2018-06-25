@@ -12,7 +12,7 @@
     >Add photo</a>
 
     <a class="waves-effect waves-light btn"
-      *ngIf="!delPhoto"
+      *ngIf="!delPhoto && !replacePhoto"
       (click)="onDeletePhoto()"
     >Delete photo</a>
     <a class="waves-effect waves-light btn"
@@ -21,7 +21,7 @@
     >Save changes</a>
 
     <a class="waves-effect waves-light btn"
-      *ngIf="!replacePhoto"
+      *ngIf="!replacePhoto && !delPhoto"
       (click)="onReplacePhoto()"
     >Replace photo</a>
     <a class="waves-effect waves-light btn"
@@ -32,7 +32,7 @@
 
   <div class="instruction">
     <p *ngIf="instruction.replace_instruction">Select two images for replace</p>
-    <p *ngIf="instruction.delete_instruction">Select image for delete</p>
+    <p *ngIf="instruction.delete_instruction">Click image for delete</p>
   </div>
 
   <div class="gallery">

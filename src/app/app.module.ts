@@ -14,7 +14,7 @@ import { UploadImgComponent } from './upload-img/upload-img.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoggedProfileComponent } from './logged-profile/logged-profile.component'
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 
 const ROUTES= [
   {
@@ -32,12 +32,6 @@ const ROUTES= [
   {
     path: 'login-form',
     component: LoginFormComponent,
-    // children: [
-    //   {
-    //     path: 'upload',
-    //     component: UploadImgComponent
-    //   }
-    // ]
   },
   {
     path: 'profile-another/upload',

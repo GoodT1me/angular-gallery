@@ -8,7 +8,8 @@ import { AuthService } from '../auth.service'
 })
 export class HeaderComponent implements OnInit {
 
-  private logged
+  private logged = false
+  
   constructor(private authService:AuthService) {
   }
 
@@ -16,5 +17,6 @@ export class HeaderComponent implements OnInit {
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
     }
+    this.logged =this.authService.getUserLoggedIn()
   }
 }

@@ -1,1 +1,33 @@
-<input type="file" accept="image/*" (change)="changeListener($event)">
+  <form class="upload-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input type="file" id="image" (change)="onFileChange($event)" #fileInput>
+      
+      <a class="waves-effect waves-light btn"
+        *ngIf="!del_image"
+        (click)="onDeletePhoto()"
+      >Delete image</a>
+      <a class="waves-effect waves-light btn"
+        *ngIf="del_image"
+        (click)="onSaveDeleted()"
+      >Save changes</a>
+
+    </div>
+    <button type="submit" class="btn btn-success">
+      Upload <i class="fa fa-spinner fa-spin fa-fw"></i>
+    </button>
+  </form>
+
+  <div class="row">
+    <div class="col s3 m"
+      *ngFor="let img of chose_images;
+      let i = index"
+      (click)="deletePhoto(i)"
+    >
+      <div class="card">
+        <div class="card-image">
+          <img src="{{ img }}">
+        </div>
+      </div>
+    </div>
+  </div>

@@ -39,24 +39,21 @@ export class ViewProfileAnotherComponent implements OnInit {
       this.authService.setUserLoggedIn()
     }
     this.file = localStorage.setItem('img', '../../assets/25.png')
-    console.log("id gallery " + this.current_gallery)
   }
 
   likes(id) {
-    if(this.usersService.logged_likes[this.current_gallery].id_like.includes(id)) {
+    if(this.usersService.logged_likes[this.current_gallery].includes(id)) {
     }
     else {
       if(this.authService.getUserLoggedIn()){
-        this.usersService.logged_likes[this.current_gallery].id_like.push(id)
+        this.usersService.logged_likes[this.current_gallery].push(id)
         this.users[this.current_gallery].likes[id]++
       }
     }
-    console.log(this.usersService.logged_likes[this.current_gallery].id_like)
   }
   addPhoto(id) {
     // this.currentUser.dbImg.push('https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/en_us/desktop/assets/images/default-profile.png')
     // this.currentUser.likes[id] = 0
-    // console.log("added id img " + id)
   }
 
   deletePhoto(id) {
