@@ -5,7 +5,7 @@ import { AppComponent } from './app.component'
 import { HeaderComponent } from './header/header.component'
 import { ShowProfilesComponent } from './show-profiles/show-profiles.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { ViewProfileAnotherComponent } from './view-profile-another/view-profile-another.component'
+import { ViewProfileAnotherComponent } from './view-profile/view-profile-another.component'
 import { SearchPipe } from './search.pipe'
 import { RouterModule } from '@angular/router'
 import { HomePageComponent } from './home-page/home-page.component';
