@@ -4,11 +4,11 @@ import { AuthService } from '../auth.service'
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
-  selector: 'app-view-profile-another',
-  templateUrl: './view-profile-another.component.html',
-  styleUrls: ['./view-profile-another.component.css']
+  selector: 'app-view-profile',
+  templateUrl: './view-profile.component.html',
+  styleUrls: ['./view-profile.component.css']
 })
-export class ViewProfileAnotherComponent implements OnInit {
+export class ViewProfileComponent implements OnInit {
   
   users = []
   private current_gallery

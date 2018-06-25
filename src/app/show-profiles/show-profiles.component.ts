@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { UsersService } from '../users.service'
 import { AuthService } from '../auth.service'
 
@@ -16,8 +16,6 @@ export class ShowProfilesComponent implements OnInit{
     private usersService: UsersService,
     private authService: AuthService) { }
 
-  // @Input() user
-
   showProfile(id) {
     this.usersService.setCurrentUser(this.users[id])
   }
@@ -27,7 +25,6 @@ export class ShowProfilesComponent implements OnInit{
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
       this.logged_user_id = this.authService.getLoggedUserId()
-      console.log("user_id: " + this.logged_user_id)
     }
     localStorage.removeItem('selected_gallery')
   }

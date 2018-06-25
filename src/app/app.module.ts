@@ -5,7 +5,7 @@ import { AppComponent } from './app.component'
 import { HeaderComponent } from './header/header.component'
 import { ShowProfilesComponent } from './show-profiles/show-profiles.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { ViewProfileAnotherComponent } from './view-profile/view-profile-another.component'
+import { ViewProfileComponent } from './view-profile/view-profile.component'
 import { SearchPipe } from './search.pipe'
 import { RouterModule } from '@angular/router'
 import { HomePageComponent } from './home-page/home-page.component';
@@ -22,15 +22,15 @@ const ROUTES= [
     component: HomePageComponent
   },
   {
-    path: 'profile-another',
-    component: ViewProfileAnotherComponent
+    path: 'profile',
+    component: ViewProfileComponent
   },
   {
     path: 'login-form',
     component: LoginFormComponent,
   },
   {
-    path: 'profile-another/upload',
+    path: 'profile/upload',
     component: UploadImgComponent
   },
   {
@@ -45,7 +45,7 @@ const ROUTES= [
     AppComponent,
     HeaderComponent,
     ShowProfilesComponent,
-    ViewProfileAnotherComponent,
+    ViewProfileComponent,
     SearchPipe,
     HomePageComponent,
     UploadImgComponent,
