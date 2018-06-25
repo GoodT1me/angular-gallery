@@ -41,6 +41,7 @@ export class LoginFormComponent implements OnInit {
          this.router.navigate([''])
          this.authService.setLoggedUser(this.users[i])
          this.authService.setUserLoggedIn()
+         alert("You are logged")
       }
     }
     this.incorrect_auth = 'Invalid username or password'

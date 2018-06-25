@@ -9,19 +9,25 @@ import { AuthService } from '../auth.service'
 })
 export class ShowProfilesComponent implements OnInit{
 
-  constructor(private usersService:UsersService, private authService:AuthService) {
+  private logged_user_id
+  users = []
 
-  }
+  constructor(
+    private usersService: UsersService,
+    private authService: AuthService) { }
 
-  @Input() user
+  // @Input() user
 
-  showProfile() {
-    this.usersService.setCurrentUser(this.user)
+  showProfile(id) {
+    this.usersService.setCurrentUser(this.users[id])
   }
 
   ngOnInit() {
+    this.users = this.usersService.USERS
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
+      this.logged_user_id = this.authService.getLoggedUserId()
+      console.log("user_id: " + this.logged_user_id)
     }
     localStorage.removeItem('selected_gallery')
   }

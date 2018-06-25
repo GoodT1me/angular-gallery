@@ -16,4 +16,5 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
     this.users = this.usersService.USERS
   }
+
 }

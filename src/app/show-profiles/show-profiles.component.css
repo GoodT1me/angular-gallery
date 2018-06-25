@@ -2,11 +2,7 @@
   border: 1px solid black;
 }
 
-.gallery a {
-  align-content: center;
-}
-
 .btn-gallery {
   margin: 0 auto 10px auto;
-  width: 16.67%;
+  width: 16%;
 }
