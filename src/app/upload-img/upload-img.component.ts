@@ -16,6 +16,7 @@ export class UploadImgComponent implements OnInit {
   add_likes = []
   del_image = false
   users = []
+  images = []
 
   constructor(
     private fb: FormBuilder,
@@ -26,6 +27,7 @@ export class UploadImgComponent implements OnInit {
 
   ngOnInit() {
     this.users = this.usersService.USERS
+    this.images = this.usersService.IMAGES
     this.current_gallery = localStorage.getItem('selected_gallery')
   }
 
@@ -60,10 +62,8 @@ export class UploadImgComponent implements OnInit {
     // this.http.post('apiUrl', formModel)
     setTimeout(() => {
 
-      this.users[this.current_gallery].dbImg.push.apply(this.users[this.current_gallery].dbImg, this.chose_images)
-      this.users[this.current_gallery].likes.push.apply(this.users[this.current_gallery].likes, this.add_likes)
-
-      console.log(this.users[this.current_gallery].dbImg)
+      this.images[this.current_gallery].img.push.apply(this.images[this.current_gallery].img, this.chose_images)
+      this.images[this.current_gallery].likes.push.apply(this.images[this.current_gallery].likes, this.add_likes)
 
       if(this.chose_images.length > 0) {
         alert("upload successful")

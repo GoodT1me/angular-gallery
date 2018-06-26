@@ -11,6 +11,8 @@ export class LoggedProfileComponent implements OnInit {
 
   private logged_user
   private logged_user_l
+  images =[]
+
   constructor(
     private authService:AuthService,
     private usersService:UsersService
@@ -18,6 +20,12 @@ export class LoggedProfileComponent implements OnInit {
 
   ngOnInit() {
     this.logged_user_l = JSON.parse(localStorage.getItem('logged_user'))
+    this.images = this.usersService.IMAGES
+    console.log(this.images)
+  }
+
+  setAvatar() {
+
   }
 
   logOut() {

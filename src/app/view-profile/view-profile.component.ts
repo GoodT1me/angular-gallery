@@ -11,16 +11,12 @@ import { AuthService } from '../auth.service'
 export class ViewProfileComponent implements OnInit {
   
   users = []
+  images = []
   private current_gallery
-  likesCont
-  get_img_index
-  img_index
   clicked_like = []
   delPhoto
   replacePhoto
   replace_list = []
-  like_not_ex
-  file
 
   instruction = {
     replace_instruction: false,
@@ -34,50 +30,51 @@ export class ViewProfileComponent implements OnInit {
 
   ngOnInit() {
     this.users = this.usersService.USERS
+    this.images = this.usersService.IMAGES
     this.current_gallery = localStorage.getItem('selected_gallery')
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
     }
-    this.file = localStorage.setItem('img', '../../assets/25.png')
   }
 
-  likes(id) {
-    if(this.usersService.logged_likes[this.current_gallery].includes(id)) {
-    }
-    else {
+  addLikes(id) {
+    if(!this.usersService.logged_likes[this.current_gallery].includes(id)) {
       if(this.authService.getUserLoggedIn()){
         this.usersService.logged_likes[this.current_gallery].push(id)
-        this.users[this.current_gallery].likes[id]++
+        this.images[this.current_gallery].likes[id]++
       }
     }
-  }
-  addPhoto(id) {
-    // this.currentUser.dbImg.push('https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/en_us/desktop/assets/images/default-profile.png')
-    // this.currentUser.likes[id] = 0
   }
 
   deletePhoto(id) {
     if(this.delPhoto) {
-      this.users[this.current_gallery].dbImg.splice(id, 1)
-      this.users[this.current_gallery].likes.splice(id, 1)
+      this.deleteImages(id)
     }else if(this.replacePhoto){
-      this.replace_list.push(id)
-
-      if(this.replace_list.length > 1) {
-        let temp_images = this.users[this.current_gallery].dbImg
-        let temp_likes = this.users[this.current_gallery].likes
-
-        let temp_img = temp_images[this.replace_list[0]]
-        temp_images[this.replace_list[0]] = temp_images[this.replace_list[1]]
-        temp_images[this.replace_list[1]] = temp_img
-
-        let temp_like = temp_likes[this.replace_list[0]]
-        temp_likes[this.replace_list[0]] = temp_likes[this.replace_list[1]]
-        temp_likes[this.replace_list[1]] = temp_like
-        
-        this.replace_list = []
-      }
+      this.replaceImages(id)
     }
+  }
+
+  replaceImages(id) {
+    this.replace_list.push(id)
+    if(this.replace_list.length > 1) {
+      let temp_images = this.images[this.current_gallery].img
+      let temp_likes = this.images[this.current_gallery].likes
+
+      let temp_img = temp_images[this.replace_list[0]]
+      temp_images[this.replace_list[0]] = temp_images[this.replace_list[1]]
+      temp_images[this.replace_list[1]] = temp_img
+
+      let temp_like = temp_likes[this.replace_list[0]]
+      temp_likes[this.replace_list[0]] = temp_likes[this.replace_list[1]]
+      temp_likes[this.replace_list[1]] = temp_like
+      
+      this.replace_list = []
+    }
+  }
+
+  deleteImages(id) {
+    this.images[this.current_gallery].img.splice(id, 1)
+    this.images[this.current_gallery].likes.splice(id, 1)
   }
 
   onDeletePhoto() {
@@ -101,12 +98,12 @@ export class ViewProfileComponent implements OnInit {
     this.replace_list = []
   }
 
-  pressedDelete() {
-    if (this.deletePhoto) {
-      return true
-    }
-    return false
-  }
+  // pressedDelete() {
+  //   if (this.deletePhoto) {
+  //     return true
+  //   }
+  //   return false
+  // }
 
   checkUserGallery() {
     if(this.authService.getUserLoggedIn()){

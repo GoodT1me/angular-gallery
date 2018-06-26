@@ -30,6 +30,6 @@ export class AuthService {
 
   getLoggedUserId(){
     var user = JSON.parse(localStorage.getItem('logged_user'))
-    return user.idUser
+    return user.id_user
   }
 }
