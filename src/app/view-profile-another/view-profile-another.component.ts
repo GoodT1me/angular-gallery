@@ -11,6 +11,7 @@ import { AuthService } from '../auth.service'
 export class ViewProfileAnotherComponent implements OnInit {
   
   users = []
+  images = []
   private current_gallery
   likesCont
   get_img_index
@@ -34,6 +35,7 @@ export class ViewProfileAnotherComponent implements OnInit {
 
   ngOnInit() {
     this.users = this.usersService.USERS
+    this.images = this.usersService.IMAGES
     this.current_gallery = localStorage.getItem('selected_gallery')
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
@@ -47,25 +49,21 @@ export class ViewProfileAnotherComponent implements OnInit {
     else {
       if(this.authService.getUserLoggedIn()){
         this.usersService.logged_likes[this.current_gallery].push(id)
-        this.users[this.current_gallery].likes[id]++
+        this.images[this.current_gallery].likes[id]++
       }
     }
-  }
-  addPhoto(id) {
-    // this.currentUser.dbImg.push('https://prodcmscdn.azureedge.net/careerconnectresources/p/MICRUS/en_us/desktop/assets/images/default-profile.png')
-    // this.currentUser.likes[id] = 0
   }
 
   deletePhoto(id) {
     if(this.delPhoto) {
-      this.users[this.current_gallery].dbImg.splice(id, 1)
-      this.users[this.current_gallery].likes.splice(id, 1)
+      this.images[this.current_gallery].dbImg.splice(id, 1)
+      this.images[this.current_gallery].likes.splice(id, 1)
     }else if(this.replacePhoto){
       this.replace_list.push(id)
 
       if(this.replace_list.length > 1) {
-        let temp_images = this.users[this.current_gallery].dbImg
-        let temp_likes = this.users[this.current_gallery].likes
+        let temp_images = this.images[this.current_gallery].img
+        let temp_likes = this.images[this.current_gallery].likes
 
         let temp_img = temp_images[this.replace_list[0]]
         temp_images[this.replace_list[0]] = temp_images[this.replace_list[1]]

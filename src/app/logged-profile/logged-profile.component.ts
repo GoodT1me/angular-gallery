@@ -10,14 +10,20 @@ import { UsersService } from '../users.service'
 export class LoggedProfileComponent implements OnInit {
 
   private logged_user
-  private logged_user_l
+  private logged_id_user
+  users = []
+  images = []
+
   constructor(
     private authService:AuthService,
     private usersService:UsersService
   ) { }
 
   ngOnInit() {
-    this.logged_user_l = JSON.parse(localStorage.getItem('logged_user'))
+    this.logged_id_user = JSON.parse(localStorage.getItem('logged_user')).id_user
+    this.images = this.usersService.IMAGES
+    this.users = this.usersService.USERS
+    console.log(this.logged_id_user)
   }
 
   logOut() {

@@ -13,7 +13,7 @@ export class UsersService {
   }
 
   setCurrentUser(user) {
-    localStorage.setItem('selected_gallery', user.idUser)
+    localStorage.setItem('selected_gallery', user.id_user)
   }
 
   getRandomInt(max) {
@@ -21,22 +21,42 @@ export class UsersService {
   }
 
   completeLikes() {
-    for(let cont_user = 0; cont_user < this.USERS.length; cont_user++) {
-      for(let cont_img = 0; cont_img < this.USERS[cont_user].dbImg.length; cont_img++) {
-        this.USERS[cont_user].likes.push(this.getRandomInt(100))
+    for(let cont_user = 0; cont_user < this.IMAGES.length; cont_user++) {
+      for(let cont_img = 0; cont_img < this.IMAGES[cont_user].img.length; cont_img++) {
+        this.IMAGES[cont_user].likes.push(this.getRandomInt(100))
       }
     }
   }
 
   USERS = [
     {
-      idUser: 0,
+      id_user: 0,
       userName: 'a',
       password: 'a',
       lastName: 'LN 1',
       firstName: 'FN 1',
+    },
+    {
+      id_user: 1,
+      userName: 'marincik',
+      password: '1234',
+      lastName: 'Marin',
+      firstName: 'Arbadi',
+    },
+    {
+      id_user: 2,
+      userName: 'User 3',
+      password: 'pass3',
+      lastName: 'LN 3',
+      firstName: 'FN 3',
+    }
+  ]
+
+  IMAGES = [
+    {
+      id_user: 0,
       avatar : '../assets/local_img.png',
-      dbImg: [
+      img: [
         '../assets/1.png',
         '../assets/2.png',
         '../assets/3.png',
@@ -52,18 +72,15 @@ export class UsersService {
         '../assets/13.png',
         '../assets/14.png',
         '../assets/15.png',
-        '../assets/16.png'
+        '../assets/16.png',
+        '../assets/16.png',
       ],
       likes: []
     },
     {
-      idUser: 1,
-      userName: 'User 2',
-      password: 'pass2',
-      lastName: 'LN 2',
-      firstName: 'FN 2',
+      id_user: 1,
       avatar : '../assets/local_img.png',
-      dbImg: [
+      img: [
         '../assets/1.png',
         '../assets/2.png',
         '../assets/3.png',
@@ -88,18 +105,15 @@ export class UsersService {
         '../assets/22.png',
         '../assets/23.png',
         '../assets/24.png',
-        '../assets/25.png'
+        '../assets/25.png',
+        '../assets/25.png',
       ],
       likes: []
     },
     {
-      idUser: 2,
-      userName: 'User 3',
-      password: 'pass3',
-      lastName: 'LN 3',
-      firstName: 'FN 3',
+      id_user: 2,
       avatar : '../assets/local_img.png',
-      dbImg: [
+      img: [
         '../assets/1.png',
         '../assets/2.png',
         '../assets/3.png',
@@ -108,7 +122,8 @@ export class UsersService {
         '../assets/6.png',
         '../assets/7.png',
         '../assets/8.png',
-        '../assets/9.png'
+        '../assets/9.png',
+        '../assets/9.png',
       ],
       likes: []
     }

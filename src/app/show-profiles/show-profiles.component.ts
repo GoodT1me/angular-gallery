@@ -11,12 +11,11 @@ export class ShowProfilesComponent implements OnInit{
 
   private logged_user_id
   users = []
+  images = []
 
   constructor(
     private usersService: UsersService,
     private authService: AuthService) { }
-
-  // @Input() user
 
   showProfile(id) {
     this.usersService.setCurrentUser(this.users[id])
@@ -24,6 +23,7 @@ export class ShowProfilesComponent implements OnInit{
 
   ngOnInit() {
     this.users = this.usersService.USERS
+    this.images = this.usersService.IMAGES
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
       this.logged_user_id = this.authService.getLoggedUserId()
