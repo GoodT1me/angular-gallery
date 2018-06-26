@@ -38,7 +38,7 @@ export class ViewProfileAnotherComponent implements OnInit {
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
     }
-    this.file = localStorage.setItem('img', '../../assets/25.png')
+    this.file = localStorage.removeItem('img')
   }
 
   likes(id) {
