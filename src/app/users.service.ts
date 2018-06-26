@@ -72,8 +72,7 @@ export class UsersService {
         '../assets/13.png',
         '../assets/14.png',
         '../assets/15.png',
-        '../assets/16.png',
-        '../assets/16.png',
+        '../assets/16.png'
       ],
       likes: []
     },
@@ -105,8 +104,7 @@ export class UsersService {
         '../assets/22.png',
         '../assets/23.png',
         '../assets/24.png',
-        '../assets/25.png',
-        '../assets/25.png',
+        '../assets/25.png'
       ],
       likes: []
     },
@@ -122,8 +120,7 @@ export class UsersService {
         '../assets/6.png',
         '../assets/7.png',
         '../assets/8.png',
-        '../assets/9.png',
-        '../assets/9.png',
+        '../assets/9.png'
       ],
       likes: []
     }

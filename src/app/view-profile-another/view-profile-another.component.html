@@ -38,12 +38,12 @@
     <div class="row">
       <div class="col s3 m"
         *ngFor="let img of images[current_gallery].img; let i = index"
-        (click)="deletePhoto(i)"
+        (click)="workWithImages(i)"
       >
         <div class="card">
           <div class="card-image">
             <img src="{{ img }}">
-            <span class="like"><img src="http://www.pngmart.com/files/3/Facebook-Like-PNG-Image.png" (click)="likes(i)">
+            <span class="like"><img src="http://www.pngmart.com/files/3/Facebook-Like-PNG-Image.png" (click)="addLikes(i)">
               <p>{{ images[current_gallery].likes[i] }}</p>
             </span>
           </div>

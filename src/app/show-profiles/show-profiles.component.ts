@@ -27,7 +27,6 @@ export class ShowProfilesComponent implements OnInit{
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
       this.logged_user_id = this.authService.getLoggedUserId()
-      console.log("user_id: " + this.logged_user_id)
     }
     localStorage.removeItem('selected_gallery')
   }

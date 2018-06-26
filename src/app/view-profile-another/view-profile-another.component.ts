@@ -43,23 +43,25 @@ export class ViewProfileAnotherComponent implements OnInit {
     this.file = localStorage.removeItem('img')
   }
 
-  likes(id) {
-    if(this.usersService.logged_likes[this.current_gallery].includes(id)) {
-    }
-    else {
+  addLikes(id) {
+    if(!this.usersService.logged_likes[this.current_gallery].includes(id)) {
       if(this.authService.getUserLoggedIn()){
         this.usersService.logged_likes[this.current_gallery].push(id)
         this.images[this.current_gallery].likes[id]++
-      }
+    }
     }
   }
 
-  deletePhoto(id) {
+  workWithImages(id) {
     if(this.delPhoto) {
-      this.images[this.current_gallery].dbImg.splice(id, 1)
-      this.images[this.current_gallery].likes.splice(id, 1)
+      this.deleteImages(id)
     }else if(this.replacePhoto){
-      this.replace_list.push(id)
+      this.replaceImages(id)
+    }
+  }
+
+  replaceImages(id) {
+    this.replace_list.push(id)
 
       if(this.replace_list.length > 1) {
         let temp_images = this.images[this.current_gallery].img
@@ -75,7 +77,11 @@ export class ViewProfileAnotherComponent implements OnInit {
         
         this.replace_list = []
       }
-    }
+  }
+
+  deleteImages(id) {
+    this.images[this.current_gallery].img.splice(id, 1)
+    this.images[this.current_gallery].likes.splice(id, 1)
   }
 
   onDeletePhoto() {
@@ -96,14 +102,7 @@ export class ViewProfileAnotherComponent implements OnInit {
   onSaveReplaced() {
     this.replacePhoto = false
     this.instruction.replace_instruction = false
-    this.replace_list = []
-  }
-
-  pressedDelete() {
-    if (this.deletePhoto) {
-      return true
-    }
-    return false
+    this.replace_list = [] 
   }
 
   checkUserGallery() {
