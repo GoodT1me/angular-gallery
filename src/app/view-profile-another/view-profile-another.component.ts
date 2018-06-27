@@ -17,11 +17,9 @@ export class ViewProfileAnotherComponent implements OnInit {
   get_img_index
   img_index
   clicked_like = []
-  delPhoto
-  replacePhoto
+  delPhoto = false
+  replacePhoto = false
   replace_list = []
-  like_not_ex
-  file
 
   instruction = {
     replace_instruction: false,
@@ -29,8 +27,6 @@ export class ViewProfileAnotherComponent implements OnInit {
   }
 
   constructor(private usersService:UsersService, private authService:AuthService) {
-    this.delPhoto = false
-    this.replacePhoto = false
   }
 
   ngOnInit() {
@@ -40,16 +36,7 @@ export class ViewProfileAnotherComponent implements OnInit {
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
     }
-    this.file = localStorage.removeItem('img')
-  }
-
-  addLikes(id) {
-    if(!this.usersService.logged_likes[this.current_gallery].includes(id)) {
-      if(this.authService.getUserLoggedIn()){
-        this.usersService.logged_likes[this.current_gallery].push(id)
-        this.images[this.current_gallery].likes[id]++
-    }
-    }
+    this.initGallery()
   }
 
   workWithImages(id) {
@@ -57,6 +44,28 @@ export class ViewProfileAnotherComponent implements OnInit {
       this.deleteImages(id)
     }else if(this.replacePhoto){
       this.replaceImages(id)
+    }
+  }
+
+  initGallery() {   
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.materialboxed')
+      var instances = M.Materialbox.init(elems, {})
+    });
+    if (!("M" in window)) {
+      throw new Error("Couldn't find Materialize object on window.");
+    }
+  }
+
+  destroyGallery() {
+  }
+
+  addLikes(id) {
+    if(!this.usersService.logged_likes[this.current_gallery].includes(id)) {
+      if(this.authService.getUserLoggedIn()){
+        this.usersService.logged_likes[this.current_gallery].push(id)
+        this.images[this.current_gallery].likes[id]++
+      }
     }
   }
 
@@ -84,7 +93,7 @@ export class ViewProfileAnotherComponent implements OnInit {
     this.images[this.current_gallery].likes.splice(id, 1)
   }
 
-  onDeletePhoto() {
+  onDeletePhoto(c) {
     this.delPhoto = true
     this.instruction.delete_instruction = true
   }

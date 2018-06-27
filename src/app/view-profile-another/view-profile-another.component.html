@@ -12,7 +12,7 @@
 
     <a class="waves-effect waves-light btn"
       *ngIf="!delPhoto && !replacePhoto"
-      (click)="onDeletePhoto()"
+      (click)="onDeletePhoto(c)"
     >Delete photo</a>
     <a class="waves-effect waves-light btn"
       *ngIf="delPhoto"
@@ -42,7 +42,11 @@
       >
         <div class="card">
           <div class="card-image">
-            <img src="{{ img }}">
+            <img 
+              *ngIf="!delPhoto && !replacePhoto"
+              class="materialboxed" width="650" src="{{ img }}"
+            >
+            <img *ngIf="delPhoto || replacePhoto" src="{{ img }}">
             <span class="like"><img src="http://www.pngmart.com/files/3/Facebook-Like-PNG-Image.png" (click)="addLikes(i)">
               <p>{{ images[current_gallery].likes[i] }}</p>
             </span>
@@ -52,3 +56,4 @@
     </div>
   </div>
 </div>
+
