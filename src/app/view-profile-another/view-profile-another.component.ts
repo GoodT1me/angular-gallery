@@ -1,6 +1,7 @@
-import { Component, OnInit, ChangeDetectionStrategy, AfterContentInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, AfterViewInit } from '@angular/core';
 import { UsersService } from '../users.service'
 import { AuthService } from '../auth.service'
+import * as M from "materialize-css";
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -8,7 +9,7 @@ import { AuthService } from '../auth.service'
   templateUrl: './view-profile-another.component.html',
   styleUrls: ['./view-profile-another.component.css']
 })
-export class ViewProfileAnotherComponent implements OnInit, AfterContentInit {
+export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
   
   users = []
   images = []
@@ -40,8 +41,8 @@ export class ViewProfileAnotherComponent implements OnInit, AfterContentInit {
     }
   }
 
-  ngAfterContentInit() {
-    // this.initGallery()
+  ngAfterViewInit() {
+    this.initGallery()
   }
 
   workWithImages(id) {
@@ -52,14 +53,11 @@ export class ViewProfileAnotherComponent implements OnInit, AfterContentInit {
     }
   }
 
-  initGallery() { 
-    document.addEventListener('DOMContentLoaded', function() {
-      var elems = document.querySelectorAll('.materialboxed')
-      var instances = M.Materialbox.init(elems, {})
-    });
-  }
-
-  destroyGallery() {
+  initGallery() {
+    let elems = document.querySelectorAll('.materialboxed')
+    // elems.splice(0, 1)
+    // M.Materialbox.init(document.querySelectorAll('.materialboxed'))
+    M.Materialbox.init(elems, {});
   }
 
   addLikes(id) {
@@ -100,9 +98,10 @@ export class ViewProfileAnotherComponent implements OnInit, AfterContentInit {
     this.instruction.delete_instruction = true
   }
 
-  onSaveDeleted(){
+  onSaveDeleted() {
     this.delPhoto = false
     this.instruction.delete_instruction = false
+    location.reload()
   }
 
   onReplacePhoto() {
