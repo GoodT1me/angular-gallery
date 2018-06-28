@@ -13,6 +13,7 @@ export class ShowProfilesComponent implements OnInit{
   users = []
   images = []
   searchUser = ''
+  albums_names = []
 
   constructor(
     private usersService: UsersService,
@@ -30,5 +31,18 @@ export class ShowProfilesComponent implements OnInit{
       this.logged_user_id = this.authService.getLoggedUserId()
     }
     localStorage.removeItem('selected_gallery')
+    this.getAlbumNames()
+    console.log(this.albums_names)
+
+  }
+
+  getAlbumNames() {
+    this.images.forEach((user_albums) => {
+      const albums = user_albums.albums
+      this.albums_names.push(Object.keys(albums))
+      this.albums_names.forEach((name) => {
+        const album = albums[name]
+      })
+    })
   }
 }

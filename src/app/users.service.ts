@@ -21,11 +21,19 @@ export class UsersService {
   }
 
   completeLikes() {
-    for(let cont_user = 0; cont_user < this.IMAGES.length; cont_user++) {
-      for(let cont_img = 0; cont_img < this.IMAGES[cont_user].img.length; cont_img++) {
-        this.IMAGES[cont_user].likes.push(this.getRandomInt(100))
-      }
-    }
+    this.IMAGES.forEach((user_albums) => {
+      const albums = user_albums.albums
+
+      const albums_names = Object.keys(albums)
+
+      albums_names.forEach(name => {
+        const album = albums[name]
+
+        for(let count_img = 0; count_img < album.img.length; count_img++) {
+          album.likes.push(this.getRandomInt(99))
+        }
+      })
+    })
   }
 
   USERS = [
@@ -56,73 +64,95 @@ export class UsersService {
     {
       id_user: 0,
       avatar : '../assets/local_img.png',
-      img: [
-        '../assets/1.png',
-        '../assets/2.png',
-        '../assets/3.png',
-        '../assets/4.png',
-        '../assets/5.png',
-        '../assets/6.png',
-        '../assets/7.png',
-        '../assets/8.png',
-        '../assets/9.png',
-        '../assets/10.png',
-        '../assets/11.png',
-        '../assets/12.png',
-        '../assets/13.png',
-        '../assets/14.png',
-        '../assets/15.png',
-        '../assets/16.png'
-      ],
-      likes: []
+      albums: {
+        default_album_1: {
+          img: [
+            '../assets/1.png',
+            '../assets/2.png',
+            '../assets/3.png',
+            '../assets/4.png',
+            '../assets/5.png',
+            '../assets/6.png',
+            '../assets/7.png',
+            '../assets/8.png',
+            '../assets/9.png',
+            '../assets/10.png',
+            '../assets/11.png',
+            '../assets/12.png',
+            '../assets/13.png',
+            '../assets/14.png',
+            '../assets/15.png',
+            '../assets/16.png',
+            '../assets/17.png',
+            '../assets/18.png',
+            '../assets/19.png',
+            '../assets/20.png',
+            '../assets/21.png',
+            '../assets/22.png',
+            '../assets/23.png',
+            '../assets/24.png',
+            '../assets/25.png'
+          ],
+          likes: []
+        },
+        default_album_2: {
+          img: [
+            '../assets/19.png',
+            '../assets/20.png',
+            '../assets/21.png',
+            '../assets/22.png',
+            '../assets/23.png',
+            '../assets/24.png',
+            '../assets/25.png'
+          ],
+          likes: []
+        },
+      },
     },
     {
       id_user: 1,
       avatar : '../assets/local_img.png',
-      img: [
-        '../assets/1.png',
-        '../assets/2.png',
-        '../assets/3.png',
-        '../assets/4.png',
-        '../assets/5.png',
-        '../assets/6.png',
-        '../assets/7.png',
-        '../assets/8.png',
-        '../assets/9.png',
-        '../assets/10.png',
-        '../assets/11.png',
-        '../assets/12.png',
-        '../assets/13.png',
-        '../assets/14.png',
-        '../assets/15.png',
-        '../assets/16.png',
-        '../assets/17.png',
-        '../assets/18.png',
-        '../assets/19.png',
-        '../assets/20.png',
-        '../assets/21.png',
-        '../assets/22.png',
-        '../assets/23.png',
-        '../assets/24.png',
-        '../assets/25.png'
-      ],
-      likes: []
+      albums: {
+        default_album_2: {
+          img: [
+            '../assets/1.png',
+            '../assets/2.png',
+            '../assets/3.png',
+            '../assets/4.png',
+            '../assets/5.png',
+            '../assets/6.png',
+            '../assets/7.png',
+            '../assets/8.png',
+            '../assets/9.png',
+            '../assets/10.png',
+            '../assets/11.png',
+            '../assets/12.png',
+            '../assets/13.png',
+            '../assets/14.png',
+            '../assets/15.png',
+            '../assets/16.png',
+          ],
+          likes: []
+        },
+      },
     },
     {
       id_user: 2,
       avatar : '../assets/local_img.png',
-      img: [
-        '../assets/1.png',
-        '../assets/2.png',
-        '../assets/3.png',
-        '../assets/4.png',
-        '../assets/5.png',
-        '../assets/6.png',
-        '../assets/7.png',
-        '../assets/8.png',
-        '../assets/9.png'
-      ],
-      likes: []
+      albums: {
+        default_album_3: {
+          img: [
+            '../assets/1.png',
+            '../assets/2.png',
+            '../assets/3.png',
+            '../assets/4.png',
+            '../assets/5.png',
+            '../assets/6.png',
+            '../assets/7.png',
+          ],
+          likes: []
+        },
+      },
     }
   ]
 }
