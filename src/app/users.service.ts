@@ -39,21 +39,21 @@ export class UsersService {
   USERS = [
     {
       id_user: 0,
-      userName: 'a',
+      userName: 'Mike',
       password: 'a',
       lastName: 'LN 1',
       firstName: 'FN 1',
     },
     {
       id_user: 1,
-      userName: 'marincik',
+      userName: 'Tom',
       password: '1234',
-      lastName: 'Marin',
-      firstName: 'Arbadi',
+      lastName: 'LN 2',
+      firstName: 'FN 2',
     },
     {
       id_user: 2,
-      userName: 'User 3',
+      userName: 'Ann',
       password: 'pass3',
       lastName: 'LN 3',
       firstName: 'FN 3',

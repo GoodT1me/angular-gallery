@@ -8,26 +8,35 @@
 </div>
 
 <div class="profile" *ngFor="let user of users | search:searchUser; let user_id=index">
-  <h6>{{ user.userName }}</h6>
+  <h5>
+    <span *ngIf="user_id != logged_user_id">
+      {{ user.userName }}'s albums
+    </span>
+    <span *ngIf="user_id == logged_user_id">
+      Your albums
+    </span>
+  </h5>
 
   <div class="gallery">
-    <div class="row" >
+    <!-- <div class="row" >
      <p *ngFor="let album_name of albums_names[user_id]">
        {{ album_name }}
      </p>
+    </div> -->
+    <div class="collection" *ngFor="let album_name of albums_names[user_id]; let i = index">
+      <a
+        *ngIf="i < 3"
+        href="#!" class="collection-item">
+        <span class="badge">1 Images</span>
+        {{ album_name }}
+      </a>
     </div>
     
     <div class="btn-gallery">
       <a class="waves-effect waves-light btn"
         routerLink="profile-another"
-        (click)="showProfile(user_id)">
-        <span *ngIf="user_id != logged_user_id">
-        Gallery
-      </span>
-      <span *ngIf="user_id == logged_user_id">
-        My Gallery
-      </span>
-      </a>
+        (click)="showProfile(user_id)"
+      >Show All</a>
     </div>
   </div>
 </div>
