@@ -1,4 +1,13 @@
-<div class="profile" *ngFor="let user of users; let user_id=index">
+<div class="search-user">
+  <div class="row">
+    <div class="input-field col s3">
+      <input id="first_name" class="validate" [(ngModel)]="searchUser">
+      <label class="active" for="first_name">Search by User Name</label>
+    </div>
+  </div>
+</div>
+
+<div class="profile" *ngFor="let user of users | search:searchUser; let user_id=index">
   <h6>{{ user.userName }}</h6>
 
   <div class="gallery">

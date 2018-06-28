@@ -12,6 +12,7 @@ export class ShowProfilesComponent implements OnInit{
   private logged_user_id
   users = []
   images = []
+  searchUser = ''
 
   constructor(
     private usersService: UsersService,
