@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, AfterContentInit } from '@angular/core';
 import { UsersService } from '../users.service'
 import { AuthService } from '../auth.service'
 
@@ -8,7 +8,7 @@ import { AuthService } from '../auth.service'
   templateUrl: './view-profile-another.component.html',
   styleUrls: ['./view-profile-another.component.css']
 })
-export class ViewProfileAnotherComponent implements OnInit {
+export class ViewProfileAnotherComponent implements OnInit, AfterContentInit {
   
   users = []
   images = []
@@ -26,9 +26,11 @@ export class ViewProfileAnotherComponent implements OnInit {
     delete_instruction: false
   }
 
-  constructor(private usersService:UsersService, private authService:AuthService) {
-  }
-
+  constructor(
+    private usersService:UsersService,
+    private authService:AuthService
+  ) {}
+  
   ngOnInit() {
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
@@ -36,7 +38,10 @@ export class ViewProfileAnotherComponent implements OnInit {
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
     }
-    this.initGallery()
+  }
+
+  ngAfterContentInit() {
+    // this.initGallery()
   }
 
   workWithImages(id) {
@@ -47,14 +52,11 @@ export class ViewProfileAnotherComponent implements OnInit {
     }
   }
 
-  initGallery() {   
+  initGallery() { 
     document.addEventListener('DOMContentLoaded', function() {
       var elems = document.querySelectorAll('.materialboxed')
       var instances = M.Materialbox.init(elems, {})
     });
-    if (!("M" in window)) {
-      throw new Error("Couldn't find Materialize object on window.");
-    }
   }
 
   destroyGallery() {
