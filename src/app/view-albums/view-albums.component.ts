@@ -16,6 +16,7 @@ export class ViewAlbumsComponent implements OnInit {
   albums_names = []
   albums_images = []
   albums_descriptions = []
+  flag = false
 
   constructor(
     private usersService: UsersService,
@@ -50,6 +51,29 @@ export class ViewAlbumsComponent implements OnInit {
       this.albums_images.push(album.img)
       this.albums_descriptions.push(album.description)
     })
+  }
+
+  onClickFlag() {
+    this.flag = true
+  }
+
+  onSaveFlag() {
+    this.flag = false
+  }
+
+  onClickAlbum(id) {
+    if(this.flag) {
+      // make flagged album
+      let names = []
+      for(const key in this.images[this.current_gallery].albums) {
+        names.push(key)
+      }
+      console.log(names)
+
+    }else{
+      console.log(id)
+    }
+    
   }
 
 }

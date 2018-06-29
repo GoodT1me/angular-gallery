@@ -25,3 +25,21 @@
 .inside-img {
   border: solid 1px #000;
 }
+
+.material-icons {
+  margin-left: 0;
+}
+
+.card-title {
+  margin-bottom: 0px !important;
+}
+
+.card-content {
+  height: 220px;
+}
+
+.btn-albums {
+  margin-top: -100px;
+  float: right;
+  display: flex;
+}

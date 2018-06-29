@@ -5,12 +5,24 @@
     <p> Last Name: {{ users[current_gallery].lastName }} </p>
   </div>
 
+  <div class="btn-albums">
+    <a class="waves-effect waves-light btn"
+      *ngIf="!flag"
+      (click)="onClickFlag()"
+    >Flag</a>
+
+    <a class="waves-effect waves-light btn"
+      *ngIf="flag"
+      (click)="onSaveFlag()"
+    >Save</a>
+  </div>
+
   <div class="gallery">
     <div class="row">
 
       <div class="album col s4" *ngFor="let album of albums_names[0]; let id = index">
         <div class="inside card">
-          <div class="card-image">
+          <div class="card-image" (click)="onClickAlbum(id)">
             <div class="col s3" *ngFor="let img of albums_images[id]; let i = index">
               <img *ngIf="i < 12" src= "{{ img }}">
             </div>
