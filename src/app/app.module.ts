@@ -13,7 +13,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoggedProfileComponent } from './logged-profile/logged-profile.component'
 import { HttpClientModule } from '@angular/common/http';
-import { AuthGuard } from './auth.guard'
+import { AuthGuard } from './auth.guard';
+import { ViewAlbumsComponent } from './view-albums/view-albums.component'
 
 const ROUTES= [
   {
@@ -34,8 +35,12 @@ const ROUTES= [
   },
   {
     path: 'profile',
-    component:LoggedProfileComponent,
+    component: LoggedProfileComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'albums',
+    component: ViewAlbumsComponent
   }
 ]
 
@@ -50,6 +55,7 @@ const ROUTES= [
     UploadImgComponent,
     LoginFormComponent,
     LoggedProfileComponent,
+    ViewAlbumsComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,8 +15,6 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
   images = []
   private current_gallery
   likesCont
-  get_img_index
-  img_index
   clicked_like = []
   delPhoto = false
   replacePhoto = false
@@ -55,8 +53,6 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
 
   initGallery() {
     let elems = document.querySelectorAll('.materialboxed')
-    // elems.splice(0, 1)
-    // M.Materialbox.init(document.querySelectorAll('.materialboxed'))
     M.Materialbox.init(elems, {});
   }
 

@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="user">
+    <p> User: {{ users[current_gallery].userName }} </p>
+    <p> First Name: {{ users[current_gallery].firstName }} </p>
+    <p> Last Name: {{ users[current_gallery].lastName }} </p>
+  </div>
+
+  <div class="gallery">
+    <div class="row">
+
+      <div class="album col s4" *ngFor="let album of albums_names[0]; let id = index">
+        <div class="inside card">
+          <div class="card-image">
+            <div class="col s3" *ngFor="let img of albums_images[id]; let i = index">
+              <img *ngIf="i < 12" src= "{{ img }}">
+            </div>
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{ albums_names[0][id] }}<i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{ albums_names[0][id] }}<i class="material-icons right">close</i></span>
+            <p>{{ albums_descriptions[id] }}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

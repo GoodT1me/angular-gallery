@@ -93,7 +93,9 @@ export class UsersService {
             '../assets/24.png',
             '../assets/25.png'
           ],
-          likes: []
+          description: "Mark's album 1",
+          likes: [],
+          flag: false
         },
         default_album_2: {
           img: [
@@ -105,7 +107,9 @@ export class UsersService {
             '../assets/24.png',
             '../assets/25.png'
           ],
-          likes: []
+          description: "Mark's album 2",
+          likes: [],
+          flag: false
         },
       },
     },
@@ -113,7 +117,7 @@ export class UsersService {
       id_user: 1,
       avatar : '../assets/local_img.png',
       albums: {
-        default_album_2: {
+        default_album_1: {
           img: [
             '../assets/1.png',
             '../assets/2.png',
@@ -132,7 +136,9 @@ export class UsersService {
             '../assets/15.png',
             '../assets/16.png',
           ],
-          likes: []
+          description: "Tom's album 1",
+          likes: [],
+          flag: false
         },
       },
     },
@@ -140,6 +146,37 @@ export class UsersService {
       id_user: 2,
       avatar : '../assets/local_img.png',
       albums: {
+        default_album_1: {
+          img: [
+            '../assets/1.png',
+            '../assets/2.png',
+            '../assets/3.png',
+            '../assets/4.png',
+            '../assets/5.png',
+            '../assets/6.png',
+            '../assets/7.png',
+          ],
+          description: "Ann's album 1",
+          likes: [],
+          flag: false
+        },
+        default_album_2: {
+          img: [
+            '../assets/1.png',
+            '../assets/2.png',
+            '../assets/3.png',
+            '../assets/4.png',
+            '../assets/5.png',
+            '../assets/6.png',
+            '../assets/7.png',
+            '../assets/8.png',
+            '../assets/9.png',
+            '../assets/10.png',
+          ],
+          description: "Ann's album 2",
+          likes: [],
+          flag: false
+        },
         default_album_3: {
           img: [
             '../assets/1.png',
@@ -150,7 +187,9 @@ export class UsersService {
             '../assets/6.png',
             '../assets/7.png',
           ],
-          likes: []
+          description: "Ann's album 3",
+          likes: [],
+          flag: false
         },
       },
     }

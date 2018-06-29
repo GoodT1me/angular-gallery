@@ -23,7 +23,6 @@ export class LoggedProfileComponent implements OnInit {
     this.logged_id_user = JSON.parse(localStorage.getItem('logged_user')).id_user
     this.images = this.usersService.IMAGES
     this.users = this.usersService.USERS
-    console.log(this.logged_id_user)
   }
 
   logOut() {
