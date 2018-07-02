@@ -30,7 +30,7 @@ export class ShowProfilesComponent implements OnInit{
     this.checkLogged()
     this.getAlbums()
     this.getCountOfImages()
-    localStorage.removeItem('selected_gallery')
+    localStorage.removeItem('selected_profile')
   }
 
   getAlbums() {

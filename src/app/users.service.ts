@@ -13,7 +13,7 @@ export class UsersService {
   }
 
   setCurrentUser(user) {
-    localStorage.setItem('selected_gallery', user.id_user)
+    localStorage.setItem('selected_profile', user.id_user)
   }
 
   getRandomInt(max) {
@@ -109,7 +109,7 @@ export class UsersService {
           ],
           description: "Mark's album 2",
           likes: [],
-          flag: false
+          flag: true
         },
       },
     },
@@ -130,6 +130,24 @@ export class UsersService {
             '../assets/9.png',
             '../assets/10.png',
             '../assets/11.png',
+            '../assets/12.png',
+            '../assets/13.png',
+            '../assets/14.png',
+            '../assets/15.png',
+            '../assets/16.png',
+          ],
+          description: "Tom's album 1",
+          likes: [],
+          flag: false
+        },
+        default_album_2: {
+          img: [
+            '../assets/1.png',
+            '../assets/2.png',
+            '../assets/3.png',
+            '../assets/4.png',
+            '../assets/5.png',
+            '../assets/6.png',
             '../assets/12.png',
             '../assets/13.png',
             '../assets/14.png',
@@ -175,7 +193,7 @@ export class UsersService {
           ],
           description: "Ann's album 2",
           likes: [],
-          flag: false
+          flag: true
         },
         default_album_3: {
           img: [

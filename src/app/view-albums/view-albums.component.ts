@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, AfterViewInit } from '@angular/core'
 import { UsersService } from '../users.service'
 import { AuthService } from '../auth.service'
 
@@ -7,7 +7,7 @@ import { AuthService } from '../auth.service'
   templateUrl: './view-albums.component.html',
   styleUrls: ['./view-albums.component.css']
 })
-export class ViewAlbumsComponent implements OnInit {
+export class ViewAlbumsComponent implements OnInit, AfterViewInit {
 
   users = []
   images = []
@@ -17,62 +17,103 @@ export class ViewAlbumsComponent implements OnInit {
   albums_images = []
   albums_descriptions = []
   flag = false
+  unflag =false
+  style_p = ""
 
   constructor(
     private usersService: UsersService,
     private authService: AuthService
   ) { }
 
+  ngAfterViewInit() {
+    // this.replaceFlaggedAlbums()
+  }
+
   ngOnInit() {
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
-    this.current_gallery = localStorage.getItem('selected_gallery')
+    this.current_gallery = localStorage.getItem('selected_profile')
     this.setCurrentAlbums()
     this.setCurrentAlbumsNames()
-    this.setCurrentAlbumsElems()
+    this.replaceFlaggedAlbums()
   }
 
   setCurrentAlbums() {
-    this.current_albums = this.images[this.current_gallery].albums
+    this.current_albums = Object.values(this.images[this.current_gallery].albums)
   }
 
   setCurrentAlbumsNames() {
-    const albums = this.current_albums
+    const albums = this.images[this.current_gallery].albums
     const names = Object.keys(albums)
     this.albums_names.push(names)
-  }
-
-  setCurrentAlbumsElems(){
-    const albums = this.current_albums
-    const names = Object.keys(albums)
-
-    names.forEach((name) => {
-      const album = albums[name]
-      this.albums_images.push(album.img)
-      this.albums_descriptions.push(album.description)
-    })
   }
 
   onClickFlag() {
     this.flag = true
   }
 
+  onClickUnFlag() {
+    this.unflag = true
+  }
+
   onSaveFlag() {
     this.flag = false
+    this.unflag = false
   }
 
   onClickAlbum(id) {
     if(this.flag) {
-      // make flagged album
-      let names = []
-      for(const key in this.images[this.current_gallery].albums) {
-        names.push(key)
-      }
-      console.log(names)
-
-    }else{
-      console.log(id)
+      this.makeFlagged(id)
+    }else if(this.unflag) {
+      this.makeUnFlagged(id)
     }
+    else{
+      //open album
+      console.log(id)
+      this.showSelectedAlbum()
+    }
+  }
+
+  makeFlagged(id) {
+    for (let i = 0; i < this.current_albums.length; i++) {
+      if(i == id) {
+        this.current_albums[i].flag = true
+      }
+    }
+  }
+
+  makeUnFlagged(id) {
+    for (let i = 0; i < this.current_albums.length; i++) {
+      if(i == id) {
+        this.current_albums[i].flag = false
+      }
+    }
+  }
+
+  showSelectedAlbum() {
+
+  }
+
+  replaceFlaggedAlbums() {
+    const array_primary_albums = []
+    const array_secondary_albums = []
+    const array_primary_names = []
+    const array_secondary_names = []
+
+    for (let i = 0; i < this.current_albums.length; i++) {
+      if(this.current_albums[i].flag) {
+        array_primary_albums.push(this.current_albums[i])
+        array_primary_names.push(this.albums_names[0][i])
+      }else {
+        array_secondary_albums.push(this.current_albums[i])
+        array_secondary_names.push(this.albums_names[0][i])
+      }
+    }
+    this.current_albums = (array_primary_albums.concat(array_secondary_albums))
+    this.albums_names = (array_primary_names.concat(array_secondary_names))
+  }
+  
+  setPrimaryStyle(id) {
     
   }
 

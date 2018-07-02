@@ -33,7 +33,7 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
-    this.current_gallery = localStorage.getItem('selected_gallery')
+    this.current_gallery = localStorage.getItem('selected_profile')
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
     }

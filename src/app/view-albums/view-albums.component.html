@@ -7,32 +7,62 @@
 
   <div class="btn-albums">
     <a class="waves-effect waves-light btn"
-      *ngIf="!flag"
+      *ngIf="!flag && !unflag"
       (click)="onClickFlag()"
     >Flag</a>
 
     <a class="waves-effect waves-light btn"
-      *ngIf="flag"
+      *ngIf="!unflag && !flag"
+      (click)="onClickUnFlag()"
+    >Unflag</a>
+
+    <a class="waves-effect waves-light btn"
+      *ngIf="flag || unflag"
       (click)="onSaveFlag()"
     >Save</a>
+    
   </div>
+
+  <p class="instruction-flag" *ngIf="flag">Click on album to make it flagged</p>
+  <p class="instruction-flag" *ngIf="unflag">Click on album to make it unflagged</p>
 
   <div class="gallery">
     <div class="row">
 
-      <div class="album col s4" *ngFor="let album of albums_names[0]; let id = index">
-        <div class="inside card">
+      <div class="album col s4" *ngFor="let album of current_albums; let id = index">
+        <div class="inside card primary" *ngIf="current_albums[id].flag">
           <div class="card-image" (click)="onClickAlbum(id)">
-            <div class="col s3" *ngFor="let img of albums_images[id]; let i = index">
+            <div class="col s3" *ngFor="let img of current_albums[id].img; let i = index">
               <img *ngIf="i < 12" src= "{{ img }}">
             </div>
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">{{ albums_names[0][id] }}<i class="material-icons right">more_vert</i></span>
+            <span class="card-title activator grey-text text-darken-4">
+              <span *ngIf="current_albums[id].flag == true">*{{ albums_names[id] }}</span>
+              <span *ngIf="current_albums[id].flag == false">{{ albums_names[id] }}</span>
+              <i class="material-icons right">more_vert</i></span>
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">{{ albums_names[0][id] }}<i class="material-icons right">close</i></span>
-            <p>{{ albums_descriptions[id] }}</p>
+            <span class="card-title grey-text text-darken-4">{{ albums_names[id] }}<i class="material-icons right">close</i></span>
+            <p>{{ current_albums[id].description }}</p>
+          </div>
+        </div>
+
+        <div class="inside card" *ngIf="!current_albums[id].flag">
+          <div class="card-image" (click)="onClickAlbum(id)">
+            <div class="col s3" *ngFor="let img of current_albums[id].img; let i = index">
+              <img *ngIf="i < 12" src= "{{ img }}">
+            </div>
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">
+              <span *ngIf="current_albums[id].flag == true">*{{ albums_names[id] }}</span>
+              <span *ngIf="current_albums[id].flag == false">{{ albums_names[id] }}</span>
+              <i class="material-icons right">more_vert</i></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{ albums_names[id] }}<i class="material-icons right">close</i></span>
+            <p>{{ current_albums[id].description }}</p>
           </div>
         </div>
 
