@@ -64,8 +64,10 @@ export class UsersService {
     {
       id_user: 0,
       avatar : '../assets/local_img.png',
-      albums: {
-        default_album_1: {
+      albums: [
+        {
+          id_album: 0,
+          name: "default_album_1",
           img: [
             '../assets/1.png',
             '../assets/2.png',
@@ -97,7 +99,9 @@ export class UsersService {
           likes: [],
           flag: false
         },
-        default_album_2: {
+        {
+          id_album: 1,
+          name: "default_album_2",
           img: [
             '../assets/19.png',
             '../assets/20.png',
@@ -111,13 +115,15 @@ export class UsersService {
           likes: [],
           flag: true
         },
-      },
+      ],
     },
     {
       id_user: 1,
       avatar : '../assets/local_img.png',
-      albums: {
-        default_album_1: {
+      albums: [
+        {
+          id_album: 0,
+          name: "default_album_1",
           img: [
             '../assets/1.png',
             '../assets/2.png',
@@ -140,7 +146,9 @@ export class UsersService {
           likes: [],
           flag: false
         },
-        default_album_2: {
+        {
+          id_album: 1,
+          name: "default_album_2",
           img: [
             '../assets/1.png',
             '../assets/2.png',
@@ -154,17 +162,19 @@ export class UsersService {
             '../assets/15.png',
             '../assets/16.png',
           ],
-          description: "Tom's album 1",
+          description: "Tom's album 2",
           likes: [],
           flag: false
         },
-      },
+      ],
     },
     {
       id_user: 2,
       avatar : '../assets/local_img.png',
-      albums: {
-        default_album_1: {
+      albums: [
+        {
+          id_album: 0,
+          name: "default_album_1",
           img: [
             '../assets/1.png',
             '../assets/2.png',
@@ -178,7 +188,9 @@ export class UsersService {
           likes: [],
           flag: false
         },
-        default_album_2: {
+        {
+          id_album: 1,
+          name: "default_album_2",
           img: [
             '../assets/1.png',
             '../assets/2.png',
@@ -195,7 +207,9 @@ export class UsersService {
           likes: [],
           flag: true
         },
-        default_album_3: {
+        {
+          id_album: 2,
+          name: "default_album_3",
           img: [
             '../assets/1.png',
             '../assets/2.png',
@@ -209,7 +223,7 @@ export class UsersService {
           likes: [],
           flag: false
         },
-      },
+      ],
     }
   ]
 }

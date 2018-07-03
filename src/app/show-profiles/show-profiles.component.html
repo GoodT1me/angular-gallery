@@ -18,12 +18,12 @@
   </h5>
 
   <div class="gallery">
-    <div class="collection" *ngFor="let album_name of albums_names[user_id]; let i = index">
+    <div class="collection" *ngFor="let album of images[user_id].albums; let i = index">
       <a
         *ngIf="i < 3"
         href="#!" class="collection-item">
-        <span class="badge">{{ albums_img_length[user_id][i] }} Images</span>
-        {{ album_name }}
+        <span class="badge">{{ album.img.length }} Images</span>
+        {{ album.name }}
       </a>
     </div>
     

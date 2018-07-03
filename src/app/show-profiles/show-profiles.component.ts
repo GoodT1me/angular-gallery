@@ -13,53 +13,18 @@ export class ShowProfilesComponent implements OnInit{
   users = []
   images = []
   searchUser = ''
-  albums_names = []
-  albums_img_length = []
-  
 
   constructor(
     private usersService: UsersService,
-    private authService: AuthService) { }
-
-
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
 
     this.checkLogged()
-    this.getAlbums()
-    this.getCountOfImages()
     localStorage.removeItem('selected_profile')
-  }
-
-  getAlbums() {
-    let count = 0
-    this.images.forEach(user_albums => {
-      const albums = user_albums.albums
-      this.albums_names.push(Object.keys(albums))
-      const albums_names_for = Object.keys(albums)
-
-      // this.albums_img_length[count] = []
-      // albums_names_for.forEach(name => {
-      //   const album = albums[name]
-      //   this.albums_img_length[count].push(album.img.length)
-      // })
-      // count++
-    })
-  }
-
-  getCountOfImages() {
-    for(let i = 0; i < this.images.length; i++) {
-      this.albums_img_length[i] = []
-      for(const key in this.images[i].albums) {
-        for(const k in this.images[i].albums[key]) {
-          if(k == "img"){
-            this.albums_img_length[i].push(this.images[i].albums[key].img.length)
-          }
-        }
-      }
-    }
   }
 
   checkLogged() {

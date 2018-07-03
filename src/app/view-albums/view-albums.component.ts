@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { UsersService } from '../users.service'
 import { AuthService } from '../auth.service'
 
@@ -7,43 +7,25 @@ import { AuthService } from '../auth.service'
   templateUrl: './view-albums.component.html',
   styleUrls: ['./view-albums.component.css']
 })
-export class ViewAlbumsComponent implements OnInit, AfterViewInit {
+export class ViewAlbumsComponent implements OnInit {
 
   users = []
   images = []
+  current_albums
   private current_profile
-  current_albums = []
-  albums_names = []
   flag = false
-  unflag =false
-  style_p = ""
+  unflag = false
 
   constructor(
     private usersService: UsersService,
     private authService: AuthService
   ) { }
 
-  ngAfterViewInit() {
-
-  }
-
   ngOnInit() {
+    this.current_profile = localStorage.getItem('selected_profile')
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
-    this.current_profile = localStorage.getItem('selected_profile')
-    this.setCurrentAlbums()
-    this.setCurrentAlbumsNames()
     this.replaceFlaggedAlbums()
-  }
-
-  setCurrentAlbums() {
-    this.current_albums = Object.values(this.images[this.current_profile].albums)
-  }
-
-  setCurrentAlbumsNames() {
-    const albums = this.images[this.current_profile].albums
-    const names = Object.keys(albums)
-    this.albums_names.push(names)
   }
 
   onClickFlag() {
@@ -57,7 +39,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   onSaveFlag() {
     this.flag = false
     this.unflag = false
-    this.replaceFlaggedAfterSave()
+    this.replaceFlaggedAlbums()
   }
 
   onClickAlbum(id) {
@@ -73,18 +55,26 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     }
   }
 
+  onClickAlbumName(id) {
+    if(!(this.flag || this.unflag)) {
+      console.log("album id - " + id)
+    }
+  }
+
   makeFlagged(id) {
-    for (let i = 0; i < this.current_albums.length; i++) {
+    const albums = this.images[this.current_profile].albums
+    for (let i = 0; i < albums.length; i++) {
       if(i == id) {
-        this.current_albums[i].flag = true
+        albums[i].flag = true
       }
     }
   }
 
   makeUnFlagged(id) {
-    for (let i = 0; i < this.current_albums.length; i++) {
+    const albums = this.images[this.current_profile].albums
+    for (let i = 0; i < albums.length; i++) {
       if(i == id) {
-        this.current_albums[i].flag = false
+        albums[i].flag = false
       }
     }
   }
@@ -94,45 +84,42 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   }
 
   replaceFlaggedAlbums() {
-    const array_primary_albums = []
-    const array_secondary_albums = []
-    const array_primary_names = []
-    const array_secondary_names = []
-    
+    let flagged_albums = []
+    let unflagged_albums = []
+    const albums = this.images[this.current_profile].albums
 
-    for (let i = 0; i < this.current_albums.length; i++) {
-      if(this.current_albums[i].flag) {
-        array_primary_albums.push(this.current_albums[i])
-        array_primary_names.push(this.albums_names[0][i])
+    for (let i = 0; i < albums.length; i++) {
+      if(albums[i].flag) {
+        flagged_albums.push(albums[i])
       }else {
-        array_secondary_albums.push(this.current_albums[i])
-        array_secondary_names.push(this.albums_names[0][i])
+        unflagged_albums.push(albums[i])
       }
     }
-    this.current_albums = (array_primary_albums.concat(array_secondary_albums))
-    this.albums_names = (array_primary_names.concat(array_secondary_names))
-  }
-
-  replaceFlaggedAfterSave() {
-    const array_primary_albums = []
-    const array_secondary_albums = []
-    const array_primary_names = []
-    const array_secondary_names = []
-
-    for (let i = 0; i < this.current_albums.length; i++) {
-      if(this.current_albums[i].flag) {
-        array_primary_albums.push(this.current_albums[i])
-        array_primary_names.push(this.albums_names[i])
-      }else {
-        array_secondary_albums.push(this.current_albums[i])
-        array_secondary_names.push(this.albums_names[i])
+    //sort flagged & unflagged albums
+    for (let i = 0; i < flagged_albums.length - 1; i++) {
+      for (let j = 0; j < flagged_albums.length-i-1; j++) {
+        if(flagged_albums[j].id_album > flagged_albums[j+1].id_album) {
+          const temp = flagged_albums[j]
+          flagged_albums[j] = flagged_albums[j+1]
+          flagged_albums[j+1] = temp
+        }
       }
     }
-    this.current_albums = (array_primary_albums.concat(array_secondary_albums))
-    this.albums_names = (array_primary_names.concat(array_secondary_names))
+
+    for (let i = 0; i < unflagged_albums.length - 1; i++) {
+      for (let j = 0; j < unflagged_albums.length-i-1; j++) {
+        if(unflagged_albums[j].id_album > unflagged_albums[j+1].id_album) {
+          const temp = unflagged_albums[j]
+          unflagged_albums[j] = unflagged_albums[j+1]
+          unflagged_albums[j+1] = temp
+        }
+      }
+    }
+
+    this.images[this.current_profile].albums = (flagged_albums.concat(unflagged_albums))
   }
   
-  compareLoggedProfile() {
+  compareLoggedProfileWithSelected() {
     if(this.authService.getUserLoggedIn()) {
       if(this.authService.getLoggedUserId() == this.current_profile){
         return true
