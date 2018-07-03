@@ -11,11 +11,9 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
 
   users = []
   images = []
-  private current_gallery
+  private current_profile
   current_albums = []
   albums_names = []
-  albums_images = []
-  albums_descriptions = []
   flag = false
   unflag =false
   style_p = ""
@@ -32,19 +30,18 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
-    this.current_gallery = localStorage.getItem('selected_profile')
+    this.current_profile = localStorage.getItem('selected_profile')
     this.setCurrentAlbums()
     this.setCurrentAlbumsNames()
-    // this.replaceFlaggedNames()
     this.replaceFlaggedAlbums()
   }
 
   setCurrentAlbums() {
-    this.current_albums = Object.values(this.images[this.current_gallery].albums)
+    this.current_albums = Object.values(this.images[this.current_profile].albums)
   }
 
   setCurrentAlbumsNames() {
-    const albums = this.images[this.current_gallery].albums
+    const albums = this.images[this.current_profile].albums
     const names = Object.keys(albums)
     this.albums_names.push(names)
   }
@@ -101,6 +98,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     const array_secondary_albums = []
     const array_primary_names = []
     const array_secondary_names = []
+    
 
     for (let i = 0; i < this.current_albums.length; i++) {
       if(this.current_albums[i].flag) {
@@ -116,7 +114,6 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   }
 
   replaceFlaggedAfterSave() {
-    console.log(this.current_albums)
     const array_primary_albums = []
     const array_secondary_albums = []
     const array_primary_names = []
@@ -126,19 +123,22 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
       if(this.current_albums[i].flag) {
         array_primary_albums.push(this.current_albums[i])
         array_primary_names.push(this.albums_names[i])
-        console.log("true - " + i + " " +this.current_albums[i])
       }else {
         array_secondary_albums.push(this.current_albums[i])
         array_secondary_names.push(this.albums_names[i])
-        console.log("false - " + i + " " +this.current_albums[i])
       }
     }
     this.current_albums = (array_primary_albums.concat(array_secondary_albums))
     this.albums_names = (array_primary_names.concat(array_secondary_names))
   }
   
-  setPrimaryStyle(id) {
-
+  compareLoggedProfile() {
+    if(this.authService.getUserLoggedIn()) {
+      if(this.authService.getLoggedUserId() == this.current_profile){
+        return true
+      }
+    }
+    return false
   }
 
 }

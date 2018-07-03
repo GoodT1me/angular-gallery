@@ -32,4 +32,5 @@ export class AuthService {
     var user = JSON.parse(localStorage.getItem('logged_user'))
     return user.id_user
   }
+
 }

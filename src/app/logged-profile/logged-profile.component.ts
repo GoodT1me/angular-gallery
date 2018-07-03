@@ -9,7 +9,6 @@ import { UsersService } from '../users.service'
 })
 export class LoggedProfileComponent implements OnInit {
 
-  private logged_user
   private logged_id_user
   users = []
   images = []
