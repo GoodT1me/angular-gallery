@@ -26,7 +26,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngAfterViewInit() {
-    // this.replaceFlaggedAlbums()
+
   }
 
   ngOnInit() {
@@ -35,6 +35,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     this.current_gallery = localStorage.getItem('selected_profile')
     this.setCurrentAlbums()
     this.setCurrentAlbumsNames()
+    // this.replaceFlaggedNames()
     this.replaceFlaggedAlbums()
   }
 
@@ -59,6 +60,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   onSaveFlag() {
     this.flag = false
     this.unflag = false
+    this.replaceFlaggedAfterSave()
   }
 
   onClickAlbum(id) {
@@ -112,9 +114,31 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     this.current_albums = (array_primary_albums.concat(array_secondary_albums))
     this.albums_names = (array_primary_names.concat(array_secondary_names))
   }
+
+  replaceFlaggedAfterSave() {
+    console.log(this.current_albums)
+    const array_primary_albums = []
+    const array_secondary_albums = []
+    const array_primary_names = []
+    const array_secondary_names = []
+
+    for (let i = 0; i < this.current_albums.length; i++) {
+      if(this.current_albums[i].flag) {
+        array_primary_albums.push(this.current_albums[i])
+        array_primary_names.push(this.albums_names[i])
+        console.log("true - " + i + " " +this.current_albums[i])
+      }else {
+        array_secondary_albums.push(this.current_albums[i])
+        array_secondary_names.push(this.albums_names[i])
+        console.log("false - " + i + " " +this.current_albums[i])
+      }
+    }
+    this.current_albums = (array_primary_albums.concat(array_secondary_albums))
+    this.albums_names = (array_primary_names.concat(array_secondary_names))
+  }
   
   setPrimaryStyle(id) {
-    
+
   }
 
 }

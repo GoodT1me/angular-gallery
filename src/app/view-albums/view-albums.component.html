@@ -49,22 +49,22 @@
         </div>
 
         <div class="inside card" *ngIf="!current_albums[id].flag">
-          <div class="card-image" (click)="onClickAlbum(id)">
-            <div class="col s3" *ngFor="let img of current_albums[id].img; let i = index">
-              <img *ngIf="i < 12" src= "{{ img }}">
+            <div class="card-image" (click)="onClickAlbum(id)">
+              <div class="col s3" *ngFor="let img of current_albums[id].img; let i = index">
+                <img *ngIf="i < 12" src= "{{ img }}">
+              </div>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">
+                <span *ngIf="current_albums[id].flag == true">*{{ albums_names[id] }}</span>
+                <span *ngIf="current_albums[id].flag == false">{{ albums_names[id] }}</span>
+                <i class="material-icons right">more_vert</i></span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">{{ albums_names[id] }}<i class="material-icons right">close</i></span>
+              <p>{{ current_albums[id].description }}</p>
             </div>
           </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">
-              <span *ngIf="current_albums[id].flag == true">*{{ albums_names[id] }}</span>
-              <span *ngIf="current_albums[id].flag == false">{{ albums_names[id] }}</span>
-              <i class="material-icons right">more_vert</i></span>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">{{ albums_names[id] }}<i class="material-icons right">close</i></span>
-            <p>{{ current_albums[id].description }}</p>
-          </div>
-        </div>
 
       </div>
     </div>
