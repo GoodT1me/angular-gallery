@@ -22,9 +22,9 @@ export class ShowProfilesComponent implements OnInit{
   ngOnInit() {
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
-
     this.checkLogged()
     localStorage.removeItem('selected_profile')
+    localStorage.removeItem('album_id')
   }
 
   checkLogged() {

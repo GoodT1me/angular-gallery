@@ -13,8 +13,8 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
   
   users = []
   images = []
-  private current_gallery
-  likesCont
+  private selected_profile
+  selected_album
   clicked_like = []
   delPhoto = false
   replacePhoto = false
@@ -33,10 +33,12 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
-    this.current_gallery = localStorage.getItem('selected_profile')
+    this.selected_album = localStorage.getItem('album_id')
+    this.selected_profile = localStorage.getItem('selected_profile')
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
     }
+    console.log(this.selected_album)
   }
 
   ngAfterViewInit() {
@@ -57,20 +59,21 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
   }
 
   addLikes(id) {
-    if(!this.usersService.logged_likes[this.current_gallery].includes(id)) {
-      if(this.authService.getUserLoggedIn()){
-        this.usersService.logged_likes[this.current_gallery].push(id)
-        this.images[this.current_gallery].likes[id]++
+    if(this.authService.getUserLoggedIn()) {
+      if(!this.usersService.logged_likes[this.selected_profile][this.selected_album].includes(id)) {
+        this.usersService.logged_likes[this.selected_profile][this.selected_album].push(id)
+        this.images[this.selected_profile].albums[this.selected_album].likes[id]++
       }
     }
+    console.log(this.usersService.logged_likes[this.selected_profile][this.selected_album])
   }
 
   replaceImages(id) {
     this.replace_list.push(id)
 
       if(this.replace_list.length > 1) {
-        let temp_images = this.images[this.current_gallery].img
-        let temp_likes = this.images[this.current_gallery].likes
+        let temp_images = this.images[this.selected_profile].albums[this.selected_album].img
+        let temp_likes = this.images[this.selected_profile].albums[this.selected_album].likes
 
         let temp_img = temp_images[this.replace_list[0]]
         temp_images[this.replace_list[0]] = temp_images[this.replace_list[1]]
@@ -85,8 +88,8 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
   }
 
   deleteImages(id) {
-    this.images[this.current_gallery].img.splice(id, 1)
-    this.images[this.current_gallery].likes.splice(id, 1)
+    this.images[this.selected_profile].albums[this.selected_album].img.splice(id, 1)
+    this.images[this.selected_profile].albums[this.selected_album].likes.splice(id, 1)
   }
 
   onDeletePhoto(c) {
@@ -97,7 +100,7 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
   onSaveDeleted() {
     this.delPhoto = false
     this.instruction.delete_instruction = false
-    location.reload()
+    // location.reload()
   }
 
   onReplacePhoto() {
@@ -113,7 +116,7 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
 
   checkUserGallery() {
     if(this.authService.getUserLoggedIn()){
-      if(this.current_gallery == this.authService.getLoggedUserId()) {
+      if(this.selected_profile == this.authService.getLoggedUserId()) {
         return true
       }
       return false

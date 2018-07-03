@@ -16,6 +16,14 @@ export class AuthService {
     this.isUserLoggedIn = true
   }
 
+  setSelectedAlbum(id) {
+    localStorage.setItem('album_id', id)
+  }
+
+  getSelectedAlbum() {
+    return localStorage.getItem('album_id')
+  }
+
   getUserLoggedIn(){
     return this.isUserLoggedIn
   }

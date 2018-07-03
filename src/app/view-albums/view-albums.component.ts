@@ -18,7 +18,7 @@ export class ViewAlbumsComponent implements OnInit {
 
   constructor(
     private usersService: UsersService,
-    private authService: AuthService
+    private authService: AuthService,
   ) { }
 
   ngOnInit() {
@@ -26,6 +26,7 @@ export class ViewAlbumsComponent implements OnInit {
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
     this.replaceFlaggedAlbums()
+    localStorage.removeItem('album_id')
   }
 
   onClickFlag() {
@@ -48,16 +49,11 @@ export class ViewAlbumsComponent implements OnInit {
     }else if(this.unflag) {
       this.makeUnFlagged(id)
     }
-    else{
-      //open album
-      console.log(id)
-      this.showSelectedAlbum()
-    }
   }
 
   onClickAlbumName(id) {
     if(!(this.flag || this.unflag)) {
-      console.log("album id - " + id)
+      this.authService.setSelectedAlbum(id)
     }
   }
 
@@ -77,10 +73,6 @@ export class ViewAlbumsComponent implements OnInit {
         albums[i].flag = false
       }
     }
-  }
-
-  showSelectedAlbum() {
-
   }
 
   replaceFlaggedAlbums() {

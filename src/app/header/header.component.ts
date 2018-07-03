@@ -19,4 +19,11 @@ export class HeaderComponent implements OnInit {
     }
     this.logged =this.authService.getUserLoggedIn()
   }
+
+  checkIfSelectProfile() {
+    if(localStorage.getItem('selected_profile')) {
+      return true
+    }
+    return false
+  }
 }

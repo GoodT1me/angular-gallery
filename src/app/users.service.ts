@@ -6,10 +6,11 @@ import { Injectable } from '@angular/core';
 export class UsersService {
 
   currentUser
-  logged_likes = [[], [], []]
+  logged_likes = []
 
   constructor() {
     this.completeLikes()
+    this.completeLoggedLikes()
   }
 
   setCurrentUser(user) {
@@ -34,6 +35,15 @@ export class UsersService {
         }
       })
     })
+  }
+
+  completeLoggedLikes() {
+    for(let i = 0; i < this.IMAGES.length; i++) {
+      this.logged_likes.push([])
+      for(let j = 0; j < this.IMAGES[i].albums.length; j++) {
+        this.logged_likes[i].push([])
+      }
+    }
   }
 
   USERS = [

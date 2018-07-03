@@ -10,7 +10,8 @@ import { UsersService } from '../users.service'
 
 export class UploadImgComponent implements OnInit {
 
-  private current_gallery
+  private selected_profile
+  selected_album
   form: FormGroup;
   chose_images = []
   add_likes = []
@@ -28,7 +29,8 @@ export class UploadImgComponent implements OnInit {
   ngOnInit() {
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
-    this.current_gallery = localStorage.getItem('selected_gallery')
+    this.selected_profile = localStorage.getItem('selected_profile')
+    this.selected_album = localStorage.getItem('album_id')
   }
 
   createForm() {
@@ -62,8 +64,8 @@ export class UploadImgComponent implements OnInit {
     // this.http.post('apiUrl', formModel)
     setTimeout(() => {
 
-      this.images[this.current_gallery].img.push.apply(this.images[this.current_gallery].img, this.chose_images)
-      this.images[this.current_gallery].likes.push.apply(this.images[this.current_gallery].likes, this.add_likes)
+      this.images[this.selected_profile].albums[this.selected_album].img.push.apply(this.images[this.selected_profile].albums[this.selected_album].img, this.chose_images)
+      this.images[this.selected_profile].albums[this.selected_album].likes.push.apply(this.images[this.selected_profile].albums[this.selected_album].likes, this.add_likes)
 
       if(this.chose_images.length > 0) {
         alert("upload successful")

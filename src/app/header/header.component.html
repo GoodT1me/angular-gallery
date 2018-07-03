@@ -2,6 +2,7 @@
   <div class="nav-wrapper">
     <div class="logo">
       <a routerLink="/">USERS</a>
+      <a routerLink="/albums" *ngIf="checkIfSelectProfile()">ALBUMS</a>
     </div>
     <div class="log-button">
       <a class="waves-effect waves-light btn"

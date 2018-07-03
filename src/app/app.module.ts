@@ -22,7 +22,7 @@ const ROUTES= [
     component: HomePageComponent
   },
   {
-    path: 'profile-another',
+    path: 'albums/photo',
     component: ViewProfileAnotherComponent
   },
   {
@@ -30,7 +30,7 @@ const ROUTES= [
     component: LoginFormComponent,
   },
   {
-    path: 'profile-another/upload',
+    path: 'albums/photo/upload',
     component: UploadImgComponent
   },
   {

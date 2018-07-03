@@ -5,8 +5,7 @@
     <p> Last Name: {{ users[current_profile].lastName }} </p>
   </div>
 
-  <div class="btn-albums" >
-      <!-- *ngIf="compareLoggedProfileWithSelected()" -->
+  <div class="btn-albums" *ngIf="compareLoggedProfileWithSelected()">
     <a class="waves-effect waves-light btn"
       *ngIf="!flag && !unflag"
       (click)="onClickFlag()"
@@ -40,8 +39,10 @@
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">
-              <span *ngIf="album.flag == true" (click)="onClickAlbumName(album.id_album)">*{{ album.name }}</span>
-              <span *ngIf="album.flag == false" (click)="onClickAlbumName(album.id_album)">{{ album.name }}</span>
+              <span *ngIf="album.flag == true"
+                (click)="onClickAlbumName(id)"
+                routerLink="photo"
+              >*{{ album.name }}</span>
               <i class="material-icons right">more_vert</i></span>
           </div>
           <div class="card-reveal">
@@ -58,8 +59,10 @@
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">
-              <span *ngIf="album.flag == true" (click)="onClickAlbumName(album.id_album)">*{{ album.name }}</span>
-              <span *ngIf="album.flag == false" (click)="onClickAlbumName(album.id_album)">{{ album.name }}</span>
+              <span *ngIf="album.flag == false"
+                (click)="onClickAlbumName(id)"
+                routerLink="photo"
+              >{{ album.name }}</span>
               <i class="material-icons right">more_vert</i></span>
           </div>
           <div class="card-reveal">
