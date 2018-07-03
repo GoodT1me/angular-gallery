@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { UsersService } from '../users.service'
 import { AuthService } from '../auth.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-view-albums',
@@ -19,6 +20,7 @@ export class ViewAlbumsComponent implements OnInit {
   constructor(
     private usersService: UsersService,
     private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -48,12 +50,9 @@ export class ViewAlbumsComponent implements OnInit {
       this.makeFlagged(id)
     }else if(this.unflag) {
       this.makeUnFlagged(id)
-    }
-  }
-
-  onClickAlbumName(id) {
-    if(!(this.flag || this.unflag)) {
+    }else {
       this.authService.setSelectedAlbum(id)
+      this.router.navigate(['albums/photo'])
     }
   }
 
