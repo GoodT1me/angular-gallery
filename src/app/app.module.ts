@@ -14,7 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoggedProfileComponent } from './logged-profile/logged-profile.component'
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './auth.guard';
-import { ViewAlbumsComponent } from './view-albums/view-albums.component'
+import { ViewAlbumsComponent } from './view-albums/view-albums.component';
+import { TopUsersComponent } from './top-users/top-users.component'
 
 const ROUTES= [
   {
@@ -41,6 +42,10 @@ const ROUTES= [
   {
     path: 'albums',
     component: ViewAlbumsComponent
+  },
+  {
+    path: 'top-users',
+    component: TopUsersComponent
   }
 ]
 
@@ -56,6 +61,7 @@ const ROUTES= [
     LoginFormComponent,
     LoggedProfileComponent,
     ViewAlbumsComponent,
+    TopUsersComponent,
   ],
   imports: [
     BrowserModule,

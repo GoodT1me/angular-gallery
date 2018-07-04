@@ -1,0 +1,21 @@
+<div class="container">
+  <table class="table-top-users highlight">
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Albums</th>
+          <th>Images</th>
+          <th>Likes</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let user of total_info; let i = index">
+        <td>{{user.user}}</td>
+        <td class="td-width">{{ user.total_albums }}</td>
+        <td class="td-width">{{ user.total_images }}</td>
+        <td class="td-width">{{ user.total_likes }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -5,6 +5,8 @@
       <a routerLink="/albums" *ngIf="checkIfSelectProfile()">ALBUMS</a>
     </div>
 
+    <a class="top-users" routerLink="top-users">Top 5 users</a>
+
     <div class="log-button">
       <a class="waves-effect waves-light btn"
         *ngIf="authService.getUserLoggedIn()"

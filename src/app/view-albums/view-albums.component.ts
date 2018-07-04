@@ -93,7 +93,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   }
 
   onClickAlbumName(id){
-    if(!(this.flag || this.unflag) {
+    if(!(this.flag || this.unflag)) {
       this.authService.setSelectedAlbum(id)
       this.router.navigate(['albums/photo'])
       console.log(this.images[this.current_profile].albums)
@@ -132,7 +132,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     }
     //sort flagged & unflagged albums
     for (let i = 0; i < flagged_albums.length - 1; i++) {
-      for (let j = 0; j < flagged_albums.length-i-1; j++) {
+      for (let j = 0; j < flagged_albums.length - i - 1; j++) {
         if(flagged_albums[j].id_album > flagged_albums[j+1].id_album) {
           const temp = flagged_albums[j]
           flagged_albums[j] = flagged_albums[j+1]
@@ -142,7 +142,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     }
 
     for (let i = 0; i < unflagged_albums.length - 1; i++) {
-      for (let j = 0; j < unflagged_albums.length-i-1; j++) {
+      for (let j = 0; j < unflagged_albums.length - i - 1; j++) {
         if(unflagged_albums[j].id_album > unflagged_albums[j+1].id_album) {
           const temp = unflagged_albums[j]
           unflagged_albums[j] = unflagged_albums[j+1]
