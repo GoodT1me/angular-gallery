@@ -70,8 +70,10 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   }
 
   addAlbum() {
+    let id = this.getMaxAlbumId()
+    id++
     this.images[this.current_profile].albums.push({
-      id_album: 0,
+      id_album: id,
       name: this.form_add_albums.value.album_name,
       img: [],
       description: this.form_add_albums.value.album_description,
@@ -87,9 +89,14 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
       this.makeFlagged(id)
     }else if(this.unflag) {
       this.makeUnFlagged(id)
-    }else {
+    }
+  }
+
+  onClickAlbumName(id){
+    if(!(this.flag || this.unflag) {
       this.authService.setSelectedAlbum(id)
       this.router.navigate(['albums/photo'])
+      console.log(this.images[this.current_profile].albums)
     }
   }
 
@@ -145,6 +152,17 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     }
 
     this.images[this.current_profile].albums = (flagged_albums.concat(unflagged_albums))
+  }
+
+  getMaxAlbumId() {
+    const albums = this.images[this.current_profile].albums
+    let max = 0
+    for(let i = 0; i < albums.length; i++) {
+      if(albums[i].id_album > max) {
+        max = albums[i].id_album
+      }
+    }
+    return max
   }
   
   compareLoggedProfileWithSelected() {
