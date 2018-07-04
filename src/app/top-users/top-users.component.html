@@ -10,7 +10,7 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let user of total_info; let i = index">
+      <tr class="tr-hover" *ngFor="let user of total_info; let i = index">
         <td>{{user.user}}</td>
         <td class="td-width">{{ user.total_albums }}</td>
         <td class="td-width">{{ user.total_images }}</td>

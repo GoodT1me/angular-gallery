@@ -7,3 +7,8 @@
 .td-width {
   width: 150px;
 }
+
+.tr-hover:hover{
+  background-color: rgb(194, 192, 180);
+  font-size: 20px;
+}
