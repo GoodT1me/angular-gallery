@@ -15,6 +15,8 @@ export class LoginFormComponent implements OnInit {
   users = []
   private logged_user
   incorrect_auth = ''
+  private is_logged = false
+  count_attempt = 0
 
   constructor(
     private router:Router,
@@ -26,7 +28,7 @@ export class LoginFormComponent implements OnInit {
 
   ngOnInit() {
     this.users = this.usersService.USERS
-
+    this.is_logged = this.authService.getUserLoggedIn()
     this.form = this.formBuilder.group({
       username: '',
       password: ''
@@ -41,9 +43,15 @@ export class LoginFormComponent implements OnInit {
          this.router.navigate([''])
          this.authService.setLoggedUser(this.users[i])
          this.authService.setUserLoggedIn()
-         alert("You are logged")
+         location.reload()
       }
     }
-    this.incorrect_auth = 'Invalid username or password'
+    this.count_attempt++
+    this.incorrect_auth = ("Invalid username or password - Attempt(" + this.count_attempt +")")
+    
+    this.form = this.formBuilder.group({
+      username: '',
+      password: ''
+    })
   }
 }

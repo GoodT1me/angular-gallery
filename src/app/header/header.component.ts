@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   initModal() {
     let elems = document.querySelectorAll('.modal')
     console.log(elems)
-    M.Modal.init(elems, {});
+    M.Modal.init(elems, {})
   }
 
   checkIfSelectProfile() {
@@ -36,5 +36,9 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       return true
     }
     return false
+  }
+
+  onLogIn() {
+
   }
 }

@@ -26,11 +26,11 @@ nav {
 }
 
 .modal {
-  width: 650px;
+  width: 475px;
   overflow-y: unset;
   color: #000;
 }
 
-.modal-footer {
-  height: 70px;
+.login-form {
+  height: 100px;
 }
