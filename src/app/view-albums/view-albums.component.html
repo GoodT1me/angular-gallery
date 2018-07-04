@@ -21,7 +21,7 @@
       (click)="onSaveFlag()"
     >Save</a>
 
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Add Albums</a>
+    <a *ngIf="!(flag || unflag)" class="waves-effect waves-light btn modal-trigger" href="#modal2">Add Albums</a>
   </div>
 
   <p class="instruction-flag" *ngIf="flag">Click on album to make it flagged</p>
