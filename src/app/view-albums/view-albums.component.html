@@ -20,7 +20,8 @@
       *ngIf="flag || unflag"
       (click)="onSaveFlag()"
     >Save</a>
-    
+
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Add Albums</a>
   </div>
 
   <p class="instruction-flag" *ngIf="flag">Click on album to make it flagged</p>
@@ -46,7 +47,7 @@
             <span class="card-title grey-text text-darken-4">{{ album.name }}<i class="material-icons right">close</i></span>
             <p>{{ album.description }}</p>
           </div>
-        </div>
+        </div> 
 
         <div class="inside card" *ngIf="!album.flag">
           <div class="card-image" (click)="onClickAlbum(id)">
@@ -64,6 +65,42 @@
             <p>{{ album.description }}</p>
           </div>
         </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Structure -->
+  <div id="modal2" class="modal modal-add-albums">
+    <div class="modal-content">
+      <div class="add-albums-form">
+
+        <form [formGroup]="form_add_albums" (submit)="addAlbum()">
+          <div class="input">
+            <tr>
+              <td>
+                <label>Album name</label>
+                <input type="text" formControlName="album_name" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Album description</label>
+                <input type="text" formControlName="album_description" />
+              </td>
+              <td class="check-flag">
+                <label>
+                  <input type="checkbox" formControlName="checkFlag"/>
+                  <span>Flag</span>
+                </label>
+              </td>
+            </tr>
+          </div>
+          <div class="input">
+            <button class="waves-light btn" type="submit">Add inserted albums</button>
+            <a class="close-add-album modal-close waves-light btn">Close</a>
+          </div>
+        </form>
 
       </div>
     </div>

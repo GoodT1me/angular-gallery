@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit,  AfterViewInit} from '@angular/core'
 import { UsersService } from '../users.service'
 import { AuthService } from '../auth.service'
 import { Router } from '@angular/router'
+import { FormBuilder, FormGroup } from '@angular/forms'
+import * as M from "materialize-css"
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-view-albums',
   templateUrl: './view-albums.component.html',
   styleUrls: ['./view-albums.component.css']
 })
-export class ViewAlbumsComponent implements OnInit {
+export class ViewAlbumsComponent implements OnInit, AfterViewInit {
 
   users = []
   images = []
@@ -16,18 +19,26 @@ export class ViewAlbumsComponent implements OnInit {
   private current_profile
   flag = false
   unflag = false
+  form_add_albums: FormGroup
+  count_insert = [1]
 
   constructor(
     private usersService: UsersService,
     private authService: AuthService,
+    private formBuilder: FormBuilder,
     private router: Router
   ) { }
+
+  ngAfterViewInit() {
+    this.initAddAlbumsModal()
+  }
 
   ngOnInit() {
     this.current_profile = localStorage.getItem('selected_profile')
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
     this.replaceFlaggedAlbums()
+    this.initFormAddAlbum()
     localStorage.removeItem('album_id')
   }
 
@@ -43,6 +54,32 @@ export class ViewAlbumsComponent implements OnInit {
     this.flag = false
     this.unflag = false
     this.replaceFlaggedAlbums()
+  }
+
+  initAddAlbumsModal() {
+    let elems = document.querySelectorAll('.modal-add-albums')
+    M.Modal.init(elems, {})
+  }
+
+  initFormAddAlbum() {
+    this.form_add_albums = this.formBuilder.group({
+      album_name: '',
+      album_description: 'default',
+      checkFlag: false
+    })
+  }
+
+  addAlbum() {
+    this.images[this.current_profile].albums.push({
+      id_album: 0,
+      name: this.form_add_albums.value.album_name,
+      img: [],
+      description: this.form_add_albums.value.album_description,
+      likes: [],
+      flag: this.form_add_albums.value.checkFlag
+    })
+    this.usersService.logged_likes[this.current_profile].push([])
+    this.initFormAddAlbum()
   }
 
   onClickAlbum(id) {

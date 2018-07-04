@@ -16,13 +16,13 @@ export class LoginFormComponent implements OnInit {
   private logged_user
   incorrect_auth = ''
   private is_logged = false
-  count_attempt = 0
+  count_attempt = 1
 
   constructor(
     private router:Router,
-    private usersService:UsersService,
-    private formBuilder:FormBuilder,
-    private authService:AuthService
+    private usersService: UsersService,
+    private formBuilder: FormBuilder,
+    private authService: AuthService
   ) { }
   
 
@@ -44,14 +44,14 @@ export class LoginFormComponent implements OnInit {
          this.authService.setLoggedUser(this.users[i])
          this.authService.setUserLoggedIn()
          location.reload()
+      }else{
+        this.incorrect_auth = ("Invalid username or password - Attempt(" + this.count_attempt +")")
       }
     }
-    this.count_attempt++
-    this.incorrect_auth = ("Invalid username or password - Attempt(" + this.count_attempt +")")
-    
     this.form = this.formBuilder.group({
       username: '',
       password: ''
     })
+    this.count_attempt++
   }
 }

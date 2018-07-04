@@ -56,3 +56,15 @@
 .primary {
   background: rgb(0, 247, 255);
 }
+
+.modal {
+  width: 350px;
+}
+
+.check-flag {
+  padding-top: 50px;
+}
+
+.close-add-album {
+  margin-left: 32px;
+}
