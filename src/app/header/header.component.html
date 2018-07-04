@@ -4,6 +4,21 @@
       <a routerLink="/">USERS</a>
       <a routerLink="/albums" *ngIf="checkIfSelectProfile()">ALBUMS</a>
     </div>
+
+    <!-- Modal Trigger -->
+    <a class="top5-align modal-trigger" href="#modal1">Top 5 Users</a>
+    
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4>Top users by likes</h4>
+        <p>A bunch of text</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
+    </div>
+
     <div class="log-button">
       <a class="waves-effect waves-light btn"
         *ngIf="authService.getUserLoggedIn()"

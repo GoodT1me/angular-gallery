@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, AfterViewInit } from '@angular/core';
 import { UsersService } from '../users.service'
 import { AuthService } from '../auth.service'
-import * as M from "materialize-css";
+import * as M from "materialize-css"
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

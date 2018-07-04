@@ -19,3 +19,18 @@ nav {
 .logo a {
   font-size: 20px;
 }
+
+.top5-align {
+  margin-left: 38%;
+  font-size: 28px;
+}
+
+.modal {
+  width: 650px;
+  overflow-y: unset;
+  color: #000;
+}
+
+.modal-footer {
+  height: 70px;
+}
