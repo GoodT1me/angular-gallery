@@ -7,21 +7,22 @@
 
   <div class="btn-albums" *ngIf="compareLoggedProfileWithSelected()">
     <a class="waves-effect waves-light btn"
-      *ngIf="!flag && !unflag"
+      *ngIf="!flag && !unflag && !delete_album"
       (click)="onClickFlag()"
     >Flag</a>
 
     <a class="waves-effect waves-light btn"
-      *ngIf="!unflag && !flag"
+      *ngIf="!unflag && !flag && !delete_album"
       (click)="onClickUnFlag()"
     >Unflag</a>
 
     <a class="waves-effect waves-light btn"
-      *ngIf="flag || unflag"
+      *ngIf="flag || unflag || delete_album"
       (click)="onSaveFlag()"
     >Save</a>
 
-    <a *ngIf="!(flag || unflag)" class="waves-effect waves-light btn modal-trigger" href="#modal2">Add Albums</a>
+    <a *ngIf="!(flag || unflag || delete_album)" class="waves-effect waves-light btn" (click)="onClickDeleteAlbum()">Delete Albums</a>
+    <a *ngIf="!(flag || unflag || delete_album)" class="waves-effect waves-light btn modal-trigger" href="#modal2">Add Albums</a>
   </div>
 
   <p class="instruction-flag" *ngIf="flag">Click on album to make it flagged</p>

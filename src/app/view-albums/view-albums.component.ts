@@ -19,6 +19,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   private current_profile
   flag = false
   unflag = false
+  delete_album = false
   form_add_albums: FormGroup
   count_insert = [1]
 
@@ -50,9 +51,14 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     this.unflag = true
   }
 
+  onClickDeleteAlbum() {
+    this.delete_album = true
+  }
+
   onSaveFlag() {
     this.flag = false
     this.unflag = false
+    this.delete_album = false
     this.replaceFlaggedAlbums()
   }
 
@@ -89,11 +95,13 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
       this.makeFlagged(id)
     }else if(this.unflag) {
       this.makeUnFlagged(id)
+    }else if(this.delete_album) {
+      this.deleteAlbums(id)
     }
   }
 
   onClickAlbumName(id){
-    if(!(this.flag || this.unflag)) {
+    if(!(this.flag || this.unflag || this.delete_album)) {
       this.authService.setSelectedAlbum(id)
       this.router.navigate(['albums/photo'])
       console.log(this.images[this.current_profile].albums)
@@ -116,6 +124,11 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
         albums[i].flag = false
       }
     }
+  }
+
+  deleteAlbums(id) {
+    console.log("delete album - " + id)
+    this.images[this.current_profile].albums.splice(id, 1)
   }
 
   replaceFlaggedAlbums() {
