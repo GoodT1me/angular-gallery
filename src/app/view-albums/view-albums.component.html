@@ -7,26 +7,30 @@
 
   <div class="btn-albums" *ngIf="compareLoggedProfileWithSelected()">
     <a class="waves-effect waves-light btn"
-      *ngIf="!flag && !unflag && !delete_album"
+      *ngIf="!flag && !unflag && !delete_album && !edit_album"
       (click)="onClickFlag()"
     >Flag</a>
 
     <a class="waves-effect waves-light btn"
-      *ngIf="!unflag && !flag && !delete_album"
+      *ngIf="!unflag && !flag && !delete_album && !edit_album"
       (click)="onClickUnFlag()"
     >Unflag</a>
 
     <a class="waves-effect waves-light btn"
-      *ngIf="flag || unflag || delete_album"
+      *ngIf="flag || unflag || delete_album || edit_album"
       (click)="onSaveFlag()"
     >Save</a>
 
-    <a *ngIf="!(flag || unflag || delete_album)" class="waves-effect waves-light btn" (click)="onClickDeleteAlbum()">Delete Albums</a>
-    <a *ngIf="!(flag || unflag || delete_album)" class="waves-effect waves-light btn modal-trigger" href="#modal2">Add Albums</a>
+    <a *ngIf="!(flag || unflag || delete_album || edit_album)" class="waves-effect waves-light btn" (click)="onClickDeleteAlbum()">Delete Albums</a>
+    <a *ngIf="!(flag || unflag || delete_album || edit_album)" class="waves-effect waves-light btn" (click)="onClickEditAlbum()">Edit Albums</a>
+    <!-- <a *ngIf="!(flag || unflag || delete_album)" class="waves-effect waves-light btn modal-trigger" href="#modal3">Edit Albums</a> -->
+    <a *ngIf="!(flag || unflag || delete_album || edit_album)" class="waves-effect waves-light btn modal-trigger" href="#modal2">Add Albums</a>
   </div>
 
   <p class="instruction-flag" *ngIf="flag">Click on album to make it flagged</p>
   <p class="instruction-flag" *ngIf="unflag">Click on album to make it unflagged</p>
+  <p class="instruction-flag" *ngIf="delete_album">Click on album to delete it</p>
+  <p class="instruction-flag" *ngIf="edit_album">Click on album to edit it</p>
 
   <div class="gallery">
     <div class="row">
@@ -41,7 +45,7 @@
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">
-              <span *ngIf="album.flag == true" (click)="onClickAlbumName(id)">*{{ album.name }}</span>
+              <span *ngIf="album.flag == true">*{{ album.name }}</span>
               <i class="material-icons right">more_vert</i></span>
           </div>
           <div class="card-reveal">
@@ -58,7 +62,7 @@
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">
-              <span *ngIf="album.flag == false" (click)="onClickAlbumName(id)">{{ album.name }}</span>
+              <span *ngIf="album.flag == false">{{ album.name }}</span>
               <i class="material-icons right">more_vert</i></span>
           </div>
           <div class="card-reveal">
@@ -77,6 +81,41 @@
       <div class="add-albums-form">
 
         <form [formGroup]="form_add_albums" (submit)="addAlbum()">
+          <div class="input">
+            <tr>
+              <td>
+                <label>Album name</label>
+                <input type="text" formControlName="album_name" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Album description</label>
+                <input type="text" formControlName="album_description" />
+              </td>
+              <td class="check-flag">
+                <label>
+                  <input type="checkbox" formControlName="checkFlag"/>
+                  <span>Flag</span>
+                </label>
+              </td>
+            </tr>
+          </div>
+          <div class="input">
+            <button class="waves-light btn" type="submit">Add inserted albums</button>
+            <a class="close-add-album modal-close waves-light btn">Close</a>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="modal3" class="modal modal-edit-albums">
+    <div class="modal-content">
+      <div class="add-albums-form">
+
+        <form [formGroup]="form_edit_albums" (submit)="editAlbum()">
           <div class="input">
             <tr>
               <td>

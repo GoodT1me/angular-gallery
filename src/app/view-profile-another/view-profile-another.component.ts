@@ -38,7 +38,6 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
     }
-    console.log(this.selected_album)
   }
 
   ngAfterViewInit() {
@@ -65,7 +64,6 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
         this.images[this.selected_profile].albums[this.selected_album].likes[id]++
       }
     }
-    console.log(this.usersService.logged_likes[this.selected_profile][this.selected_album])
   }
 
   replaceImages(id) {

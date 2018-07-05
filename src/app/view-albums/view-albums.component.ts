@@ -20,7 +20,9 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   flag = false
   unflag = false
   delete_album = false
+  edit_album = false
   form_add_albums: FormGroup
+  form_edit_albums: FormGroup
   count_insert = [1]
 
   constructor(
@@ -32,6 +34,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.initAddAlbumsModal()
+    this.initEditAlbum()
   }
 
   ngOnInit() {
@@ -40,6 +43,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     this.images = this.usersService.IMAGES
     this.replaceFlaggedAlbums()
     this.initFormAddAlbum()
+    this.initFormEditAlbum()
     localStorage.removeItem('album_id')
   }
 
@@ -55,10 +59,15 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     this.delete_album = true
   }
 
+  onClickEditAlbum() {
+    this.edit_album = true
+  }
+
   onSaveFlag() {
     this.flag = false
     this.unflag = false
     this.delete_album = false
+    this.edit_album = false
     this.replaceFlaggedAlbums()
   }
 
@@ -67,10 +76,23 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     M.Modal.init(elems, {})
   }
 
+  initEditAlbum() {
+    let elems = document.querySelectorAll('.modal-edit-albums')
+    M.Modal.init(elems, {})
+  }
+
   initFormAddAlbum() {
     this.form_add_albums = this.formBuilder.group({
       album_name: '',
       album_description: 'default',
+      checkFlag: false
+    })
+  }
+
+  initFormEditAlbum() {
+    this.form_edit_albums = this.formBuilder.group({
+      album_name: '',
+      album_description: '',
       checkFlag: false
     })
   }
@@ -97,14 +119,14 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
       this.makeUnFlagged(id)
     }else if(this.delete_album) {
       this.deleteAlbums(id)
-    }
-  }
-
-  onClickAlbumName(id){
-    if(!(this.flag || this.unflag || this.delete_album)) {
-      this.authService.setSelectedAlbum(id)
-      this.router.navigate(['albums/photo'])
-      console.log(this.images[this.current_profile].albums)
+    }else if (this.edit_album) {
+      this.editAlbums(id)
+    }else {
+      // open clicked album
+      if(!(this.flag || this.unflag || this.delete_album || this.edit_album)) {
+        this.authService.setSelectedAlbum(id)
+        this.router.navigate(['albums/photo'])
+      }
     }
   }
 
@@ -129,6 +151,10 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   deleteAlbums(id) {
     console.log("delete album - " + id)
     this.images[this.current_profile].albums.splice(id, 1)
+  }
+
+  editAlbums(id) {
+    console.log(id)
   }
 
   replaceFlaggedAlbums() {
