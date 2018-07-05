@@ -25,6 +25,7 @@ export class ShowProfilesComponent implements OnInit{
     this.checkLogged()
     localStorage.removeItem('selected_profile')
     localStorage.removeItem('album_id')
+    document.getElementById("first_name").focus()
   }
 
   checkLogged() {
