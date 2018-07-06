@@ -16,11 +16,15 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   users = []
   images = []
   current_albums
-  private current_profile
+  id_album_edit
   flag = false
   unflag = false
   delete_album = false
   edit_album = false
+  click_album = false
+  edit_selected_album = false
+  private selected_profile
+  selected_album
   form_add_albums: FormGroup
   form_edit_albums: FormGroup
   count_insert = [1]
@@ -38,9 +42,10 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.current_profile = localStorage.getItem('selected_profile')
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
+    this.selected_album = localStorage.getItem('album_id')
+    this.selected_profile = localStorage.getItem('selected_profile')
     this.replaceFlaggedAlbums()
     this.initFormAddAlbum()
     this.initFormEditAlbum()
@@ -68,7 +73,16 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     this.unflag = false
     this.delete_album = false
     this.edit_album = false
+    this.edit_selected_album = false
     this.replaceFlaggedAlbums()
+  }
+
+  onClickEditSelectedAlbum() {
+    this.form_edit_albums = this.formBuilder.group({
+      album_name: this.images[this.selected_profile].albums[this.id_album_edit].name,
+      album_description: this.images[this.selected_profile].albums[this.id_album_edit].description,
+      checkFlag: this.images[this.selected_profile].albums[this.id_album_edit].flag
+    })
   }
 
   initAddAlbumsModal() {
@@ -100,7 +114,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   addAlbum() {
     let id = this.getMaxAlbumId()
     id++
-    this.images[this.current_profile].albums.push({
+    this.images[this.selected_profile].albums.push({
       id_album: id,
       name: this.form_add_albums.value.album_name,
       img: [],
@@ -108,11 +122,21 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
       likes: [],
       flag: this.form_add_albums.value.checkFlag
     })
-    this.usersService.logged_likes[this.current_profile].push([])
+    this.usersService.logged_likes[this.selected_profile].push([])
+    this.initFormAddAlbum()
+  }
+
+  editAlbum() {
+    console.log(this.images[this.selected_profile].albums[this.id_album_edit])
+    this.images[this.selected_profile].albums[this.id_album_edit].name = this.form_edit_albums.value.album_name
+    this.images[this.selected_profile].albums[this.id_album_edit].description = this.form_edit_albums.value.album_description
+    this.images[this.selected_profile].albums[this.id_album_edit].flag = this.form_edit_albums.value.checkFlag
+    console.log(this.images[this.selected_profile].albums[this.id_album_edit])
     this.initFormAddAlbum()
   }
 
   onClickAlbum(id) {
+    this.click_album = true
     if(this.flag) {
       this.makeFlagged(id)
     }else if(this.unflag) {
@@ -120,7 +144,8 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     }else if(this.delete_album) {
       this.deleteAlbums(id)
     }else if (this.edit_album) {
-      this.editAlbums(id)
+      this.id_album_edit = id
+      this.edit_selected_album = true
     }else {
       // open clicked album
       if(!(this.flag || this.unflag || this.delete_album || this.edit_album)) {
@@ -131,7 +156,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   }
 
   makeFlagged(id) {
-    const albums = this.images[this.current_profile].albums
+    const albums = this.images[this.selected_profile].albums
     for (let i = 0; i < albums.length; i++) {
       if(i == id) {
         albums[i].flag = true
@@ -140,7 +165,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   }
 
   makeUnFlagged(id) {
-    const albums = this.images[this.current_profile].albums
+    const albums = this.images[this.selected_profile].albums
     for (let i = 0; i < albums.length; i++) {
       if(i == id) {
         albums[i].flag = false
@@ -149,18 +174,13 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   }
 
   deleteAlbums(id) {
-    console.log("delete album - " + id)
-    this.images[this.current_profile].albums.splice(id, 1)
-  }
-
-  editAlbums(id) {
-    console.log(id)
+    this.images[this.selected_profile].albums.splice(id, 1)
   }
 
   replaceFlaggedAlbums() {
     let flagged_albums = []
     let unflagged_albums = []
-    const albums = this.images[this.current_profile].albums
+    const albums = this.images[this.selected_profile].albums
 
     for (let i = 0; i < albums.length; i++) {
       if(albums[i].flag) {
@@ -190,11 +210,11 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
       }
     }
 
-    this.images[this.current_profile].albums = (flagged_albums.concat(unflagged_albums))
+    this.images[this.selected_profile].albums = (flagged_albums.concat(unflagged_albums))
   }
 
   getMaxAlbumId() {
-    const albums = this.images[this.current_profile].albums
+    const albums = this.images[this.selected_profile].albums
     let max = 0
     for(let i = 0; i < albums.length; i++) {
       if(albums[i].id_album > max) {
@@ -206,7 +226,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   
   compareLoggedProfileWithSelected() {
     if(this.authService.getUserLoggedIn()) {
-      if(this.authService.getLoggedUserId() == this.current_profile){
+      if(this.authService.getLoggedUserId() == this.selected_profile){
         return true
       }
     }
