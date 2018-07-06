@@ -13,6 +13,7 @@ export class ShowProfilesComponent implements OnInit{
   users = []
   images = []
   searchUser = ''
+  currentStyles: {}
 
   constructor(
     private usersService: UsersService,
@@ -38,5 +39,16 @@ export class ShowProfilesComponent implements OnInit{
   showUserAlbums(id) {
     this.usersService.setCurrentUser(this.users[id])
   }
+
+  // canSave = true
+  // isUnchanged = true
+  // isSpecial = true
+  // setCurrentStyle() {
+  //   this.currentStyles = {
+  //     'font-style':  this.canSave      ? 'italic' : 'normal',
+  //     'font-weight': !this.isUnchanged ? 'bold'   : 'normal',
+  //     'font-size':   this.isSpecial    ? '44px'   : '12px'
+  //   };
+  // }
 
 }

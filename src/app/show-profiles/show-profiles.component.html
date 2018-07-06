@@ -13,7 +13,7 @@
       {{ user.userName }}'s albums
     </span>
     <span *ngIf="user_id == logged_user_id">
-      My albums ({{user.userName}})
+      My albums ({{ user.userName }})
     </span>
   </h5>
 
@@ -34,4 +34,8 @@
       >Show All</a>
     </div>
   </div>
+</div>
+
+<div [ngStyle]="currentStyles">
+  This div is initially italic, normal weight, and extra large (24px).
 </div>

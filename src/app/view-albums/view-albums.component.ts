@@ -127,12 +127,11 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   }
 
   editAlbum() {
-    console.log(this.images[this.selected_profile].albums[this.id_album_edit])
     this.images[this.selected_profile].albums[this.id_album_edit].name = this.form_edit_albums.value.album_name
     this.images[this.selected_profile].albums[this.id_album_edit].description = this.form_edit_albums.value.album_description
     this.images[this.selected_profile].albums[this.id_album_edit].flag = this.form_edit_albums.value.checkFlag
-    console.log(this.images[this.selected_profile].albums[this.id_album_edit])
     this.initFormAddAlbum()
+    this.edit_selected_album = false
   }
 
   onClickAlbum(id) {
