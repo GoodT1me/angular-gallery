@@ -47,7 +47,7 @@
 
       <div class="album col s4" *ngFor="let album of images[selected_profile].albums; let id = index">
 
-        <div class="inside card primary" *ngIf="album.flag" (click)="onClickAlbum(id)">
+        <div class="inside card" [ngClass] = "{'primary': album.flag}" (click)="onClickAlbum(id)">
           <div class="card-image">
             <div class="col s3" *ngFor="let img of album.img; let i = index">
               <img *ngIf="i < 12" src= "{{ img }}">
@@ -55,7 +55,8 @@
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">
-              <span *ngIf="album.flag == true">*{{ album.name }}</span>
+              <span *ngIf="album.flag">*{{ album.name }}</span>
+              <span *ngIf="!album.flag">{{ album.name }}</span>
               <i class="material-icons right">more_vert</i></span>
           </div>
           <div class="card-reveal">
@@ -63,23 +64,6 @@
             <p>{{ album.description }}</p>
           </div>
         </div> 
-
-        <div class="inside card" *ngIf="!album.flag" (click)="onClickAlbum(id)" data-target="#modal3">
-          <div class="card-image">
-            <div class="col s3" *ngFor="let img of album.img; let i = index">
-              <img *ngIf="i < 12" src= "{{ img }}">
-            </div>
-          </div>
-          <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">
-              <span *ngIf="album.flag == false">{{ album.name }}</span>
-              <i class="material-icons right">more_vert</i></span>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">{{ album.name }}<i class="material-icons right">close</i></span>
-            <p>{{ album.description }}</p>
-          </div>
-        </div>
 
       </div>
     </div>

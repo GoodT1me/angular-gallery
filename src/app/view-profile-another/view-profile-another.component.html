@@ -29,7 +29,7 @@
     >Save changes</a>
   </div>
 
-  <div class="instruction">
+  <div class="instruction" [ngClass]="{'red': isRed}">
     <p *ngIf="instruction.replace_instruction">Select two images for replace</p>
     <p *ngIf="instruction.delete_instruction">Click image for delete</p>
   </div>

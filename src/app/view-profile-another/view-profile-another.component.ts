@@ -19,6 +19,7 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
   delPhoto = false
   replacePhoto = false
   replace_list = []
+  isRed = true
 
   instruction = {
     replace_instruction: false,
