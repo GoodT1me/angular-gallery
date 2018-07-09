@@ -29,7 +29,8 @@
     >Save changes</a>
   </div>
 
-  <div class="instruction" [ngClass]="{'red': isRed}">
+  <!-- <div class="instruction" [ngClass]="{'red': isRed}"> -->
+  <div class="instruction" [class.red]="isRed">
     <p *ngIf="instruction.replace_instruction">Select two images for replace</p>
     <p *ngIf="instruction.delete_instruction">Click image for delete</p>
   </div>
@@ -37,7 +38,7 @@
   <div class="gallery">
     <div class="row">
       <div class="col s3 m"
-        *ngFor="let img of images[selected_profile].albums[selected_album].img; let i = index"
+        *ngFor="let img of images[selected_profile].albums[selected_album]?.img; let i = index"
         (click)="workWithImages(i)"
       >
         <div class="card">
