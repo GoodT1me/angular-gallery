@@ -49,7 +49,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     this.replaceFlaggedAlbums()
     this.initFormAddAlbum()
     this.initFormEditAlbum()
-    localStorage.removeItem('album_id')
+    // localStorage.removeItem('album_id')
   }
 
   onClickFlag() {
