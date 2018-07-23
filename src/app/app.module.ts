@@ -70,7 +70,7 @@ const ROUTES= [
     RouterModule.forRoot(ROUTES),
     ReactiveFormsModule,
     HttpClientModule,
-    SortablejsModule.forRoot({ animation: 150 }),
+    SortablejsModule.forRoot({ animation: 100 }),
     
   ],
   providers: [],
