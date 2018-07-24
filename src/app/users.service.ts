@@ -50,7 +50,7 @@ export class UsersService {
     {
       id_user: 0,
       userName: 'Mike',
-      password: 'a',
+      password: '1234qwer',
       lastName: 'LN 1',
       firstName: 'FN 1',
     },

@@ -12,19 +12,12 @@ export class TopUsersComponent implements OnInit {
   images
   total_info = []
 
-  //model for form 
-  model: any = {}
-
   constructor(private usersService: UsersService) { }
 
   ngOnInit() {
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
     this.setTotal()
-  }
-
-  onSubmit() {
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
   }
 
   setTotal() {
