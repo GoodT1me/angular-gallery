@@ -16,7 +16,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { AuthGuard } from './auth.guard'
 import { ViewAlbumsComponent } from './view-albums/view-albums.component'
 import { TopUsersComponent } from './top-users/top-users.component'
-import { SortablejsModule } from '../../node_modules/angular-sortablejs'
+import { SortablejsModule } from '../../node_modules/angular-sortablejs';
+import { HighlightDirective } from './highlight.directive'
 
 const ROUTES= [
   {
@@ -63,6 +64,7 @@ const ROUTES= [
     LoggedProfileComponent,
     ViewAlbumsComponent,
     TopUsersComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,

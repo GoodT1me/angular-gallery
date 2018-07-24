@@ -37,7 +37,7 @@
     <a *ngIf="showAddEditAlbumButton()" class="waves-effect waves-light btn modal-trigger" href="#modal2">Add Albums</a>
   </div>
 
-  <p class="instruction-flag" *ngIf="flag">Click on album to make it flagged</p>
+  <p appHighlight class="instruction-flag" *ngIf="flag">Click on album to make it flagged</p>
   <p class="instruction-flag" *ngIf="unflag">Click on album to make it unflagged</p>
   <p class="instruction-flag" *ngIf="delete_album">Click on album to delete it</p>
   <p class="instruction-flag" *ngIf="edit_album">Click on album and press edit button</p>
@@ -139,6 +139,18 @@
       </div>
     </div>
   </div>
-
-
 </div>
+
+<h1>My First Attribute Directive</h1>
+ 
+<h4>Pick a highlight color</h4>
+<div>
+  <input type="radio" name="colors" (click)="color='lightgreen'">Green
+  <input type="radio" name="colors" (click)="color='yellow'">Yellow
+  <input type="radio" name="colors" (click)="color='cyan'">Cyan
+</div>
+<p [appHighlight]="color">Highlight me!</p>
+ 
+<p [appHighlight]="color" defaultColor="violet">
+  Highlight me too!
+</p>
