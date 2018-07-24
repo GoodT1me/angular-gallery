@@ -7,12 +7,12 @@
 
   <div class="btn-albums" *ngIf="compareLoggedProfileWithSelected()">
     <a class="waves-effect waves-light btn"
-      *ngIf="!flag && !unflag && !delete_album && !edit_album && !edit_selected_album"
+      *ngIf="showFlagUnflagButton()"
       (click)="onClickFlag()"
     >Flag</a>
 
     <a class="waves-effect waves-light btn"
-      *ngIf="!unflag && !flag && !delete_album && !edit_album && !edit_selected_album"
+      *ngIf="showFlagUnflagButton()"
       (click)="onClickUnFlag()"
     >Unflag</a>
 
@@ -32,9 +32,9 @@
       (click)="onClickEditSelectedAlbum()"
     >Edit</a>
 
-    <a *ngIf="!(flag || unflag || delete_album || edit_album || edit_selected_album)" class="waves-effect waves-light btn" (click)="onClickDeleteAlbum()">Delete Albums</a>
-    <a *ngIf="!(flag || unflag || delete_album || edit_album)" class="waves-effect waves-light btn" (click)="onClickEditAlbum()">Edit Albums</a>
-    <a *ngIf="!(flag || unflag || delete_album || edit_album)" class="waves-effect waves-light btn modal-trigger" href="#modal2">Add Albums</a>
+    <a *ngIf="showDeleteAlbumButton()" class="waves-effect waves-light btn" (click)="onClickDeleteAlbum()">Delete Albums</a>
+    <a *ngIf="showAddEditAlbumButton()" class="waves-effect waves-light btn" (click)="onClickEditAlbum()">Edit Albums</a>
+    <a *ngIf="showAddEditAlbumButton()" class="waves-effect waves-light btn modal-trigger" href="#modal2">Add Albums</a>
   </div>
 
   <p class="instruction-flag" *ngIf="flag">Click on album to make it flagged</p>
@@ -49,6 +49,7 @@
         <div  class="inside card" [class.primary] = "album.flag" (click)="onClickAlbum(id)">
           <div class="card-image">
             <div class="col s3" *ngFor="let img of album.img; let i = index">
+              <!-- 12 images in album preview -->
               <img *ngIf="i < 12" src= "{{ img }}">
             </div>
           </div>
@@ -67,7 +68,7 @@
     </div>
   </div>
 
-  <!-- Modal Structure -->
+  <!-- modal for add albums -->
   <div id="modal2" class="modal modal-add-albums">
     <div class="modal-content">
       <div class="add-albums-form">
@@ -103,6 +104,7 @@
     </div>
   </div>
 
+  <!-- modal for edit albums -->
   <div id="modal3" class="modal modal-edit-albums">
     <div class="modal-content">
       <div class="add-albums-form">

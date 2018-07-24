@@ -232,4 +232,26 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
     return false
   }
 
+  showFlagUnflagButton() {
+    if (!this.flag && !this.unflag && !this.delete_album && !this.edit_album && !this.edit_selected_album){
+      return true
+    }
+    return false
+  }
+
+  showDeleteAlbumButton() {
+    if(this.flag || this.unflag || this.delete_album || this.edit_album || this.edit_selected_album) {
+      return false
+    }
+    return true
+  }
+
+  showAddEditAlbumButton() {
+    if(this.flag || this.unflag || this.delete_album || this.edit_album) {
+      return false
+    }
+    return true
+  }
+
+
 }
