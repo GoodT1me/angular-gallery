@@ -18,6 +18,7 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
   clicked_like = []
   delPhoto = false
   replacePhoto = false
+  add_image = false
   replace_list = []
   isRed = true
 
@@ -92,6 +93,7 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
   }
 
   onDeletePhoto(c) {
+    this.add_image = true
     this.delPhoto = true
     this.instruction.delete_instruction = true
   }
@@ -99,10 +101,11 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
   onSaveDeleted() {
     this.delPhoto = false
     this.instruction.delete_instruction = false
-    // location.reload()
+    this.add_image = false
   }
 
   onReplacePhoto() {
+    this.add_image = true
     this.replacePhoto = true
     this.instruction.replace_instruction = true
   }
@@ -111,6 +114,7 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
     this.replacePhoto = false
     this.instruction.replace_instruction = false
     this.replace_list = [] 
+    this.add_image = false
   }
 
   checkUserGallery() {

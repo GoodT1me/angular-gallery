@@ -7,6 +7,7 @@
 
   <div class="btn-gallery" *ngIf="checkUserGallery()">
     <a class="waves-effect waves-light btn"
+      *ngIf="!add_image"
       routerLink="upload"
     >Add photo</a>
 
@@ -14,6 +15,7 @@
       *ngIf="!delPhoto && !replacePhoto"
       (click)="onDeletePhoto(c)"
     >Delete photo</a>
+
     <a class="waves-effect waves-light btn"
       *ngIf="delPhoto"
       (click)="onSaveDeleted()"
@@ -23,6 +25,7 @@
       *ngIf="!replacePhoto && !delPhoto"
       (click)="onReplacePhoto()"
     >Replace photo</a>
+
     <a class="waves-effect waves-light btn"
       *ngIf="replacePhoto"
       (click)="onSaveReplaced()"
