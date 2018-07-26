@@ -1,11 +1,11 @@
 <div class="container">
   <table class="table-top-users highlight">
     <thead>
-      <tr>
-          <th>Name</th>
-          <th>Albums</th>
-          <th>Images</th>
-          <th>Likes</th>
+      <tr class="sort-on-click">
+          <th (click)="onName()">Name</th>
+          <th (click)="onAlbums()">Albums</th>
+          <th (click)="onImages()">Images</th>
+          <th (click)="onLikes()">Likes</th>
       </tr>
     </thead>
 

@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { AuthGuard } from './auth.guard'
 import { ViewAlbumsComponent } from './view-albums/view-albums.component'
 import { TopUsersComponent } from './top-users/top-users.component'
-import { SortablejsModule } from '../../node_modules/angular-sortablejs';
+import { SortablejsModule } from '../../node_modules/angular-sortablejs'
 
 const ROUTES= [
   {
@@ -71,7 +71,6 @@ const ROUTES= [
     ReactiveFormsModule,
     HttpClientModule,
     SortablejsModule.forRoot({ animation: 100 }),
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

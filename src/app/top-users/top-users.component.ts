@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked } from '@angular/core'
 import { UsersService } from '../users.service'
 
 @Component({
@@ -6,11 +6,15 @@ import { UsersService } from '../users.service'
   templateUrl: './top-users.component.html',
   styleUrls: ['./top-users.component.css']
 })
-export class TopUsersComponent implements OnInit {
+export class TopUsersComponent implements OnInit, AfterViewChecked {
 
   users
   images
   total_info = []
+  on_name = false
+  on_images = false
+  on_albums = false
+  on_likes = false
 
   constructor(private usersService: UsersService) { }
 
@@ -18,6 +22,18 @@ export class TopUsersComponent implements OnInit {
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
     this.setTotal()
+  }
+
+  ngAfterViewChecked() {
+    if(this.on_albums) {
+      this.sortByAlbums()
+    }else if(this.on_images) {
+      this.sortByImages()
+    }else if(this.on_likes) {
+      this.sortByLikes()
+    }else if(this.on_name) {
+      this.sortByName()
+    }
   }
 
   setTotal() {
@@ -49,6 +65,70 @@ export class TopUsersComponent implements OnInit {
         }
       }
     }
+  }
+
+  sortByAlbums() {
+    for (let i = 0; i < this.total_info.length - 1; i++) {
+      for (let j = 0; j < this.total_info.length-i-1; j++) {
+        if(this.total_info[j].total_albums < this.total_info[j+1].total_albums) {
+          const temp = this.total_info[j]
+          this.total_info[j] = this.total_info[j+1]
+          this.total_info[j+1] = temp
+        }
+      }
+    }
+  }
+
+  sortByImages() {
+    for (let i = 0; i < this.total_info.length - 1; i++) {
+      for (let j = 0; j < this.total_info.length-i-1; j++) {
+        if(this.total_info[j].total_images < this.total_info[j+1].total_images) {
+          const temp = this.total_info[j]
+          this.total_info[j] = this.total_info[j+1]
+          this.total_info[j+1] = temp
+        }
+      }
+    }
+  }
+
+  sortByName() {
+    for (let i = 0; i < this.total_info.length - 1; i++) {
+      for (let j = 0; j < this.total_info.length-i-1; j++) {
+        if(this.total_info[j].user > this.total_info[j+1].user) {
+          const temp = this.total_info[j]
+          this.total_info[j] = this.total_info[j+1]
+          this.total_info[j+1] = temp
+        }
+      }
+    }
+  }
+
+  onName() {
+    this.on_name = true
+    this.on_albums = false
+    this.on_images = false
+    this.on_likes = false
+  }
+
+  onAlbums() {
+    this.on_name = false
+    this.on_albums = true
+    this.on_images = false
+    this.on_likes = false
+  }
+
+  onImages() {
+    this.on_name = false
+    this.on_albums = false
+    this.on_images = true
+    this.on_likes = false
+  }
+
+  onLikes() {
+    this.on_name = false
+    this.on_albums = false
+    this.on_images = false
+    this.on_likes = true
   }
 
 }
