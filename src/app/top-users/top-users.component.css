@@ -1,0 +1,18 @@
+
+.table-top-users {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.td-width {
+  width: 150px;
+}
+
+.tr-hover:hover {
+  background-color: rgb(194, 192, 180);
+  font-size: 20px;
+}
+
+.sort-on-click {
+  cursor: pointer;
+}

@@ -1,0 +1,70 @@
+.row {
+  border: 1px solid black;
+}
+
+.row .col {
+  padding: 0 .2rem;
+}
+
+.card .card-image img {
+ display: initial; 
+}
+
+.album {
+  padding: 7px !important;
+}
+
+.inside {
+  padding: .2rem !important;
+}
+
+.album :hover{
+  background-color: rgb(245, 237, 237);
+}
+
+.inside-img {
+  border: solid 1px #000;
+}
+
+.material-icons {
+  margin-left: 0;
+}
+
+.card-title {
+  margin-bottom: 0px !important;
+}
+
+.card-content {
+  height: 345px;
+}
+
+.btn-albums {
+  margin-top: -100px;
+  float: right;
+  display: flex;
+}
+
+.btn-albums a {
+  margin-left: 20px;
+}
+
+.instruction-flag {
+  margin-top: -50px;
+  float: right;
+}
+
+.primary {
+  background: rgb(0, 247, 255);
+}
+
+.modal {
+  width: 350px;
+}
+
+.check-flag {
+  padding-top: 50px;
+}
+
+.close-add-album {
+  margin-left: 32px;
+}

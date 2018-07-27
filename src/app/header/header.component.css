@@ -19,3 +19,18 @@ nav {
 .logo a {
   font-size: 20px;
 }
+
+.top-users {
+  margin-left: 30%;
+  font-size: 28px;
+}
+
+.modal {
+  width: 475px;
+  overflow-y: unset;
+  color: #000;
+}
+
+.login-form {
+  height: 100px;
+}

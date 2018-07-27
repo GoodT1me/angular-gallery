@@ -12,23 +12,32 @@ export class ShowProfilesComponent implements OnInit{
   private logged_user_id
   users = []
   images = []
+  searchUser = ''
+  currentStyles: {}
 
   constructor(
     private usersService: UsersService,
-    private authService: AuthService
-  ) { }
-
-  showProfile(id) {
-    this.usersService.setCurrentUser(this.users[id])
-  }
+    private authService: AuthService,
+  ) {}
 
   ngOnInit() {
     this.users = this.usersService.USERS
     this.images = this.usersService.IMAGES
+    this.checkLogged()
+    localStorage.removeItem('selected_profile')
+    localStorage.removeItem('album_id')
+    document.getElementById("first_name").focus()
+  }
+
+  checkLogged() {
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
       this.logged_user_id = this.authService.getLoggedUserId()
     }
-    localStorage.removeItem('selected_gallery')
   }
+
+  showUserAlbums(id) {
+    this.usersService.setCurrentUser(this.users[id])
+  }
+
 }

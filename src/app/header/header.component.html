@@ -2,17 +2,28 @@
   <div class="nav-wrapper">
     <div class="logo">
       <a routerLink="/">USERS</a>
+      <a routerLink="/albums" *ngIf="checkIfSelectProfile()">ALBUMS</a>
     </div>
+
+    <a class="top-users" routerLink="top-users">Top 5 users</a>
+
     <div class="log-button">
       <a class="waves-effect waves-light btn"
         *ngIf="authService.getUserLoggedIn()"
         routerLink="profile"
       >My Profile</a>
 
-      <a class="waves-effect waves-light btn"
+      <a class="waves-effect waves-light btn modal-trigger" href="#modal1"
         *ngIf="!authService.getUserLoggedIn()"
-        routerLink="login-form"  
       >Auth</a>
+
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <app-login-form></app-login-form>
+        </div>
+      </div>
+      
     </div>
   </div>
 </nav>

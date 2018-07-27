@@ -16,6 +16,14 @@ export class AuthService {
     this.isUserLoggedIn = true
   }
 
+  setSelectedAlbum(id) {
+    localStorage.setItem('album_id', id)
+  }
+
+  getSelectedAlbum() {
+    return localStorage.getItem('album_id')
+  }
+
   getUserLoggedIn(){
     return this.isUserLoggedIn
   }
@@ -32,4 +40,5 @@ export class AuthService {
     var user = JSON.parse(localStorage.getItem('logged_user'))
     return user.id_user
   }
+
 }

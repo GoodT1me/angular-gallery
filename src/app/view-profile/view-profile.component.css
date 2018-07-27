@@ -36,14 +36,20 @@
 
 .instruction {
   float: right;
-  margin-top: -70px;
+  margin-top: -55px;
   margin-right: 20px;
+}
+
+.instruction p {
+  margin: 0px;
+  padding: 3px;
 }
 
 .gallery {
   margin-top: 30px;
 }
 
-a:hover {
-  background-color: rgb(26, 176, 202);
+.red {
+  background: red;
+  color: #fff;
 }

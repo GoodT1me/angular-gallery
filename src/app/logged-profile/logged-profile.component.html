@@ -1,9 +1,9 @@
 <div class="container">
 
   <div class="info-user">
-    <p>Username: {{ logged_user_l.userName }} </p>
-    <p>First Name: {{ logged_user_l.firstName }} </p>
-    <p>Last Name: {{ logged_user_l.lastName }} </p>
+    <p>Username: {{ users[logged_id_user].userName }} </p>
+    <p>First Name: {{ users[logged_id_user].firstName }} </p>
+    <p>Last Name: {{ users[logged_id_user].lastName }} </p>
   </div>
 
   <div class="avatar">
@@ -11,7 +11,7 @@
       <div class="col s4">
         <div class="card">
           <div class="card-image">
-            <img src="#">
+            <img src="{{ images[logged_id_user].avatar }}">
           </div>
         </div>
       </div>

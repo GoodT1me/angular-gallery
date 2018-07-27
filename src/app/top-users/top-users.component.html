@@ -1,0 +1,21 @@
+<div class="container">
+  <table class="table-top-users highlight">
+    <thead>
+      <tr class="sort-on-click">
+          <th (click)="onName()">Name</th>
+          <th (click)="onAlbums()">Albums</th>
+          <th (click)="onImages()">Images</th>
+          <th (click)="onLikes()">Likes</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr class="tr-hover" *ngFor="let user of total_info; let i = index">
+        <td>{{user.user}}</td>
+        <td class="td-width">{{ user.total_albums }}</td>
+        <td class="td-width">{{ user.total_images }}</td>
+        <td class="td-width">{{ user.total_likes }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

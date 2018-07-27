@@ -1,19 +1,21 @@
 <div class="container">
   <div class="user">
-    <p> User: {{ users[current_gallery].userName }} </p>
-    <p> First Name: {{ users[current_gallery].firstName }} </p>
-    <p> Last Name: {{ users[current_gallery].lastName }} </p>
+    <p> User: {{ users[selected_profile].userName }} </p>
+    <p> First Name: {{ users[selected_profile].firstName }} </p>
+    <p> Last Name: {{ users[selected_profile].lastName }} </p>
   </div>
 
   <div class="btn-gallery" *ngIf="checkUserGallery()">
     <a class="waves-effect waves-light btn"
+      *ngIf="!add_image"
       routerLink="upload"
     >Add photo</a>
 
     <a class="waves-effect waves-light btn"
       *ngIf="!delPhoto && !replacePhoto"
-      (click)="onDeletePhoto()"
+      (click)="onDeletePhoto(c)"
     >Delete photo</a>
+
     <a class="waves-effect waves-light btn"
       *ngIf="delPhoto"
       (click)="onSaveDeleted()"
@@ -23,28 +25,34 @@
       *ngIf="!replacePhoto && !delPhoto"
       (click)="onReplacePhoto()"
     >Replace photo</a>
+
     <a class="waves-effect waves-light btn"
       *ngIf="replacePhoto"
       (click)="onSaveReplaced()"
     >Save changes</a>
   </div>
 
-  <div class="instruction">
+  <!-- <div class="instruction" [ngClass]="{'red': isRed}"> -->
+  <div class="instruction" [class.red]="isRed">
     <p *ngIf="instruction.replace_instruction">Select two images for replace</p>
     <p *ngIf="instruction.delete_instruction">Click image for delete</p>
   </div>
 
   <div class="gallery">
-    <div class="row">
+    <div class="row" [sortablejs]="images[selected_profile].albums[selected_album]?.img">
       <div class="col s3 m"
-        *ngFor="let img of images[current_gallery].img; let i = index"
-        (click)="deletePhoto(i)"
+        *ngFor="let img of images[selected_profile].albums[selected_album]?.img; let i = index"
+        (click)="workWithImages(i)"
       >
         <div class="card">
           <div class="card-image">
-            <img src="{{ img }}">
+            <img
+              *ngIf="!delPhoto && !replacePhoto"
+              class="materialboxed" width="650" src="{{ img }}"
+            >
+            <img *ngIf="delPhoto || replacePhoto" src="{{ img }}">
             <span class="like"><img src="http://www.pngmart.com/files/3/Facebook-Like-PNG-Image.png" (click)="addLikes(i)">
-              <p>{{ images[current_gallery].likes[i] }}</p>
+              <p>{{ images[selected_profile].albums[selected_album].likes[i] }}</p>
             </span>
           </div>
         </div>
