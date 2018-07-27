@@ -9,7 +9,7 @@ import * as M from "materialize-css"
   templateUrl: './view-profile.component.html',
   styleUrls: ['./view-profile.component.css']
 })
-export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
+export class ViewProfileComponent implements OnInit, AfterViewInit {
   
   users = []
   images = []

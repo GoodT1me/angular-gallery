@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component'
 import { HeaderComponent } from './header/header.component'
 import { ShowProfilesComponent } from './show-profiles/show-profiles.component'
-import { ViewProfileAnotherComponent } from './view-profile-another/view-profile-another.component'
+import { ViewProfileComponent } from './view-profile/view-profile.component'
 import { SearchPipe } from './search.pipe'
 import { RouterModule } from '@angular/router'
 import { HomePageComponent } from './home-page/home-page.component'
@@ -26,7 +26,7 @@ const ROUTES= [
   },
   {
     path: 'albums/photo',
-    component: ViewProfileAnotherComponent
+    component: ViewProfileComponent
   },
   {
     path: 'login-form',
@@ -57,8 +57,8 @@ const ROUTES= [
   declarations: [
     AppComponent,
     HeaderComponent,
-    ShowProfilesComponent,
     ViewProfileComponent,
+    ShowProfilesComponent,
     SearchPipe,
     HomePageComponent,
     UploadImgComponent,
