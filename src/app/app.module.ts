@@ -17,6 +17,7 @@ import { AuthGuard } from './auth.guard'
 import { ViewAlbumsComponent } from './view-albums/view-albums.component'
 import { TopUsersComponent } from './top-users/top-users.component'
 import { SortablejsModule } from '../../node_modules/angular-sortablejs'
+// import { enableProdMode } from '@angular/core'
 
 const ROUTES= [
   {
@@ -50,6 +51,8 @@ const ROUTES= [
   }
 ]
 
+// enableProdMode()
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +63,7 @@ const ROUTES= [
     HomePageComponent,
     UploadImgComponent,
     LoginFormComponent,
-    LoggedProfileComponent,
+    LoggedProfileComponent, 
     ViewAlbumsComponent,
     TopUsersComponent,
   ],

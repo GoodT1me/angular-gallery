@@ -17,7 +17,7 @@ export class ShowProfilesComponent implements OnInit{
 
   constructor(
     private usersService: UsersService,
-    private authService: AuthService
+    private authService: AuthService,
   ) {}
 
   ngOnInit() {
