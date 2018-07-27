@@ -23,7 +23,7 @@ export class ViewAlbumsComponent implements OnInit, AfterViewInit {
   edit_album = false
   click_album = false
   edit_selected_album = false
-  private selected_profile
+  selected_profile
   selected_album
   form_add_albums: FormGroup
   form_edit_albums: FormGroup

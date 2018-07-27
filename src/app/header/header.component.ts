@@ -9,16 +9,16 @@ import * as M from "materialize-css"
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
 
-  private logged = false
+  logged = false
   
-  constructor(private authService:AuthService) {
+  constructor(public authService:AuthService) {
   }
 
   ngOnInit() {
     if(localStorage.getItem('isUserLoggedIn')) {
       this.authService.setUserLoggedIn()
     }
-    this.logged =this.authService.getUserLoggedIn()
+    this.logged = this.authService.getUserLoggedIn()
   }
 
   ngAfterViewInit() {
@@ -35,9 +35,5 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       return true
     }
     return false
-  }
-
-  onLogIn() {
-
   }
 }

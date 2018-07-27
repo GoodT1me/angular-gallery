@@ -13,7 +13,7 @@ export class ViewProfileAnotherComponent implements OnInit, AfterViewInit {
   
   users = []
   images = []
-  private selected_profile
+  selected_profile
   selected_album
   clicked_like = []
   delPhoto = false
