@@ -23,31 +23,31 @@
       <div class="col-md-6 offset-md-3">
         <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
           <div class="form-group">
-            <label for="Username">Username</label>
+            <label for="Username" i18n>Username</label>
             <input type="text" class="form-control" name="Username" [(ngModel)]="model.userName"
               #userName="ngModel"
               required
             />
             <div *ngIf="f.submitted && userName.invalid" class="invalid-feedback">
-                <div *ngIf="userName.errors.required">Username is required</div>
+                <div *ngIf="userName.errors.required" i18n="For error userName msg">Username is required</div>
             </div>
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password" i18n>Password</label>
             <input type="password" class="form-control" name="password" [(ngModel)]="model.password"
               #password="ngModel"
               required minlength="4"
             />
-            <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
+            <div *ngIf="f.submitted && password.invalid" class="invalid-feedback" i18n="For error password msg">
                 <div *ngIf="password.errors.required">Password is required</div>
                 <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
             </div>
           </div>
           <div class="error-auth">
-            <p *ngIf="auth_error">Invalid username or password - Attempt {{ count_attempt }}</p>
+            <p *ngIf="auth_error" i18n>Invalid username or password - Attempt {{ count_attempt }}</p>
           </div>
           <div class="form-group">
-            <button class="btn btn-primary">Log In</button>
+            <button class="btn btn-primary" i18n>Log In</button>
           </div>
         </form>
       </div>

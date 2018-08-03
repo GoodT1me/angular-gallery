@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="info-user">
+  <div class="info-user" i18n>
     <p>Username: {{ users[logged_id_user].userName }} </p>
     <p>First Name: {{ users[logged_id_user].firstName }} </p>
     <p>Last Name: {{ users[logged_id_user].lastName }} </p>
@@ -19,7 +19,7 @@
   </div>
 
   <div class="logout">
-    <a class="waves-effect waves-light btn"
+    <a i18n class="waves-effect waves-light btn"
       (click)="logOut()"
       routerLink=""
     >Log out</a>

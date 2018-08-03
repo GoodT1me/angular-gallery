@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="bb0e45d883864e3d6879cf5a5fb5f380a9a6f739" datatype="html">
+        <source>
+      <x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;"/>USERS<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+      <x id="START_LINK_1" ctype="x-a" equiv-text="&lt;a&gt;"/>ALBUMS<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+    </source>
+    <target>
+      <x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;"/>Пользователи<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+      <x id="START_LINK_1" ctype="x-a" equiv-text="&lt;a&gt;"/>Альбомы<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+    </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/header/header.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="26042d3515d8ebb44a24be5e013e3533f786c8b9" datatype="html">
+        <source>Top 5 users</source>
+        <target>Топ 5 пользователей</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/header/header.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="450e28e57284212c18cd3beb79b91cfea5a0d122" datatype="html">
+        <source>My Profile</source>
+        <target>Мой профиль</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/header/header.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="327a00834d37cd7d7c1d1004b0243d5a3a7a1017" datatype="html">
+        <source>Auth</source>
+        <target>Авторизация</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/header/header.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ae1a9d94ca776bd25d3b53f79ca7996481444e83" datatype="html">
+        <source>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/> User: <x id="INTERPOLATION" equiv-text="{{ users[selected_profile].userName }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/> First Name: <x id="INTERPOLATION_1" equiv-text="{{ users[selected_profile].firstName }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/> Last Name: <x id="INTERPOLATION_2" equiv-text="{{ users[selected_profile].lastName }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+  </source>
+        <target>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/> Пользователь: <x id="INTERPOLATION" equiv-text="{{ users[selected_profile].userName }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/> Имя: <x id="INTERPOLATION_1" equiv-text="{{ users[selected_profile].firstName }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/> Фамилия: <x id="INTERPOLATION_2" equiv-text="{{ users[selected_profile].lastName }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+  </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-profile/view-profile.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="eef912b65d3f15d42879cb35853e4f5e23001913" datatype="html">
+        <source>
+    <x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;"/>Add photo<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+
+    <x id="START_LINK_1" ctype="x-a" equiv-text="&lt;a&gt;"/>Delete photo<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+
+    <x id="START_LINK_2" ctype="x-a" equiv-text="&lt;a&gt;"/>Save changes<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+
+    <x id="START_LINK_3" ctype="x-a" equiv-text="&lt;a&gt;"/>Replace photo<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+
+    <x id="START_LINK_4" ctype="x-a" equiv-text="&lt;a&gt;"/>Save changes<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+  </source>
+        <target>
+    <x id="START_LINK" ctype="x-a" equiv-text="&lt;a&gt;"/>Добавить фото<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+
+    <x id="START_LINK_1" ctype="x-a" equiv-text="&lt;a&gt;"/>удалить фото<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+
+    <x id="START_LINK_2" ctype="x-a" equiv-text="&lt;a&gt;"/>Сохранить изменения<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+
+    <x id="START_LINK_3" ctype="x-a" equiv-text="&lt;a&gt;"/>Переставить фото<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+
+    <x id="START_LINK_4" ctype="x-a" equiv-text="&lt;a&gt;"/>Сохранить изменения<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>
+  </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-profile/view-profile.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="18d3a3798ff18ae54b0777be80af410ef946a6da" datatype="html">
+        <source>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Select two images for replace<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_PARAGRAPH_1" ctype="x-p" equiv-text="&lt;p&gt;"/>Click image for delete<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+  </source>
+        <target>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Выбери 2 изображения для перестановки<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_PARAGRAPH_1" ctype="x-p" equiv-text="&lt;p&gt;"/>Нажми на фото для удаления<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+  </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-profile/view-profile.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <note priority="1" from="description">For images instructions</note>
+      </trans-unit>
+      <trans-unit id="d2bb543d414ddbd9d03113bed235dcfce60e08b3" datatype="html">
+        <source>Search by User Name</source>
+        <target>Поиск по имени пользователя</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/show-profiles/show-profiles.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="59ad3db1cc108d38956eb0f662251983757170f2" datatype="html">
+        <source>
+      <x id="INTERPOLATION" equiv-text="{{ user.userName }}"/>&apos;s albums
+    </source>
+        <target>
+      <x id="INTERPOLATION" equiv-text="{{ user.userName }}"/>Альбомы
+    </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/show-profiles/show-profiles.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f22a687652d3218a891bfe6c1f8a69d5bc2ac847" datatype="html">
+        <source>
+      My albums (<x id="INTERPOLATION" equiv-text="{{ user.userName }}"/>)
+    </source>
+        <target>
+      Мои альбомы (<x id="INTERPOLATION" equiv-text="{{ user.userName }}"/>)
+    </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/show-profiles/show-profiles.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a3b30389a76fa7bde0f3057c6cea621c7befd62e" datatype="html">
+        <source><x id="INTERPOLATION" equiv-text="{{ album.img.length }}"/> Images</source>
+        <target><x id="INTERPOLATION" equiv-text="{{ album.img.length }}"/> Фотографии</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/show-profiles/show-profiles.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+        <note priority="1" from="description">For img count</note>
+      </trans-unit>
+      <trans-unit id="867e41df7134e3caaee051a670f8cbeb8883302c" datatype="html">
+        <source>Show All</source>
+        <target>Показать все</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/show-profiles/show-profiles.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="a5f9ba9bb9faa8284bcadb1cdbc6aaf969e9c4bb" datatype="html">
+        <source>Image</source>
+        <target>Фото</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/upload-img/upload-img.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f7692461111e9696aa44d99ec0d78d56148e0225" datatype="html">
+        <source>Delete image</source>
+        <target>Удалить фото</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/upload-img/upload-img.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5b3075e8dc3f3921ec316b0bd83b6d14a06c1a4f" datatype="html">
+        <source>Save changes</source>
+        <target>Сохранить изменения</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/upload-img/upload-img.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3d50a65d28118e0822267c574daa3df47e29fc66" datatype="html">
+        <source>
+      Upload <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>
+    </source>
+        <target>
+      Загрузить <x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/><x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/>
+    </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/upload-img/upload-img.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+        <note priority="1" from="description">For upload btn</note>
+      </trans-unit>
+      <trans-unit id="08c74dc9762957593b91f6eb5d65efdfc975bf48" datatype="html">
+        <source>Username</source>
+        <target>Пользователя</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/login-form/login-form.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0070e83d11da39d6f4bb95065c2675db1610b419" datatype="html">
+        <source>Username is required</source>
+        <target>Введите имя пользователя</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/login-form/login-form.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+        <note priority="1" from="description">For error userName msg</note>
+      </trans-unit>
+      <trans-unit id="c32ef07f8803a223a83ed17024b38e8d82292407" datatype="html">
+        <source>Password</source>
+        <target>Пароль</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/login-form/login-form.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3b5d762a207c16af2a94564617c127621b949afe" datatype="html">
+        <source>
+            <x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;"/>Password is required<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/>
+            <x id="START_TAG_DIV_1" ctype="x-div" equiv-text="&lt;div&gt;"/>Password must be at least 6 characters<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/>
+        </source>
+        <target>
+            <x id="START_TAG_DIV" ctype="x-div" equiv-text="&lt;div&gt;"/>Введите пароль<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/>
+            <x id="START_TAG_DIV_1" ctype="x-div" equiv-text="&lt;div&gt;"/>Пароль должен быть не менее 6 символов<x id="CLOSE_TAG_DIV" ctype="x-div" equiv-text="&lt;/div&gt;"/>
+        </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/login-form/login-form.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+        <note priority="1" from="description">For error password msg</note>
+      </trans-unit>
+      <trans-unit id="11d5d208d8d57762f462146ed577f47c74d5de05" datatype="html">
+        <source>Invalid username or password - Attempt <x id="INTERPOLATION" equiv-text="{{ count_attempt }}"/></source>
+        <target>Неправильное имя пользователя или пароль - Попытка <x id="INTERPOLATION" equiv-text="{{ count_attempt }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/login-form/login-form.component.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="dcd47f4d6b26b045a1b041b2fc73123bc0cfc118" datatype="html">
+        <source>Log In</source>
+        <target>Войти</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/login-form/login-form.component.ts</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f6aac14332adf5b0c2527ffad35fee562f6900b9" datatype="html">
+        <source>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Username: <x id="INTERPOLATION" equiv-text="{{ users[logged_id_user].userName }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>First Name: <x id="INTERPOLATION_1" equiv-text="{{ users[logged_id_user].firstName }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Last Name: <x id="INTERPOLATION_2" equiv-text="{{ users[logged_id_user].lastName }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+  </source>
+        <target>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Имя пользователя: <x id="INTERPOLATION" equiv-text="{{ users[logged_id_user].userName }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Имя: <x id="INTERPOLATION_1" equiv-text="{{ users[logged_id_user].firstName }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+    <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Фамилия: <x id="INTERPOLATION_2" equiv-text="{{ users[logged_id_user].lastName }}"/> <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+  </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/logged-profile/logged-profile.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3fdc751b264ca9998e1542fcf5794e274cd56344" datatype="html">
+        <source>Log out</source>
+        <target>Выйти</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/logged-profile/logged-profile.component.ts</context>
+          <context context-type="linenumber">25</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="702285c18a4ea83ccdaacc4a7339ed8428ff3b9c" datatype="html">
+        <source>Flag</source>
+        <target>Флаг</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">92</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">128</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3cf4a2be41532ba659df8eb54a5ad47862a3c98e" datatype="html">
+        <source>Unflag</source>
+        <target>Снять флаг</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="52c9a103b812f258bcddc3d90a6e3f46871d25fe" datatype="html">
+        <source>Save</source>
+        <target>Сохранить</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="d7b35c384aecd25a516200d6921836374613dfe7" datatype="html">
+        <source>Cancel</source>
+        <target>Отмена</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="28f86ffd419b869711aa13f5e5ff54be6d70731c" datatype="html">
+        <source>Edit</source>
+        <target>Изменить</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4ecd516988ab838973223ef1730b249aceaaf4dc" datatype="html">
+        <source>Delete Albums</source>
+        <target>Удалить Альбомы</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">35</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7a138c72be34902fa709567571d66f4c3b810408" datatype="html">
+        <source>Edit Albums</source>
+        <target>Именить Альбомы</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="68b650cf689e2eb6e16cf5fc842e6d1e419c804d" datatype="html">
+        <source>Add Albums</source>
+        <target>Добавить Альбомы</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0beae21c73343da63b6e57ca5d8c838e66ffb230" datatype="html">
+        <source>Click on album to make it flagged</source>
+        <target>Выбери альбом что бы добавить флаг</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="73c3acb2752e862b2c70237f836c24e93858ffc3" datatype="html">
+        <source>Click on album to make it unflagged</source>
+        <target>Выбери альбом для снятия флага</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">41</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="ef6e6a6682e94c0ff95ea0efea947ce1c6198953" datatype="html">
+        <source>Click on album to delete it</source>
+        <target>Выбери альбом для удаления</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="166f7e06898d5ee1e9c540406c1caf0ca1184bd2" datatype="html">
+        <source>Click on album and press edit button</source>
+        <target>Выбери альбом и нажми изменить</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">43</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="0e052102236cddeabb8f068e0487bb3901d01c48" datatype="html">
+        <source>Album name</source>
+        <target>Название альбома</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7f121626eae9a121c3a92c6247c122adbba14fb0" datatype="html">
+        <source>Album description</source>
+        <target>Описание альбома</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">122</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="53b7aa91fa27d869ccedfb9479221ee4aee53553" datatype="html">
+        <source>Add inserted albums</source>
+        <target>Добавить вставленные альбомы</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="f4e529ae5ffd73001d1ff4bbdeeb0a72e342e5c8" datatype="html">
+        <source>Close</source>
+        <target>Закрыть</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">99</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/view-albums/view-albums.component.ts</context>
+          <context context-type="linenumber">135</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="cff1428d10d59d14e45edec3c735a27b5482db59" datatype="html">
+        <source>Name</source>
+        <target>Имя</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/top-users/top-users.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="c8fde66a0022d09a6ec0d3844568e486381d797f" datatype="html">
+        <source>Albums</source>
+        <target>Альбомы</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/top-users/top-users.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="b73f7f5060fb22a1e9ec462b1bb02493fa3ab866" datatype="html">
+        <source>Images</source>
+        <target>Фотографии</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/top-users/top-users.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5425b5b6fa92d039743fa988f90f2a58b0dc62ab" datatype="html">
+        <source>Likes</source>
+        <target>Симпатии</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/top-users/top-users.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

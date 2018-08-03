@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="user">
+  <div class="user" i18n>
     <p> User: {{ users[selected_profile].userName }} </p>
     <p> First Name: {{ users[selected_profile].firstName }} </p>
     <p> Last Name: {{ users[selected_profile].lastName }} </p>
   </div>
 
-  <div class="btn-gallery" *ngIf="checkUserGallery()">
+  <div class="btn-gallery" *ngIf="checkUserGallery()" i18n>
     <a class="waves-effect waves-light btn"
       *ngIf="!add_image"
       routerLink="upload"
@@ -33,7 +33,7 @@
   </div>
 
   <!-- <div class="instruction" [ngClass]="{'red': isRed}"> -->
-  <div class="instruction" [class.red]="isRed">
+  <div class="instruction" [class.red]="isRed" i18n="For images instructions">
     <p *ngIf="instruction.replace_instruction">Select two images for replace</p>
     <p *ngIf="instruction.delete_instruction">Click image for delete</p>
   </div>

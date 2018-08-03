@@ -1,46 +1,46 @@
 <div class="container">
-  <div class="user">
+  <div class="user" i18n="users + albums">
     <p> User: {{ users[selected_profile].userName }} </p>
     <p> First Name: {{ users[selected_profile].firstName }} </p>
     <p> Last Name: {{ users[selected_profile].lastName }} </p>
   </div>
 
   <div class="btn-albums" *ngIf="compareLoggedProfileWithSelected()">
-    <a class="waves-effect waves-light btn"
+    <a i18n class="waves-effect waves-light btn"
       *ngIf="showFlagUnflagButton()"
       (click)="onClickFlag()"
     >Flag</a>
 
-    <a class="waves-effect waves-light btn"
+    <a i18n class="waves-effect waves-light btn"
       *ngIf="showFlagUnflagButton()"
       (click)="onClickUnFlag()"
     >Unflag</a>
 
-    <a class="waves-effect waves-light btn"
+    <a i18n class="waves-effect waves-light btn"
       *ngIf="flag || unflag || delete_album"
       (click)="onSaveFlag()"
     >Save</a>
 
-    <a class="waves-effect waves-light btn"
+    <a i18n class="waves-effect waves-light btn"
       *ngIf="edit_album || edit_selected_album"
       (click)="onSaveFlag()"
     >Cancel</a>
 
-    <a class="waves-effect waves-light btn modal-trigger"
+    <a i18n class="waves-effect waves-light btn modal-trigger"
       *ngIf="edit_selected_album"
       href="#modal3"
       (click)="onClickEditSelectedAlbum()"
     >Edit</a>
 
-    <a *ngIf="showDeleteAlbumButton()" class="waves-effect waves-light btn" (click)="onClickDeleteAlbum()">Delete Albums</a>
-    <a *ngIf="showAddEditAlbumButton()" class="waves-effect waves-light btn" (click)="onClickEditAlbum()">Edit Albums</a>
-    <a *ngIf="showAddEditAlbumButton()" class="waves-effect waves-light btn modal-trigger" href="#modal2">Add Albums</a>
+    <a *ngIf="showDeleteAlbumButton()" class="waves-effect waves-light btn" (click)="onClickDeleteAlbum()" i18n>Delete Albums</a>
+    <a *ngIf="showAddEditAlbumButton()" class="waves-effect waves-light btn" (click)="onClickEditAlbum()" i18n>Edit Albums</a>
+    <a *ngIf="showAddEditAlbumButton()" class="waves-effect waves-light btn modal-trigger" href="#modal2" i18n>Add Albums</a>
   </div>
 
-  <p appHighlight class="instruction-flag" *ngIf="flag">Click on album to make it flagged</p>
-  <p class="instruction-flag" *ngIf="unflag">Click on album to make it unflagged</p>
-  <p class="instruction-flag" *ngIf="delete_album">Click on album to delete it</p>
-  <p class="instruction-flag" *ngIf="edit_album">Click on album and press edit button</p>
+  <p appHighlight class="instruction-flag" *ngIf="flag" i18n>Click on album to make it flagged</p>
+  <p class="instruction-flag" *ngIf="unflag" i18n>Click on album to make it unflagged</p>
+  <p class="instruction-flag" *ngIf="delete_album" i18n>Click on album to delete it</p>
+  <p class="instruction-flag" *ngIf="edit_album" i18n>Click on album and press edit button</p>
 
   <div class="gallery">
     <div class="row">
@@ -77,26 +77,26 @@
           <div class="input">
             <tr>
               <td>
-                <label>Album name</label>
+                <label i18n>Album name</label>
                 <input type="text" formControlName="album_name" />
               </td>
             </tr>
             <tr>
               <td>
-                <label>Album description</label>
+                <label i18n>Album description</label>
                 <input type="text" formControlName="album_description" />
               </td>
               <td class="check-flag">
                 <label>
                   <input type="checkbox" formControlName="checkFlag"/>
-                  <span>Flag</span>
+                  <span i18n>Flag</span>
                 </label>
               </td>
             </tr>
           </div>
           <div class="input">
-            <button class="waves-light btn" type="submit">Add inserted albums</button>
-            <a class="close-add-album modal-close waves-light btn">Close</a>
+            <button class="waves-light btn" type="submit" i18n>Add inserted albums</button>
+            <a class="close-add-album modal-close waves-light btn" i18n>Close</a>
           </div>
         </form>
 
@@ -113,26 +113,26 @@
           <div class="input">
             <tr>
               <td>
-                <label>Album name</label>
+                <label i18n>Album name</label>
                 <input type="text" formControlName="album_name" />
               </td>
             </tr>
             <tr>
               <td>
-                <label>Album description</label>
+                <label i18n>Album description</label>
                 <input type="text" formControlName="album_description" />
               </td>
               <td class="check-flag">
                 <label>
                   <input type="checkbox" formControlName="checkFlag"/>
-                  <span>Flag</span>
+                  <span i18n>Flag</span>
                 </label>
               </td>
             </tr>
           </div>
           <div class="input">
-            <button class="waves-light btn modal-close" type="submit">Save changes</button>
-            <a class="close-add-album modal-close waves-light btn">Close</a>
+            <button class="waves-light btn modal-close" type="submit" i18n>Save changes</button>
+            <a class="close-add-album modal-close waves-light btn" i18n>Close</a>
           </div>
         </form>
 

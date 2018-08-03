@@ -2,17 +2,17 @@
   <div class="row">
     <div class="input-field col s3">
       <input id="first_name" class="validate" [(ngModel)]="searchUser">
-      <label class="active" for="first_name">Search by User Name</label>
+      <label class="active" for="first_name" i18n>Search by User Name</label>
     </div>
   </div>
 </div>
 
 <div class="profile" *ngFor="let user of users | search:searchUser; let user_id=index">
   <h5>
-    <span *ngIf="user.id_user != logged_user_id">
+    <span *ngIf="user.id_user != logged_user_id" i18n>
       {{ user.userName }}'s albums
     </span>
-    <span *ngIf="user.id_user == logged_user_id">
+    <span *ngIf="user.id_user == logged_user_id" i18n>
       My albums ({{ user.userName }})
     </span>
   </h5>
@@ -22,13 +22,13 @@
       <a
         *ngIf="i < 3"
         href="#!" class="collection-item">
-        <span class="badge">{{ album.img.length }} Images</span>
+        <span class="badge" i18n="For img count">{{ album.img.length }} Images</span>
         {{ album.name }}
       </a>
     </div>
     
     <div class="btn-gallery">
-      <a class="waves-effect waves-light btn"
+      <a i18n class="waves-effect waves-light btn"
         routerLink="albums"
         (click)="showUserAlbums(user_id)"
       >Show All</a>
