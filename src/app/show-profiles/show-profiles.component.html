@@ -2,7 +2,7 @@
   <div class="row">
     <div class="input-field col s3">
       <input id="first_name" class="validate" [(ngModel)]="searchUser">
-      <label class="active" for="first_name">Search by User Name</label>
+      <label class="active" for="first_name" translate>searchByUser</label>
     </div>
   </div>
 </div>
@@ -22,7 +22,7 @@
       <a
         *ngIf="i < 3"
         href="#!" class="collection-item">
-        <span class="badge">{{ album.img.length }} Images</span>
+        <div class="badge" translate><div class="float-img">{{ album.img.length }}</div>images</div>
         {{ album.name }}
       </a>
     </div>
@@ -30,8 +30,8 @@
     <div class="btn-gallery">
       <a class="waves-effect waves-light btn"
         routerLink="albums"
-        (click)="showUserAlbums(user_id)"
-      >Show All</a>
+        (click)="showUserAlbums(user_id)" translate
+      >showAll</a>
     </div>
   </div>
 </div>

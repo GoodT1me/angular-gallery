@@ -11,3 +11,12 @@
   margin: auto;
   width: 1300px;
 }
+
+.badge {
+  float: right;
+}
+
+.float-img {
+  float: left;
+  padding-right: 5px;
+}

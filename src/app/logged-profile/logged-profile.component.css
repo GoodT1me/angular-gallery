@@ -1,3 +1,15 @@
 .info-user {
   font-weight: bold;
 }
+
+.float-username {
+  float: left;
+}
+
+.float-firstname {
+  float: left;
+}
+
+.float-user-info {
+  float: right;
+}

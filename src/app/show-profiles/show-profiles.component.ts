@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { UsersService } from '../users.service'
 import { AuthService } from '../auth.service'
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-show-profiles',

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
 import { AuthService } from '../auth.service'
 import { UsersService } from '../users.service'
 
@@ -15,8 +15,8 @@ export class LoggedProfileComponent implements OnInit {
 
   constructor(
     private authService:AuthService,
-    private usersService:UsersService
-  ) { }
+    private usersService:UsersService,
+  ) {}
 
   ngOnInit() {
     this.logged_id_user = JSON.parse(localStorage.getItem('logged_user')).id_user

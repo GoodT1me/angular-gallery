@@ -1,0 +1,36 @@
+{
+  "HEADER_COMMENT": "_______For header_______",
+  "language": "Language",
+  "english": "English",
+  "russian": "Russian",
+  "albums": "ALBUMS",
+  "top5Users": "Top 5 users",
+  "myProfile": "My Profile",
+  "auth": "Auth",
+
+  "LOGGED_PROFILE_COMMENT": "_______For logged profile_______",
+  "username": "Username:",
+  "firstName": "First Name:",
+  "lastName": "Last Name:",
+  "logOut": "Log out",
+
+  "LOGIN_FORM_COMMENT": "_______For login form_______",
+  "errUsername": "Username is required",
+  "password": "Password",
+  "usernameLogIn": "Username",
+  "errPassReq": "Password is required",
+  "errPassMustBe6Char": "Password must be at least 4 characters",
+  "errInvalidUserOrPass": "Invalid username or password - Attempt",
+  "logIn": "Log In",
+
+  "SHOW_PROFILES_COMMENT": "_______For show profiles_______",
+  "searchByUser": "Search by User Name",
+  "images": "Images",
+  "showAll": "Show All",
+
+  "TOP_USERS_COMMENT": "_______For top user_______",
+  "name": "Name",
+  "albumsTopUser": "Albums",
+  "imagesTopUser": "Images",
+  "likesTopUser": "Likes"
+}

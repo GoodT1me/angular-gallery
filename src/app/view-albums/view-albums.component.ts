@@ -4,7 +4,7 @@ import { AuthService } from '../auth.service'
 import { Router } from '@angular/router'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import * as M from "materialize-css"
-import { element } from 'protractor';
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-view-albums',

@@ -12,11 +12,14 @@ import { UploadImgComponent } from './upload-img/upload-img.component'
 import { LoginFormComponent } from './login-form/login-form.component'
 import { ReactiveFormsModule } from '@angular/forms'
 import { LoggedProfileComponent } from './logged-profile/logged-profile.component'
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HttpClient } from '@angular/common/http'
 import { AuthGuard } from './auth.guard'
 import { ViewAlbumsComponent } from './view-albums/view-albums.component'
 import { TopUsersComponent } from './top-users/top-users.component'
 import { SortablejsModule } from '../../node_modules/angular-sortablejs'
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
+import { TranslateHttpLoader } from '@ngx-translate/http-loader'
+
 // import { enableProdMode } from '@angular/core'
 
 const ROUTES= [
@@ -53,6 +56,10 @@ const ROUTES= [
 
 // enableProdMode()
 
+export function translateHttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +81,13 @@ const ROUTES= [
     ReactiveFormsModule,
     HttpClientModule,
     SortablejsModule.forRoot({ animation: 100 }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: translateHttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

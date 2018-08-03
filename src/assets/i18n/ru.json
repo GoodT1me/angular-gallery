@@ -1,0 +1,36 @@
+{
+  "HEADER_COMMENT": "_______For header_______",
+  "language": "Язык",
+  "english": "Английский",
+  "russian": "Русский",
+  "albums": "АЛЬБОМЫ",
+  "top5Users": "Топ 5 пользователей",
+  "myProfile": "Мой профель",
+  "auth": "Войти",
+
+  "LOGGED_PROFILE_COMMENT": "_______For logged profile_______",
+  "username": "Пользователь:",
+  "firstName": "Имя:",
+  "lastName": "Фамилия:",
+  "logOut": "Выйти",
+
+  "LOGIN_FORM_COMMENT": "_______For login form_______",
+  "errUsername": "Введите имя пользователя",
+  "password": "Пароль",
+  "usernameLogIn": "Пользователь",
+  "errPassReq": "Введите пароль",
+  "errPassMustBe6Char": "Пароль должен содержать не менее 4 символов",
+  "errInvalidUserOrPass": "Неправельный пользователь или пароль",
+  "logIn": "Войти",
+
+  "SHOW_PROFILES_COMMENT": "_______For show profiles_______",
+  "searchByUser": "Поиск по имени",
+  "images": "Фотографий",
+  "showAll": "Показать все",
+
+  "TOP_USERS_COMMENT": "_______For top user_______",
+  "name": "Имя",
+  "albumsTopUser": "Альбомы",
+  "imagesTopUser": "Фотографии",
+  "likesTopUser": "Симпатии"
+}

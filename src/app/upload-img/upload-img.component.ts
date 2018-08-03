@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { UsersService } from '../users.service'
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-upload-img',

@@ -2,20 +2,32 @@
   <div class="nav-wrapper">
     <div class="logo">
       <a routerLink="/">USERS</a>
-      <a routerLink="/albums" *ngIf="checkIfSelectProfile()">ALBUMS</a>
+      <a routerLink="/albums" *ngIf="checkIfSelectProfile()" translate>albums</a>
     </div>
 
-    <a class="top-users" routerLink="top-users">Top 5 users</a>
+    <a class="top-users" routerLink="top-users" translate>top5Users</a>
 
-    <div class="log-button">
-      <a class="waves-effect waves-light btn"
-        *ngIf="authService.getUserLoggedIn()"
-        routerLink="profile"
-      >My Profile</a>
+    <div class="buttons">
+      <div class="lang-btn">
+          <!-- Dropdown Trigger -->
+        <a class='language dropdown-trigger btn' href='#' data-target='dropdown1' translate>language</a>
+          <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+          <li><a (click)="switchLanguage('en')" translate>english</a></li>
+          <li><a (click)="switchLanguage('ru')" translate>russian</a></li>
+        </ul>
+      </div>
 
-      <a class="waves-effect waves-light btn modal-trigger" href="#modal1"
-        *ngIf="!authService.getUserLoggedIn()"
-      >Auth</a>
+      <div class="log-btn">
+        <a class="waves-effect waves-light btn"
+          *ngIf="authService.getUserLoggedIn()"
+          routerLink="profile" translate
+        >myProfile</a>
+
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1"
+          *ngIf="!authService.getUserLoggedIn()" translate
+        >auth</a>
+      </div>
 
       <!-- Modal Structure -->
       <div id="modal1" class="modal">

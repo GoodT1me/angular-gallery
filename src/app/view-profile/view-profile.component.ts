@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy, AfterViewInit } from '@angular/core';
 import { UsersService } from '../users.service'
 import { AuthService } from '../auth.service'
+import { TranslateService } from '@ngx-translate/core'
 import * as M from "materialize-css"
 
 @Component({

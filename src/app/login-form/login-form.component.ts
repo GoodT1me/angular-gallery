@@ -3,6 +3,7 @@ import { Router } from '@angular/router'
 import { UsersService } from '../users.service'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { AuthService } from '../auth.service'
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-login-form',

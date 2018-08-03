@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewChecked } from '@angular/core'
 import { UsersService } from '../users.service'
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-top-users',
@@ -16,7 +17,7 @@ export class TopUsersComponent implements OnInit, AfterViewChecked {
   on_albums = false
   on_likes = false
 
-  constructor(private usersService: UsersService) { }
+  constructor(private usersService: UsersService,) { }
 
   ngOnInit() {
     this.users = this.usersService.USERS

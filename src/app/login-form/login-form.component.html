@@ -23,31 +23,33 @@
       <div class="col-md-6 offset-md-3">
         <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
           <div class="form-group">
-            <label for="Username">Username</label>
+            <label for="Username" translate>usernameLogIn</label>
             <input type="text" class="form-control" name="Username" [(ngModel)]="model.userName"
               #userName="ngModel"
               required
             />
             <div *ngIf="f.submitted && userName.invalid" class="invalid-feedback">
-                <div *ngIf="userName.errors.required">Username is required</div>
+                <div *ngIf="userName.errors.required" translate>errUsername</div>
             </div>
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
+            <label for="password" translate>password</label>
             <input type="password" class="form-control" name="password" [(ngModel)]="model.password"
               #password="ngModel"
               required minlength="4"
             />
             <div *ngIf="f.submitted && password.invalid" class="invalid-feedback">
-                <div *ngIf="password.errors.required">Password is required</div>
-                <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                <div *ngIf="password.errors.required" translate>errPassReq</div>
+                <div *ngIf="password.errors.minlength" translate>errPassMustBe6Char</div>
             </div>
           </div>
           <div class="error-auth">
-            <p *ngIf="auth_error">Invalid username or password - Attempt {{ count_attempt }}</p>
+            <div *ngIf="auth_error">
+                <p translate>errInvalidUserOrPass</p>{{ count_attempt }}
+            </div>
           </div>
           <div class="form-group">
-            <button class="btn btn-primary">Log In</button>
+            <button class="btn btn-primary" translate>logIn</button>
           </div>
         </form>
       </div>

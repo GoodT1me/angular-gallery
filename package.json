@@ -23,6 +23,8 @@
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
     "@ng-bootstrap/ng-bootstrap": "^2.1.2",
+    "@ngx-translate/core": "^10.0.2",
+    "@ngx-translate/http-loader": "^3.0.1",
     "angular-base64": "^2.0.5",
     "angular-base64-upload": "^0.1.23",
     "angular-cli-ghpages": "^0.5.2",

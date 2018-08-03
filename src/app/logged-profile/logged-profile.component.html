@@ -1,9 +1,9 @@
 <div class="container">
 
   <div class="info-user">
-    <p>Username: {{ users[logged_id_user].userName }} </p>
-    <p>First Name: {{ users[logged_id_user].firstName }} </p>
-    <p>Last Name: {{ users[logged_id_user].lastName }} </p>
+    <span translate>username<p>{{ users[logged_id_user].userName }} </p></span>
+    <span translate>firstName<p>{{ users[logged_id_user].firstName }} </p></span>
+    <span translate>lastName<p>{{ users[logged_id_user].lastName }} </p></span>
   </div>
 
   <div class="avatar">
@@ -21,7 +21,7 @@
   <div class="logout">
     <a class="waves-effect waves-light btn"
       (click)="logOut()"
-      routerLink=""
-    >Log out</a>
+      routerLink="" translate
+    >logOut</a>
   </div>
 </div>
