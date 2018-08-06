@@ -1,41 +1,48 @@
 <div class="container">
+
   <div class="user">
-    <p> User: {{ users[selected_profile].userName }} </p>
-    <p> First Name: {{ users[selected_profile].firstName }} </p>
-    <p> Last Name: {{ users[selected_profile].lastName }} </p>
+    <div>
+      <div class="float-user-inf" translate>userViewAlbums</div> {{ users[selected_profile].userName }}
+    </div>
+    <div>
+      <div class="float-user-inf" translate>fnViewAlbums</div> {{ users[selected_profile].firstName }}
+    </div>
+    <div>
+      <div class="float-user-inf" translate>lnViewAlbums</div> {{ users[selected_profile].lastName }}
+    </div>
   </div>
 
   <div class="btn-gallery" *ngIf="checkUserGallery()">
     <a class="waves-effect waves-light btn"
       *ngIf="!add_image"
-      routerLink="upload"
-    >Add photo</a>
+      routerLink="upload" translate
+    >addPhoto</a>
 
     <a class="waves-effect waves-light btn"
       *ngIf="!delPhoto && !replacePhoto"
-      (click)="onDeletePhoto(c)"
-    >Delete photo</a>
+      (click)="onDeletePhoto(c)" translate
+    >deletePhoto</a>
 
     <a class="waves-effect waves-light btn"
       *ngIf="delPhoto"
-      (click)="onSaveDeleted()"
-    >Save changes</a>
+      (click)="onSaveDeleted()" translate
+    >savePhoto</a>
 
     <a class="waves-effect waves-light btn"
       *ngIf="!replacePhoto && !delPhoto"
-      (click)="onReplacePhoto()"
-    >Replace photo</a>
+      (click)="onReplacePhoto()" translate
+    >replacePhoto</a>
 
     <a class="waves-effect waves-light btn"
       *ngIf="replacePhoto"
-      (click)="onSaveReplaced()"
-    >Save changes</a>
+      (click)="onSaveReplaced()" translate
+    >saveChangesPhoto</a>
   </div>
 
   <!-- <div class="instruction" [ngClass]="{'red': isRed}"> -->
   <div class="instruction" [class.red]="isRed">
-    <p *ngIf="instruction.replace_instruction">Select two images for replace</p>
-    <p *ngIf="instruction.delete_instruction">Click image for delete</p>
+    <p *ngIf="instruction.replace_instruction" translate>instructionForReplaceImg</p>
+    <p *ngIf="instruction.delete_instruction" translate>instructionForDeleImg</p>
   </div>
 
   <div class="gallery">

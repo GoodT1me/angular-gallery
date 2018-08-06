@@ -26,17 +26,18 @@
 
 .btn-gallery a {
   margin-right: 20px;
+  margin-top: 50px;
 }
 
 .btn-gallery {
-  margin-top: -100px;
+  margin-top: -110px;
   float: right;
   display: flex;
 }
 
 .instruction {
   float: right;
-  margin-top: -55px;
+  margin-top: -15px;
   margin-right: 20px;
 }
 
@@ -46,10 +47,20 @@
 }
 
 .gallery {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .red {
   background: red;
   color: #fff;
+}
+
+.user {
+  margin-top: 10px;
+  font-weight: bold;
+} 
+
+.float-user-inf {
+  float: left;
+  padding-right: 5px;
 }

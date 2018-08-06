@@ -1,9 +1,15 @@
 <div class="container">
 
-  <div class="info-user">
-    <span translate>username<p>{{ users[logged_id_user].userName }} </p></span>
-    <span translate>firstName<p>{{ users[logged_id_user].firstName }} </p></span>
-    <span translate>lastName<p>{{ users[logged_id_user].lastName }} </p></span>
+  <div class="user-info">
+    <div>
+      <div class="float-user-inf" translate>userViewAlbums</div> {{ users[logged_id_user].userName }}
+    </div>
+    <div>
+      <div class="float-user-inf" translate>fnViewAlbums</div> {{ users[logged_id_user].firstName }}
+    </div>
+    <div>
+      <div class="float-user-inf" translate>lnViewAlbums</div> {{ users[logged_id_user].lastName }}
+    </div>
   </div>
 
   <div class="avatar">
